@@ -84,13 +84,11 @@ from datetime import datetime
 # 현재 요일 (월:0 화:1 수:2 목:3 금:4 토:5 일:6)
 now=datetime.now().weekday()
 
-# 만약 빨간날이라면? 이걸 해결해야함. 빨간 날ㅇ ㅣㅆ는 주에 menu list 출력해보기.
+# 만약 빨간날이라면? 이걸 해결해야함. 빨간 날이 있는 주에 menu list 출력해보기.
 
 # 오늘의 메뉴
 today_menu=""
 
-
-now-=1
 if(now>=0 and now<=4):
     today_menu += haksik_notice
     today_menu += menu_list[2*now]
