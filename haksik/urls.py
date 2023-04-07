@@ -2,12 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path(r'^', views.today),
-
-    path(r'^keyboard/', views.keyboard),
-    path(r'^message', views.message),
-    #path('', views.index, name='index'),
-
 ]
 
 # from django.contrib import admin

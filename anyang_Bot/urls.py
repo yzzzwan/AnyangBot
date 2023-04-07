@@ -23,11 +23,9 @@ from . import views
 
 urlpatterns = [
     path('', v.index, name='index'),
-    re_path(r'^haksik/?$', v.week_haksik),
-    re_path(r'^haksik/?$', v.today_haksik),
-    path('admin/', admin.site.urls),
-    re_path(r'^keyboard/?$', v.keyboard),
-    re_path(r'^message/?$', v.message),
+    re_path(r'^haksik/?$', v.week_haksik), # 이번주 학식
+    re_path(r'^haksik/?$', v.today_haksik), # 오늘 학식
+    # re_path(r'^message/?$', v.message), #테스트 url
 ]
 
 

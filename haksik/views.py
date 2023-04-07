@@ -63,7 +63,7 @@ def week_haksik(request):
             'template': {
                 'outputs': [{
                     'simpleText': {
-                        'text': crawl.week_haksik_list
+                        'text': crawl.week_menu
                     }
                 }],
                 'quickReplies': [{
@@ -75,18 +75,19 @@ def week_haksik(request):
         })
 
 # 오늘 급식 출력
+@csrf_exempt
 def today_haksik(request):
     answer = ((request.body).decode('utf-8'))
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
-    if(crawl.now >=0 and crawl.now <=5):
+    if(crawl.now >=0 and crawl.now <=4):
         if return_str == '오늘':
             return JsonResponse({
                 'version': "2.0",
                 'template': {
                     'outputs': [{
                         'simpleText': {
-                            'text': crawl.week_haksik_list
+                            'text': crawl.today_menu
                         }
                     }],
                     'quickReplies': [{
@@ -103,7 +104,7 @@ def today_haksik(request):
                 'template': {
                     'outputs': [{
                         'simpleText': {
-                            'text': "오늘은 학식 운영하지 않습니다"
+                            'text': "오늘은 쉬는 날 입니다.😊"
                         }
                     }],
                     'quickReplies': [{
