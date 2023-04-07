@@ -92,19 +92,4 @@ def today_haksik(request):
             }
         })
 
-# 셔틀버스 시간표 출력
-@csrf_exempt
-def schoolBus(request):
-    bus_timetable = "안양대학교 셔틀버스 출발시간\n<안양역  ->  안양대학교>\n\n08 : 20\t\t08 : 30\t\t08 : 40\n\n09 : 00\t\t09 : 20\t\t09 : 40\n\n10 : 00\t\t10 : 20\t\t10 : 40\n\n11 : 00\t\t11 : 20\t\t11 : 40\n\n12 : 00\n\n14 : 15\t\t14 : 40\t\t<운행종료>"
-
-    return JsonResponse({
-        'version': "2.0",
-        'template': {
-            'outputs': [{
-                'simpleText': {
-                    'text': bus_timetable
-                }
-            }],
-        }
-    })
 

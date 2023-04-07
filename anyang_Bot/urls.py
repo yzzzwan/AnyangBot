@@ -25,7 +25,6 @@ urlpatterns = [
     path('', v.index, name='index'),
     re_path(r'^weekHaksik/?$', v.week_haksik), # 이번주 학식
     re_path(r'^todayHaksik/?$', v.today_haksik), # 오늘 학식
-    re_path(r'^schoolBus/?$', v.schoolBus),  # 셔틀버스 시간표
     # re_path(r'^message/?$', v.message), #테스트 url
 ]
 
