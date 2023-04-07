@@ -7,8 +7,8 @@ from django.http import request as json
 # def index(request):
 #     return render(request, "haksik/index.html")
 
-def today(request):
-     return HttpResponse(crawl.menu_list)
+# def today(request):
+#      return HttpResponse(crawl.menu_list)
 
 
 def index(request):
@@ -48,3 +48,25 @@ def message(request):
             }
         })
 
+@csrf_exempt
+def today(request):
+    answer = ((request.body).decode('utf-8'))
+    return_json_str = json.loads(answer)
+    return_str = return_json_str['userRequest']['utterance']
+
+    if return_str == '학식':
+        return JsonResponse({
+            'version': "2.0",
+            'template': {
+                'outputs': [{
+                    'simpleText': {
+                        'text': crawl.menu_list
+                    }
+                }],
+                'quickReplies': [{
+                    'label': '처음으로',
+                    'action': 'message',
+                    'messageText': '처음으로'
+                }]
+            }
+        })
