@@ -37,7 +37,7 @@ def message(request):
             'template': {
                 'outputs': [{
                     'simpleText': {
-                        'text': "테스트 성공입니다."
+                        'text': crawl.menu_list
                     }
                 }],
                 'quickReplies': [{
@@ -49,7 +49,7 @@ def message(request):
         })
 
 @csrf_exempt
-def today(request):
+def week_haksik(request):
     answer = ((request.body).decode('utf-8'))
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
@@ -60,7 +60,7 @@ def today(request):
             'template': {
                 'outputs': [{
                     'simpleText': {
-                        'text': "test"
+                        'text': crawl.week_haksik_list
                     }
                 }],
                 'quickReplies': [{
