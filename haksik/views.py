@@ -79,11 +79,6 @@ def today_haksik(request):
                         'simpleText': {
                             'text': crawl.today_menu
                         }
-                    }],
-                    'quickReplies': [{
-                        'label': '처음으로',
-                        'action': 'message',
-                        'messageText': '처음으로'
                     }]
                 }
             })
@@ -96,11 +91,6 @@ def today_haksik(request):
                     'simpleText': {
                         'text': "오늘은 쉬는 날 입니다.😊"
                     }
-                }],
-                'quickReplies': [{
-                'label': '처음으로',
-                'action': 'message',
-                    'messageText': '처음으로'
                 }]
             }
         })
