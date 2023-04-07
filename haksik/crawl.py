@@ -3,20 +3,20 @@ import time
 from selenium.webdriver.common.by import By
 
 # local
-driver = webdriver.ChromeOptions()
-driver.add_experimental_option("excludeSwitches", ["enable-logging"])
-driver = webdriver.Chrome('C:\\Users\\kyw01\\Downloads\\chromedriver_win32\\chromedriver')
-driver.get('https://www.anyang.ac.kr/main/activities/school-cafeteria.do')
-#time.sleep(1)
+# driver = webdriver.ChromeOptions()
+# driver.add_experimental_option("excludeSwitches", ["enable-logging"])
+# driver = webdriver.Chrome('C:\\Users\\kyw01\\Downloads\\chromedriver_win32\\chromedriver')
+# driver.get('https://www.anyang.ac.kr/main/activities/school-cafeteria.do')
+# #time.sleep(1)
 
 #server
-# chrome_options = webdriver.ChromeOptions()
-# chrome_options.add_argument('--headless')
-# chrome_options.add_argument('--no-sandbox')
-# chrome_options.add_argument('--disable-dev-shm-usage')
-# driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver",chrome_options=chrome_options)
-# driver.get('https://www.anyang.ac.kr/main/activities/school-cafeteria.do')
-# # time.sleep(1)
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--disable-dev-shm-usage')
+driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver",chrome_options=chrome_options)
+driver.get('https://www.anyang.ac.kr/main/activities/school-cafeteria.do')
+# time.sleep(1)
 
 
 
@@ -77,7 +77,7 @@ search_box = driver.find_element(By.CSS_SELECTOR,'p.fri02')
 menu_list.append(search_box.text[6:]+"\n")
 week_menu += search_box.text[6:]
 
-
+driver.close()
 
 
 from datetime import datetime
@@ -96,8 +96,8 @@ if(now>=0 and now<=4):
     today_menu += menu_list[2*now]
     today_menu += menu_list[(2*now)+1]
 
-print(week_menu)
-print(today_menu)
+# print(week_menu)
+# print(today_menu)
 
 
 
