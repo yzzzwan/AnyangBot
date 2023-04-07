@@ -57,9 +57,6 @@ def week_haksik(request):
                     'text': crawl.week_menu
                 }
             }],
-            'quickReplies': [{
-
-            }]
         }
     })
 
