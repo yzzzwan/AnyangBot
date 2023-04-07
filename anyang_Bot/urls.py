@@ -23,8 +23,8 @@ from . import views
 
 urlpatterns = [
     path('', v.index, name='index'),
-
-    path('haksik/', include('haksik.urls')),
+    re_path(r'^haksik/?$', v.today),
+    #path('haksik/', include('haksik.urls')),
     path('admin/', admin.site.urls),
     re_path(r'^keyboard/?$', v.keyboard),
     re_path(r'^message/?$', v.message),

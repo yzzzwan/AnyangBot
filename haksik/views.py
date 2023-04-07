@@ -7,8 +7,8 @@ from django.http import request as json
 # def index(request):
 #     return render(request, "haksik/index.html")
 
-# def today(request):
-#      return HttpResponse(crawl.menu_list)
+def test(request):
+     return HttpResponse(crawl.menu_list)
 
 
 def index(request):
@@ -60,7 +60,7 @@ def today(request):
             'template': {
                 'outputs': [{
                     'simpleText': {
-                        'text': crawl.menu_list
+                        'text': "test"
                     }
                 }],
                 'quickReplies': [{
