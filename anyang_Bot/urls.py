@@ -17,7 +17,7 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include, re_path
-from haksik import views as v
+from apps import views as v
 from . import views
 
 
