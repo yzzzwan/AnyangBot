@@ -122,7 +122,7 @@ if len(menu_list[(2*now)+1]) == 1:
     today_menu = "오늘은 쉬는 날 입니다.😊"
 
 # print(week_menu)
-print(today_menu)
+#print(today_menu)
 
 
 

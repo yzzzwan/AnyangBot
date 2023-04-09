@@ -101,7 +101,7 @@ def find_dept(cmd):
             dept_phoneBook += "\n" + "\n" + "[" + dept_name + "]" + "\n" + dept_service_pos + " : " + dept_phone + ". "
     notice = "※ 700~900번대 : 031-467-0___\n※ 100~300번대 : 031-463-1___\n==========================\n"
     dept_phoneBook = notice + dept_phoneBook[2:]
-    print(dept_phoneBook)
+    #print(dept_phoneBook)
     return dept_phoneBook
 
 
