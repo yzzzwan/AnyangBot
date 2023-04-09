@@ -1,5 +1,4 @@
 from selenium import webdriver
-import time
 from selenium.webdriver.common.by import By
 
 # # local
@@ -29,7 +28,6 @@ week_menu=haksik_notice
 search_box = driver.find_element(By.CSS_SELECTOR,'th#mon')
 menu_list.append(search_box.text+"\n")
 week_menu += search_box.text + "\n"
-
 
 # 월요일 학식
 search_box = driver.find_element(By.CSS_SELECTOR,'p.mon02')
