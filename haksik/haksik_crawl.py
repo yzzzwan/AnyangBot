@@ -19,7 +19,6 @@ driver.get('https://www.anyang.ac.kr/main/activities/school-cafeteria.do')
 # time.sleep(1)
 
 
-
 haksik_notice= "운영시간 :\n11:00 ~ 15:00" + "\n" + ("=" * 11) + "\n"
 menu_list=[]
 
