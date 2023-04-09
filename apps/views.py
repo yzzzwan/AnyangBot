@@ -5,14 +5,14 @@ from . import phoneDir_crawl as pdc
 from django.http import request as json
 # Create your views here.
 # def index(request):
-#     return render(request, "haksik/index.html")
+#     return render(request, "apps/index.html")
 
 def test(request):
      return HttpResponse(haksik_crawl.menu_list)
 
 
 def index(request):
-    return render(request, "haksik/index.html")
+    return render(request, "apps/index.html")
 
 
 from django.http import JsonResponse

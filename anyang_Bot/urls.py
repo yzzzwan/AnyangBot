@@ -33,7 +33,7 @@ urlpatterns = [
 
 # from django.contrib import admin
 # from django.urls import path
-# from haksik import views as main_views
+# from apps import views as main_views
 #
 # urlpatterns = [
 #     path('', main_views.index, name="index"),

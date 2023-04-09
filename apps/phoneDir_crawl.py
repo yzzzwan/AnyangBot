@@ -2,11 +2,11 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 # local
-driver = webdriver.ChromeOptions()
-driver.add_experimental_option("excludeSwitches", ["enable-logging"])
-driver = webdriver.Chrome('C:\\Users\\kyw01\\Downloads\\chromedriver_win32\\chromedriver')
-driver.get('https://www.anyang.ac.kr/main/introduction/anyang-campus001.do')
-#time.sleep(1)
+# driver = webdriver.ChromeOptions()
+# driver.add_experimental_option("excludeSwitches", ["enable-logging"])
+# driver = webdriver.Chrome('C:\\Users\\kyw01\\Downloads\\chromedriver_win32\\chromedriver')
+# driver.get('https://www.anyang.ac.kr/main/introduction/anyang-campus001.do')
+# #time.sleep(1)
 
 
 #server
@@ -15,7 +15,7 @@ chrome_options.add_argument('--headless')
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')
 driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver",chrome_options=chrome_options)
-driver.get('https://www.anyang.ac.kr/main/activities/school-cafeteria.do')
+driver.get('https://www.anyang.ac.kr/main/introduction/anyang-campus001.do')
 # time.sleep(1)
 
 # dept1 = soup.select(".tit01")
@@ -99,17 +99,10 @@ def find_dept(cmd):
         # data data data
         else:
             dept_phoneBook += "\n" + "\n" + "[" + dept_name + "]" + "\n" + dept_service_pos + " : " + dept_phone + ". "
-
-    #print(dept_phoneBook[2:])
-    return dept_phoneBook[2:]
-
-
-
-
-
-
-find_dept("학과조교실")
-
+    notice = "※ 700~900번대 : 031-467-0___\n※ 100~300번대 : 031-463-1___\n============================\n"
+    dept_phoneBook = notice + dept_phoneBook[2:]
+    print(dept_phoneBook)
+    return dept_phoneBook
 
 
 
