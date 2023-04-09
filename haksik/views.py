@@ -1,14 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from . import crawl
-from django.http import JsonResponse
+from . import haksik_crawl
+from . import phoneDir_crawl as pdc
 from django.http import request as json
 # Create your views here.
 # def index(request):
 #     return render(request, "haksik/index.html")
 
 def test(request):
-     return HttpResponse(crawl.menu_list)
+     return HttpResponse(haksik_crawl.menu_list)
 
 
 def index(request):
@@ -54,7 +54,7 @@ def week_haksik(request):
         'template': {
             'outputs': [{
                 'simpleText': {
-                    'text': crawl.week_menu
+                    'text': haksik_crawl.week_menu
                 }
             }],
         }
@@ -67,29 +67,32 @@ def today_haksik(request):
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance'] # 사용자의 발화 텍스트
 
-    #월 ~ 금
-    if(crawl.now >=0 and crawl.now <=4):
-            return JsonResponse({
-                'version': "2.0",
-                'template': {
-                    'outputs': [{
-                        'simpleText': {
-                            'text': crawl.today_menu
-                        }
-                    }]
+    return JsonResponse({
+        'version': "2.0",
+        'template': {
+            'outputs': [{
+                'simpleText': {
+                    'text': haksik_crawl.today_menu
                 }
-            })
+            }]
+        }
+    })
 
-    else:
-        return JsonResponse({
-            'version': "2.0",
-            'template': {
-                'outputs': [{
-                    'simpleText': {
-                        'text': "오늘은 쉬는 날 입니다.😊"
-                    }
-                }]
-            }
-        })
-
+# 전화번호부
+@csrf_exempt
+def phoneDir(request):
+    answer = ((request.body).decode('utf-8'))
+    return_json_str = json.loads(answer)
+    return_str = return_json_str['userRequest']['utterance'] # 사용자의 발화 텍스트
+    phoneBook = pdc.find_dept(return_str)
+    return JsonResponse({
+        'version': "2.0",
+        'template': {
+            'outputs': [{
+                'simpleText': {
+                    'text': phoneBook
+                }
+            }]
+        }
+    })
 
