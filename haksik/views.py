@@ -79,20 +79,20 @@ def today_haksik(request):
     })
 
 # 전화번호부
-# @csrf_exempt
-# def phoneDir(request):
-#     answer = ((request.body).decode('utf-8'))
-#     return_json_str = json.loads(answer)
-#     return_str = return_json_str['userRequest']['utterance'] # 사용자의 발화 텍스트
-#     phoneBook = pdc.find_dept(return_str)
-#     return JsonResponse({
-#         'version': "2.0",
-#         'template': {
-#             'outputs': [{
-#                 'simpleText': {
-#                     'text': phoneBook
-#                 }
-#             }]
-#         }
-#     })
+@csrf_exempt
+def phoneDir(request):
+    answer = ((request.body).decode('utf-8'))
+    return_json_str = json.loads(answer)
+    return_str = return_json_str['userRequest']['utterance'] # 사용자의 발화 텍스트
+    phoneBook = pdc.find_dept(return_str)
+    return JsonResponse({
+        'version': "2.0",
+        'template': {
+            'outputs': [{
+                'simpleText': {
+                    'text': phoneBook
+                }
+            }]
+        }
+    })
 
