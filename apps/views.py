@@ -96,3 +96,8 @@ def phoneDir(request):
         }
     })
 
+
+
+def rq(request):
+    data = json.loads(request.body)
+    print(data)
