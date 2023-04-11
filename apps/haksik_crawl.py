@@ -2,19 +2,19 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 # local
-driver = webdriver.ChromeOptions()
-driver.add_experimental_option("excludeSwitches", ["enable-logging"])
-driver = webdriver.Chrome('C:\\Users\\kyw01\\Downloads\\chromedriver_win32\\chromedriver')
-driver.get('https://www.anyang.ac.kr/main/activities/school-cafeteria.do')
+# driver = webdriver.ChromeOptions()
+# driver.add_experimental_option("excludeSwitches", ["enable-logging"])
+# driver = webdriver.Chrome('C:\\Users\\kyw01\\Downloads\\chromedriver_win32\\chromedriver')
+# driver.get('https://www.anyang.ac.kr/main/activities/school-cafeteria.do')
 
 # #server
-# chrome_options = webdriver.ChromeOptions()
-# chrome_options.add_argument('--headless')
-# chrome_options.add_argument('--no-sandbox')
-# chrome_options.add_argument('--disable-dev-shm-usage')
-# chrome_options.add_argument('--disable-gpu')
-# driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver",chrome_options=chrome_options)
-# driver.get('https://www.anyang.ac.kr/main/activities/school-cafeteria.do')
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--disable-dev-shm-usage')
+chrome_options.add_argument('--disable-gpu')
+driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver",chrome_options=chrome_options)
+driver.get('https://www.anyang.ac.kr/main/activities/school-cafeteria.do')
 
 
 haksik_notice= "운영시간 :\n11:00 ~ 15:00" + "\n" "15:30 ~ 18:00\n"+ ("=" * 11) + "\n"
