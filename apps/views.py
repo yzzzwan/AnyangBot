@@ -102,31 +102,16 @@ from . import test
 @csrf_exempt
 def studyRoom(request):
     answer = ((request.body).decode('utf-8'))
-    json_str = str(json.loads(answer))
-    # return_str = json_str['userRequest']['utterance'] # 사용자의 발화 텍스트
-    # phoneBook = pdc.find_dept(return_str)
-    room="Self 학습실1(Career design)"
-    times = test.test
-
+    return_json_str = json.loads(answer)
+    return_str = return_json_str['userRequest']['utterance']  # 사용자의 발화 텍스트
     return JsonResponse({
         'version': "2.0",
         'template': {
             'outputs': [{
-                "listCard": {
-                    "header": {
-                        "title": "챗봇 관리자센터를 소개합니다."
-                    },
-                    "items": [
-                        {
-                            "title": "챗봇 관리자센터",
-                            "description": "새로운 AI의 내일과 일상의 변화",
-                            "imageUrl": "https://t1.kakaocdn.net/openbuilder/sample/img_001.jpg",
-                            "link": {
-                                "web": "https://namu.wiki/w/%EB%9D%BC%EC%9D%B4%EC%96%B8(%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%94%84%EB%A0%8C%EC%A6%88)"
-                            }
-                        },
-                    ],
-            }}]
+                'simpleText': {
+                    'text': "phoneBook"
+                }
+            }]
         }
     })
 
