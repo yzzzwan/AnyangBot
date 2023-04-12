@@ -116,14 +116,13 @@ from . import test
 #         }
 #     })
 
-
 # self 학습실 시간표 보여주기
 @csrf_exempt
 def studyRoom_reserve(request):
     answer = ((request.body).decode('utf-8'))
     json_str = json.loads(answer)
     #return_str = json_str['contexts']['params']['portal_id']['value']  # 사용자의 발화 텍스트
-    sta = str(json_str['contexts']['portal_id'])
+    sta = str(json_str['contexts'][0])
 
     #json_str = str(json_str)
     #cons=str(return_str)

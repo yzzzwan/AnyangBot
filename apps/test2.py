@@ -190,6 +190,7 @@
 #             'portal_id': {'value': '손시려',
 #                           'resolvedValue': '손시려'
 #                           },
+
 #             'portal_pw': {
 #                 'value': '발시려',
 #                 'resolvedValue': '발시려'
