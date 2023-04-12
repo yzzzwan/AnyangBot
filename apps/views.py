@@ -106,22 +106,191 @@ def studyRoom(request):
     # return_str = json_str['userRequest']['utterance'] # 사용자의 발화 텍스트
     # phoneBook = pdc.find_dept(return_str)
     room="Self 학습실1(Career design)"
+    times = test.test
 
-    return JsonResponse({
-        'version': "2.0",
-        'template': {
-            'outputs': [{
-                'simpleText': {
-                    'text': test.test[-1]
-                }
-            }],
-            'quickReplies': [{
-                'label': '처음으로',
-                'action': 'message',
-                'messageText': 'reset'
-            }]
-        }
-    })
+    if len(times) <= 5:
+        return JsonResponse({
+            'version': "2.0",
+             "template": {
+                "outputs": [
+                  {
+                    "listCard": {
+                      "header": {
+                        "title": room+"의 이용 가능 시간"
+                      },
+                        "items": [
+                        {
+                            "title": test.test[0],
+                         },
+                        ],
+                        "items": [
+                            {
+                                "title": test.test[1],
+                            },
+                        ],
+                        "items": [
+                            {
+                                "title": test.test[2],
+                            },
+                        ],
+                        "items": [
+                            {
+                                "title": test.test[3],
+                            },
+                        ],
+                        "items": [
+                            {
+                                "title": test.test[4],
+                            },
+                        ],
+                    }
+                  }]
+             }
+        })
 
+    elif len(times) <= 10:
+        return JsonResponse({
+            'version': "2.0",
+             "template": {
+                "outputs": [
+                  {
+                    "listCard": {
+                      "header": {
+                        "title": room+"의 이용 가능 시간2"
+                      },
+                        "items": [
+                        {
+                            "title": test.test[0],
+                         },
+                        ],
+                        "items": [
+                            {
+                                "title": test.test[1],
+                            },
+                        ],
+                        "items": [
+                            {
+                                "title": test.test[2],
+                            },
+                        ],
+                        "items": [
+                            {
+                                "title": test.test[3],
+                            },
+                        ],
+                        "items": [
+                            {
+                                "title": test.test[4],
+                            },
+                        ],
+                        "items": [
+                            {
+                                "title": test.test[5],
+                            },
+                        ],
+                        "items": [
+                            {
+                                "title": test.test[6],
+                            },
+                        ],
+                        "items": [
+                            {
+                                "title": test.test[7],
+                            },
+                        ],
+                        "items": [
+                            {
+                                "title": test.test[8],
+                            },
+                        ], "items": [
+                            {
+                                "title": test.test[9],
+                            },
+                        ],
+
+                    }
+                  }]
+             }
+        })
+
+    else:
+        return JsonResponse({
+            'version': "2.0",
+            "template": {
+                "outputs": [
+                    {
+                        "listCard": {
+                            "header": {
+                                "title": room + "의 이용 가능 시간2"
+                            },
+                            "items": [
+                                {
+                                    "title": test.test[0],
+                                },
+                            ],
+                            "items": [
+                                {
+                                    "title": test.test[1],
+                                },
+                            ],
+                            "items": [
+                                {
+                                    "title": test.test[2],
+                                },
+                            ],
+                            "items": [
+                                {
+                                    "title": test.test[3],
+                                },
+                            ],
+                            "items": [
+                                {
+                                    "title": test.test[4],
+                                },
+                            ],
+                            "items": [
+                                {
+                                    "title": test.test[5],
+                                },
+                            ],
+                            "items": [
+                                {
+                                    "title": test.test[6],
+                                },
+                            ],
+                            "items": [
+                                {
+                                    "title": test.test[7],
+                                },
+                            ],
+                            "items": [
+                                {
+                                    "title": test.test[8],
+                                },
+                            ],
+                            "items": [
+                                {
+                                    "title": test.test[9],
+                                },
+                            ],
+                            "items": [
+                                {
+                                    "title": test.test[10],
+                                },
+                            ],
+                            "items": [
+                                {
+                                    "title": test.test[11],
+                                },
+                            ],
+                            "items": [
+                                {
+                                    "title": test.test[12],
+                                },
+                            ],
+                        }
+                    }]
+            }
+        })
 
 

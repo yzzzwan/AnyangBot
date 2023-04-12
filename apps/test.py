@@ -170,9 +170,27 @@ def reserve():
 
 test = show_timetable()
 time.sleep(15)
-re=reserve()
+#re=reserve()
 
 end= time.time()
+print("test len = ",len(test))
+
+if len(test) < 5:
+    while(len(test) <5):
+        test.append("")
+
+elif len(test) > 5 and len(test) < 10:
+    while(len(test) <10):
+        test.append("_")
+
+elif len(test) > 10 and len(test) < 12:
+    while(len(test) <12):
+        test.append("_")
+
+for t in test:
+    print(t)
+
+print(len(test))
 
 print(start)
 print( end)
