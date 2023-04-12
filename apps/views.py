@@ -122,8 +122,9 @@ from . import test
 def studyRoom_reserve(request):
     answer = ((request.body).decode('utf-8'))
     json_str = json.loads(answer)
-    sta = json_str['contexts']
-    sta=str(sta)
+    #return_str = json_str['contexts']['params']['portal_id']['value']  # 사용자의 발화 텍스트
+    sta = str(json_str['contexts']['params'])
+
     #json_str = str(json_str)
     #cons=str(return_str)
     # portal_id = json_str['contexts'][0]['params']['portal_id']['value']
