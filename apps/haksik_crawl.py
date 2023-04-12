@@ -18,11 +18,11 @@ driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver",chrome_options
 driver.get('https://www.anyang.ac.kr/main/activities/school-cafeteria.do')
 
 
-haksik_notice= "운영시간 :\n11:00 ~ 15:00" + "\n" "15:30 ~ 18:00\n"+ ("=" * 11) + "\n"
+haksik_notice= ("=" * 11) + "\n""11:00 ~ 15:00" + "\n" "15:30 ~ 18:00\n(금요일 석식 X)"
 menu_list=[]
 
 # 주간 학식 메뉴
-week_menu = haksik_notice
+week_menu = ""
 
 # "날짜 + 월요일" 출력
 search_box = driver.find_element(By.CSS_SELECTOR,'th#mon')
@@ -90,14 +90,15 @@ now = datetime.now().weekday()
 
 # 오늘의 메뉴
 today_menu= ""
-# 학식 운영시간
-today_menu += haksik_notice
 
 # 날짜
 today_menu += menu_list[2*now]
 # 메뉴
 today_menu += menu_list[(2*now)+1]
-today_menu += today_menu[-1]
+today_menu += today_menu[:-1]
+
+# 학식 운영시간
+today_menu += haksik_notice
 
 # 휴일일 경우.
 if len(menu_list[(2*now)+1]) == 1:
