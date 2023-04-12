@@ -16,7 +16,7 @@
 #
 #
 #
-# start=time.time()
+# #start=time.time()
 #
 # # 사용자에게 아이디와 비밀번호를 입력받음
 # # id = input("아이디를 입력하세요: ")
@@ -24,6 +24,7 @@
 #
 # id = "2020E7011"
 # pw="rladyddhks1!"
+# member=1
 #
 # # 크롬 브라우저 열기
 # driver.implicitly_wait(3)
@@ -110,13 +111,15 @@
 #
 # driver.implicitly_wait(10) # seconds
 #
+# # 시간표가 나와있는 div
 # time_div = driver.find_element(By.CSS_SELECTOR, "div.tabType05.mt15.time-select")
 #
+# # 선택 가능한 시간표 리스트
 # time_li_list = time_div.find_elements(By.CSS_SELECTOR, 'li:not(.dsb)')
 #
 # for li in time_li_list:
 #     available_timetable = li.find_element(By.CSS_SELECTOR, 'label')
-#     #print(available_timetable.text)
+#     print(available_timetable.text)
 #
 #
 # # 시간 선택
@@ -133,8 +136,7 @@
 # # 신청 팝업 창으로 이동
 # driver.switch_to.window(win[1])
 #
-# # 사용인원
-# member=1
+#
 #
 # input_member = driver.find_element("name", "mem")
 #
@@ -166,8 +168,8 @@
 #
 # print(4)
 #
-# end= time.time()
-#
-# print(start)
-# print( end)
+# # end= time.time()
+# #
+# # print(start)
+# # print( end)
 #

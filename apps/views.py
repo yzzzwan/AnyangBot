@@ -96,19 +96,23 @@ def phoneDir(request):
         }
     })
 
-# self 학습실
+from . import test
+
+# self 학습실 시간표 보여주기
 @csrf_exempt
 def studyRoom(request):
     answer = ((request.body).decode('utf-8'))
-    json_str = json.loads(answer)
-    # return_str = return_json_str['userRequest']['utterance'] # 사용자의 발화 텍스트
+    json_str = str(json.loads(answer))
+    # return_str = json_str['userRequest']['utterance'] # 사용자의 발화 텍스트
     # phoneBook = pdc.find_dept(return_str)
+    room="Self 학습실1(Career design)"
+
     return JsonResponse({
         'version': "2.0",
         'template': {
             'outputs': [{
                 'simpleText': {
-                    'text': json_str
+                    'text': test.test[-1]
                 }
             }],
             'quickReplies': [{
