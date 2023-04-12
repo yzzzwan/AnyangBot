@@ -122,14 +122,15 @@ from . import test
 def studyRoom_reserve(request):
     answer = ((request.body).decode('utf-8'))
     json_str = json.loads(answer)
-    return_str = json_str['userRequest']['utterance']  # 사용자의 발화 텍스트
-    json_str=str(json_str)
+    return_str = json_str['contexts']['params']['portal_id']['value']  # 사용자의 발화 텍스트
+    json_str = str(json_str)
+    cons=str(return_str)
     return JsonResponse({
         'version': "2.0",
         'template': {
             'outputs': [{
                 'simpleText': {
-                    'text': json_str
+                    'text': cons
                 }
             }]
         }
