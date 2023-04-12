@@ -90,7 +90,7 @@ def phoneDir(request):
         'template': {
             'outputs': [{
                 'simpleText': {
-                    'text': phoneBook
+                    'text': phoneBook,
                 }
             }]
         }
@@ -155,7 +155,53 @@ def studyRoom(request):
                 "key2": "value2"
               }
             }
-          ]
+          ],
+            "header": {
+                "title": "챗봇 관리자센터를 소개합니다."
+            },
+            "items": [
+                {
+                    "title": "챗봇 관리자센터",
+                    "description": "새로운 AI의 내일과 일상의 변화",
+                    "imageUrl": "https://t1.kakaocdn.net/openbuilder/sample/img_001.jpg",
+                    "link": {
+                        "web": "https://namu.wiki/w/%EB%9D%BC%EC%9D%B4%EC%96%B8(%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%94%84%EB%A0%8C%EC%A6%88)"
+                    }
+                },
+                {
+                    "title": "챗봇 관리자센터",
+                    "description": "카카오톡 채널 챗봇 만들기",
+                    "imageUrl": "https://t1.kakaocdn.net/openbuilder/sample/img_002.jpg",
+                    "action": "block",
+                    "blockId": "62654c249ac8ed78441532de",
+                    "extra": {
+                        "key1": "value1",
+                        "key2": "value2"
+                    }
+                },
+                {
+                    "title": "Kakao i Voice Service",
+                    "description": "보이스봇 / KVS 제휴 신청하기",
+                    "imageUrl": "https://t1.kakaocdn.net/openbuilder/sample/img_003.jpg",
+                    "action": "message",
+                    "messageText": "Kakao i Voice Service",
+                    "extra": {
+                        "key1": "value1",
+                        "key2": "value2"
+                    }
+                }
+            ],
+            "buttons": [
+                {
+                    "label": "구경가기",
+                    "action": "block",
+                    "blockId": "62654c249ac8ed78441532de",
+                    "extra": {
+                        "key1": "value1",
+                        "key2": "value2"
+                    }
+                }
+            ]
         }
       }
     ]
