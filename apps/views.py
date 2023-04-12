@@ -125,30 +125,43 @@ def studyRoom_reserve(request):
 
     id = str(json_str['contexts'][1]['params']['portal_pw']['value'])
     pw = str(json_str['contexts'][1]['params']['portal_pw']['value'])
-    success = test.portal_login(id, pw)
-    if success == "s":
-        return JsonResponse({
+    #success = test.portal_login(id, pw)
+
+
+    return JsonResponse({
             'version': "2.0",
             'template': {
                 'outputs': [{
                     'simpleText': {
-                        'text': "로그인에 성공했습니다."
+                        'text': id+pw
                     }
                 }]
             }
         })
-    elif success == "f":
-        return JsonResponse({
-            'version': "2.0",
-            'template': {
-                'outputs': [{
-                    'simpleText': {
-                        'text': "로그인에 실패했습니다.\n 다시 시도해주세요."
-                    }
-                }],
 
-            }
-        })
+    # if success == "s":
+    #     return JsonResponse({
+    #         'version': "2.0",
+    #         'template': {
+    #             'outputs': [{
+    #                 'simpleText': {
+    #                     'text': "로그인에 성공했습니다."
+    #                 }
+    #             }]
+    #         }
+    #     })
+    # elif success == "f":
+    #     return JsonResponse({
+    #         'version': "2.0",
+    #         'template': {
+    #             'outputs': [{
+    #                 'simpleText': {
+    #                     'text': "로그인에 실패했습니다.\n 다시 시도해주세요."
+    #                 }
+    #             }],
+    #
+    #         }
+    #     })
 
 
 
