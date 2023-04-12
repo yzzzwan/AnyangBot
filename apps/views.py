@@ -119,26 +119,22 @@ def studyRoom(request):
                         "title": room+"의 이용 가능 시간"
                       },
                         "items": [
-                        {
-                            "title": test.test[0],
-                         },
-                        ],
-                        "items": [
+                            {
+                                "title": test.test[0],
+                            },
+
                             {
                                 "title": test.test[1],
                             },
-                        ],
-                        "items": [
+
                             {
                                 "title": test.test[2],
                             },
-                        ],
-                        "items": [
+
                             {
                                 "title": test.test[3],
                             },
-                        ],
-                        "items": [
+
                             {
                                 "title": test.test[4],
                             },
@@ -159,50 +155,42 @@ def studyRoom(request):
                         "title": room+"의 이용 가능 시간2"
                       },
                         "items": [
-                        {
-                            "title": test.test[0],
-                         },
-                        ],
-                        "items": [
+                            {
+                                "title": test.test[0],
+                            },
+
                             {
                                 "title": test.test[1],
                             },
-                        ],
-                        "items": [
+
                             {
                                 "title": test.test[2],
                             },
-                        ],
-                        "items": [
+
                             {
                                 "title": test.test[3],
                             },
-                        ],
-                        "items": [
+
                             {
                                 "title": test.test[4],
                             },
-                        ],
-                        "items": [
+
                             {
                                 "title": test.test[5],
                             },
-                        ],
-                        "items": [
+
                             {
                                 "title": test.test[6],
                             },
-                        ],
-                        "items": [
+
                             {
                                 "title": test.test[7],
                             },
-                        ],
-                        "items": [
+
                             {
                                 "title": test.test[8],
                             },
-                        ], "items": [
+
                             {
                                 "title": test.test[9],
                             },
@@ -227,63 +215,39 @@ def studyRoom(request):
                                 {
                                     "title": test.test[0],
                                 },
-                            ],
-                            "items": [
                                 {
                                     "title": test.test[1],
                                 },
-                            ],
-                            "items": [
                                 {
                                     "title": test.test[2],
                                 },
-                            ],
-                            "items": [
                                 {
                                     "title": test.test[3],
                                 },
-                            ],
-                            "items": [
                                 {
                                     "title": test.test[4],
                                 },
-                            ],
-                            "items": [
                                 {
                                     "title": test.test[5],
                                 },
-                            ],
-                            "items": [
                                 {
                                     "title": test.test[6],
                                 },
-                            ],
-                            "items": [
                                 {
                                     "title": test.test[7],
                                 },
-                            ],
-                            "items": [
                                 {
                                     "title": test.test[8],
                                 },
-                            ],
-                            "items": [
                                 {
                                     "title": test.test[9],
                                 },
-                            ],
-                            "items": [
                                 {
                                     "title": test.test[10],
                                 },
-                            ],
-                            "items": [
                                 {
                                     "title": test.test[11],
                                 },
-                            ],
-                            "items": [
                                 {
                                     "title": test.test[12],
                                 },
