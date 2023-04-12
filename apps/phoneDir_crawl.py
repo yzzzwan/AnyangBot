@@ -1,3 +1,5 @@
+# 주석은 bs4 .. bs4로 하니까 모듈 에러 나서 selenium4로 바꿈.
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
@@ -25,8 +27,8 @@ driver.get('https://www.anyang.ac.kr/main/introduction/anyang-campus001.do')
 dept1 = driver.find_elements(By.CSS_SELECTOR, ".tit01")
 dept2 = driver.find_elements(By.CSS_SELECTOR, "h4.tit02")
 
-# 부서 이름 저장
-depts = dept1[2:9] + dept2[:8] +dept1[11:13] + dept2[8:]
+# 모든 부서 이름 저장
+depts = dept1[2:9] + dept2[:8] + dept1[11:13] + dept2[8:]
 
 
 def find_dept(cmd):
@@ -34,6 +36,7 @@ def find_dept(cmd):
 
     # 부서 찾기
     for dept in depts:
+        # print(dept.text)
         if dept.text == cmd:
             break
         cnt += 1
@@ -41,7 +44,7 @@ def find_dept(cmd):
     # phone book 전체 data
     # data = soup.select(".board-table > tbody")
     data = driver.find_elements(By.CSS_SELECTOR, ".board-table > tbody")
-
+    print(cnt)
     # for d in data:
     #     print(d.text)
     #     print("@"*10)
@@ -101,78 +104,10 @@ def find_dept(cmd):
             dept_phoneBook += "\n" + "\n" + "[" + dept_name + "]" + "\n" + dept_service_pos + " : " + dept_phone + ". "
     notice = "※ 700~900번대 : 031-467-0___\n※ 100~300번대 : 031-463-1___\n==========================\n"
     dept_phoneBook = notice + dept_phoneBook[2:]
-    #print(dept_phoneBook)
+    print(dept_phoneBook)
     return dept_phoneBook
 
-
-
-# for dept in depts:
-#     if dept.get_text() == cmd:
-#         select_dept = dept
-#         break
-#     cnt+=1
-#
-# data = soup.select(".board-table > tbody")
-# #print(type(data))
-# #print(cnt)
-# #print(depts[cnt])
-# trs = data[cnt].select("tr")
-# dept_phoneBook = ""
-# for tr in trs:
-#     tds = tr.select("td")
-#     dept_name = tds[0].get_text()
-#
-#     dept_service_pos = tds[1].get_text()
-#     dept_phone = tds[2].get_text()
-#
-#     # 빈칸 빈칸 data
-#     if len(dept_name) == 0 and len(dept_service_pos) == 0:
-#         print(dept_phone + ". ", end="")
-#         dept_phoneBook += dept_phone + ". "
-#
-#     # 빈칸 data 빈칸
-#     elif len(dept_name) == 0 and len(dept_phone) == 0:
-#         print(dept_service_pos + ". ", end="")
-#         dept_phoneBook += dept_service_pos + ". "
-#
-#
-#     # 빈칸 data data
-#     elif len(dept_name) == 0 :
-#         print()
-#         print(dept_service_pos + " : ", end="")
-#         print(dept_phone + ". ", end="")
-#         dept_phoneBook += "\n" + dept_service_pos + " : " + dept_phone + ". "
-#
-#
-#     # 첫칸이 괄호로 시작할 때
-#     elif dept_name[0] == '(':
-#         print()
-#         dept_service_pos += dept_name
-#         print(dept_service_pos + " : ", end="")
-#         print(dept_phone + ". ", end="")
-#         dept_phoneBook += "\n" + dept_service_pos + " : " + dept_phone + ". "
-#
-#
-#     # data 빈칸 data
-#     elif len(dept_service_pos) == 0 and len(dept_name) != 0 and len(dept_phone) !=0:
-#         print()
-#         print()
-#         print("[" + dept_name + "]")
-#         print(dept_phone + ". ", end="")
-#         dept_phoneBook += "\n" + "\n" + "[" + dept_name + "]" + "\n" + dept_phone + ". "
-#
-#     # data data data
-#     else :
-#         print()
-#         print()
-#         print("[" + dept_name + "]")
-#         print(dept_service_pos + " : ", end="")
-#         print(dept_phone + ". ",  end="")
-#         dept_phoneBook += "\n" + "\n" + "[" + dept_name + "]" + "\n" + dept_service_pos + " : " + dept_phone + ". "
-#
-#
-# print("@@@@@")
-# print(dept_phoneBook)
+#find_dept("학생회실(자치단체)")
 
 
 #빈칸 빈칸 데이터 = 윗줄 3칸이랑 합치기 @

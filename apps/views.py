@@ -96,5 +96,28 @@ def phoneDir(request):
         }
     })
 
+# self 학습실
+@csrf_exempt
+def studyRoom(request):
+    answer = ((request.body).decode('utf-8'))
+    json_str = json.loads(answer)
+    # return_str = return_json_str['userRequest']['utterance'] # 사용자의 발화 텍스트
+    # phoneBook = pdc.find_dept(return_str)
+    return JsonResponse({
+        'version': "2.0",
+        'template': {
+            'outputs': [{
+                'simpleText': {
+                    'text': json_str
+                }
+            }],
+            'quickReplies': [{
+                'label': '처음으로',
+                'action': 'message',
+                'messageText': 'reset'
+            }]
+        }
+    })
+
 
 
