@@ -95,7 +95,6 @@ today_menu= ""
 today_menu += menu_list[2*now]
 # 메뉴
 today_menu += menu_list[(2*now)+1]
-today_menu += today_menu[:-1]
 
 # 학식 운영시간
 today_menu += haksik_notice
