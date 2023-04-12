@@ -117,30 +117,30 @@ from . import test
 #     })
 
 # self 학습실 시간표 보여주기
-@csrf_exempt
-def studyRoom_reserve(request):
-    answer = ((request.body).decode('utf-8'))
-    json_str = json.loads(answer)
-    #return_str = json_str['contexts']['params']['portal_id']['value']  # 사용자의 발화 텍스트
-    sta = str(json_str['contexts'][1]['params']['portal_pw']['value'])
-
-    #json_str = str(json_str)
-    #cons=str(return_str)
-    # portal_id = json_str['contexts'][0]['params']['portal_id']['value']
-    # portal_pw = c
-    # portal_id = json_str['contexts'][0]['params']['portal_id']
-    # portal_pw = json_str['contexts'][0]['params']['portal_pw']
-
-    return JsonResponse({
-        'version': "2.0",
-        'template': {
-            'outputs': [{
-                'simpleText': {
-                    'text': sta
-                }
-            }]
-        }
-    })
+# @csrf_exempt
+# def studyRoom_reserve(request):
+#     answer = ((request.body).decode('utf-8'))
+#     json_str = json.loads(answer)
+#     #return_str = json_str['contexts']['params']['portal_id']['value']  # 사용자의 발화 텍스트
+#     sta = str(str(json_str['contexts'][1]['params']['portal_pw']['value']))
+#
+#     #json_str = str(json_str)
+#     #cons=str(return_str)
+#     # portal_id = json_str['contexts'][0]['params']['portal_id']['value']
+#     # portal_pw = c
+#     # portal_id = json_str['contexts'][0]['params']['portal_id']
+#     # portal_pw = json_str['contexts'][0]['params']['portal_pw']
+#
+#     return JsonResponse({
+#         'version': "2.0",
+#         'template': {
+#             'outputs': [{
+#                 'simpleText': {
+#                     'text': sta
+#                 }
+#             }]
+#         }
+#     })
 
     # if len(times) <= 5:
     #     return JsonResponse({
