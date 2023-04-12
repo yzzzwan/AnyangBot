@@ -25,9 +25,9 @@ global available_timetable
 # 사용자에게 아이디와 비밀번호를 입력받음
 # id = input("아이디를 입력하세요: ")
 # pw = input("비밀번호를 입력하세요: ")
-def portal_login():
-    id = "2020E7011"
-    pw="rladyddhks1!"
+def portal_login(id, pw):
+    # id = "2020E7011"
+    # pw="rladyddhks1!"
 
     # 크롬 브라우저 열기
     driver.implicitly_wait(3)
@@ -110,6 +110,7 @@ def portal_login():
     driver.implicitly_wait(10) # seconds
 
     success = "s"
+    return success
 
 
 
