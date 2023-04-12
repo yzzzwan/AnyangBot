@@ -123,7 +123,7 @@ def studyRoom_reserve(request):
     answer = ((request.body).decode('utf-8'))
     json_str = json.loads(answer)
     #return_str = json_str['contexts']['params']['portal_id']['value']  # 사용자의 발화 텍스트
-    sta = str(json_str['contexts']['params'])
+    sta = str(json_str['contexts']['name'])
 
     #json_str = str(json_str)
     #cons=str(return_str)
