@@ -33,6 +33,8 @@ def portal_login():
     driver.implicitly_wait(3)
     # 포탈 사이트 로그인 페이지 열기
     print("포탈 접속 시도")
+    success = "f"
+
     driver.get("https://portal.anyang.ac.kr/")
     driver.implicitly_wait(10) # seconds
     print("포탈 접속")
@@ -91,10 +93,8 @@ def portal_login():
 
     driver.implicitly_wait(10) # seconds
 
-def show_timetable():
-    portal_login()
-
     print("아리포폴 접속 시도")
+
     driver.get("https://ari.anyang.ac.kr/sso/index.jsp")
     driver.implicitly_wait(10) # seconds
 
@@ -108,6 +108,14 @@ def show_timetable():
     print("스터디룸 접속 성공")
 
     driver.implicitly_wait(10) # seconds
+
+    success = "s"
+
+
+
+def show_timetable():
+    portal_login()
+
 
     # 시간표가 나와있는 div
     time_div = driver.find_element(By.CSS_SELECTOR, "div.tabType05.mt15.time-select")
