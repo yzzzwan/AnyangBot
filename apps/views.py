@@ -122,19 +122,21 @@ from . import test
 def studyRoom_reserve(request):
     answer = ((request.body).decode('utf-8'))
     json_str = json.loads(answer)
-    #return_str = json_str['contexts']['params']['portal_id']['value']  # 사용자의 발화 텍스트
-
-    json_str = str(json_str)
+    sta = json_str['contexts']
+    sta=str(sta)
+    #json_str = str(json_str)
     #cons=str(return_str)
-    portal_id = json_str['contexts'][0]['params']['portal_id']['value']
-    portal_pw = json_str['contexts'][1]['params']['portal_pw']['value']
+    # portal_id = json_str['contexts'][0]['params']['portal_id']['value']
+    # portal_pw = json_str['contexts'][1]['params']['portal_pw']['value']
+    # portal_id = json_str['contexts'][0]['params']['portal_id']
+    # portal_pw = json_str['contexts'][0]['params']['portal_pw']
 
     return JsonResponse({
         'version': "2.0",
         'template': {
             'outputs': [{
                 'simpleText': {
-                    'text': portal_pw
+                    'text': sta
                 }
             }]
         }
