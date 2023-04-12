@@ -26,7 +26,7 @@ urlpatterns = [
     re_path(r'^weekHaksik/?$', v.week_haksik), # 이번주 학식
     re_path(r'^todayHaksik/?$', v.today_haksik), # 오늘 학식
     re_path(r'^phoneBook/?$', v.phoneDir),  # 전화번호부
-    re_path(r'^studyRoom/?$', v.studyRoom),  # 전화번호부
+    #re_path(r'^studyRoom/?$', v.studyRoom),  # 전화번호부
 
     #re_path(r'^test/?$', v.test),  # 전화번호부
 
