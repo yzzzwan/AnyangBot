@@ -98,23 +98,23 @@ def phoneDir(request):
 
 from . import test
 
-# stduy room 로그인
-@csrf_exempt
-def studyRoom_login(request):
-    answer = ((request.body).decode('utf-8'))
-    return_json_str = json.loads(answer)
-    return_str = return_json_str['userRequest']['contexts']  # 사용자의 발화 텍스트
-
-    return JsonResponse({
-        'version': "2.0",
-        'template': {
-            'outputs': [{
-                'simpleText': {
-                    'text': return_str
-                }
-            }]
-        }
-    })
+# # stduy room 로그인
+# @csrf_exempt
+# def studyRoom_login(request):
+#     answer = ((request.body).decode('utf-8'))
+#     return_json_str = json.loads(answer)
+#     return_str = str(return_json_str['action']['params']['portal_id'])  # 사용자의 발화 텍스트
+#
+#     return JsonResponse({
+#         'version': "2.0",
+#         'template': {
+#             'outputs': [{
+#                 'simpleText': {
+#                     'text': return_str
+#                 }
+#             }]
+#         }
+#     })
 
 
 # self 학습실 시간표 보여주기
