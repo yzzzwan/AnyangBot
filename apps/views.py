@@ -107,21 +107,31 @@ def studyRoom_reserve(request):
     id = json_str['action']['params']['portal_ID']
     pw = json_str['action']['params']['portal_PW']
 
-    t = test2.test(id, pw)
+    t = test2.pl(id, pw)
 
 
-
-    return JsonResponse({
-            'version': "2.0",
-            'template': {
-                'outputs': [{
-                    'simpleText': {
-                        'text': 'test'
-                   }
-                }]
-            }
-        })
-
+    if t=="s":
+        return JsonResponse({
+                'version': "2.0",
+                'template': {
+                    'outputs': [{
+                        'simpleText': {
+                            'text': 'yes'
+                       }
+                    }]
+                }
+            })
+    else:
+        return JsonResponse({
+                'version': "2.0",
+                'template': {
+                    'outputs': [{
+                        'simpleText': {
+                            'text': 'no'
+                       }
+                    }]
+                }
+            })
 
 
 
