@@ -97,7 +97,7 @@ def phoneDir(request):
     })
 
 
-from . import test
+from . import test2
 
 @csrf_exempt
 def studyRoom_reserve(request):
@@ -107,31 +107,20 @@ def studyRoom_reserve(request):
     id = json_str['action']['params']['portal_ID']
     pw = json_str['action']['params']['portal_PW']
 
-    success = test.portal_login(id, pw)
+    t = test2.test(id, pw)
 
-    if(success == "s"):
-        return JsonResponse({
-                'version': "2.0",
-                'template': {
-                    'outputs': [{
-                        'simpleText': {
-                            'text': "로그인 성공"
-                        }
-                    }]
-                }
-            })
 
-    elif(success == "f"):
-        return JsonResponse({
-                'version': "2.0",
-                'template': {
-                    'outputs': [{
-                        'simpleText': {
-                            'text': "로그인 실패"
-                        }
-                    }]
-                }
-            })
+
+    return JsonResponse({
+            'version': "2.0",
+            'template': {
+                'outputs': [{
+                    'simpleText': {
+                        'text': 'test'
+                   }
+                }]
+            }
+        })
 
 
 

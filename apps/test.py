@@ -208,3 +208,70 @@ def reserve():
 # print( end)
 #
 
+def test_login():
+    # id = "2020E7011"
+    # pw="rladyddhks1!"
+
+    # 크롬 브라우저 열기
+    driver.implicitly_wait(3)
+    # 포탈 사이트 로그인 페이지 열기
+    print("포탈 접속 시도")
+    success = "f"
+
+    driver.get("https://portal.anyang.ac.kr/")
+    driver.implicitly_wait(10) # seconds
+    print("포탈 접속")
+
+    #print(driver.page_source)
+
+    # 아이디와 비밀번호 입력 후 로그인 버튼 클릭
+    login_id = driver.find_element("name", "login")
+    login_pw = driver.find_element("name", "password")
+
+    # id pw 입력
+    login_id.send_keys(id)
+    login_pw.send_keys(pw)
+
+
+    # 로그인 버튼 클릭
+    driver.find_element('id', 'loginImg').click()
+    # driver.find_element('xpath', '//*[@class="login_button"]/a').click()
+
+    # //*[@id="tsf"]/div[2]/
+    # id가 tsf인 모든 요소의 자식 div 요소 중 3번째 요소를 선택
+
+    # 로그인 처리중입니다. 잠시만 기다려주세요 \n\n *최초 로그인시에는 로그인이 조금 지연될 수 있습니다.
+
+
+    try:
+        WebDriverWait(driver, 1).until(EC.alert_is_present())
+        alert = driver.switch_to.alert
+        alert.accept()
+
+    except:
+        pass
+
+    # 같은 계정으로 이미 로그인 되어있습니다. \n로그인 되어있던 계정은 로그아웃됩니다.
+    try:
+        WebDriverWait(driver, 1).until(EC.alert_is_present())
+        alert = driver.switch_to.com
+        alert.accept()
+
+    except:
+        pass
+
+
+    # 비밀번호 변경 페이지
+    if driver.current_url == "https://portal.anyang.ac.kr/c/portal/login_event":
+        driver.find_element("name", "pwdReset").click()
+
+
+    # 로그인 완료되면 포탈페이지로 이동
+    if  driver.current_url == "https://portal.anyang.ac.kr/index.jsp#":
+        print("포탈 로그인 실패!")
+        driver.quit()
+        exit()
+    else:
+        print("포탈 로그인 성공!")
+
+#portal_login("2020E7011", "rladyddhks1!")
