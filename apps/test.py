@@ -177,34 +177,34 @@
 #     print("예약 완료!")
 #     driver.quit()
 #
-# test = show_timetable()
-# time.sleep(15)
-# #re=reserve()
+# # test = show_timetable()
+# # time.sleep(15)
+# # re=reserve()
 #
-# end= time.time()
-# print("test len = ",len(test))
-#
-# # 9시 10시 11시 12시 1시
-# if len(test) < 5:
-#     while(len(test) <5):
-#         test.append("-")
-#
-# # 2시 3시 4시 5시 6시
-# elif len(test) > 5 and len(test) < 10:
-#     while(len(test) <10):
-#         test.append("-")
-#
-# # 7시 8시 9시 10시
-# elif len(test) > 10 and len(test) < 12:
-#     while(len(test) <12):
-#         test.append("-")
-#
-# for t in test:
-#     print(t)
-#
-# print(len(test))
-#
-# print(start)
-# print( end)
-#
+# # end= time.time()
+# # print("test len = ",len(test))
+# #
+# # # 9시 10시 11시 12시 1시
+# # if len(test) < 5:
+# #     while(len(test) <5):
+# #         test.append("-")
+# #
+# # # 2시 3시 4시 5시 6시
+# # elif len(test) > 5 and len(test) < 10:
+# #     while(len(test) <10):
+# #         test.append("-")
+# #
+# # # 7시 8시 9시 10시
+# # elif len(test) > 10 and len(test) < 12:
+# #     while(len(test) <12):
+# #         test.append("-")
+# #
+# # for t in test:
+# #     print(t)
+# #
+# # print(len(test))
+# #
+# # print(start)
+# # print( end)
+# #
 #
