@@ -106,7 +106,7 @@ def studyRoom_reserve(request):
     #return_str = json_str['contexts']['params']['portal_id']['value']  # 사용자의 발화 텍스트
 
     #PTid = str(json_str['contexts'][0]['params']['portal_id']['value'])
-    pw = str(json_str['contexts'][1]['params']['portal_pw']['value'])
+    pw = str(json_str['contexts'])
     #success = test.portal_login(id, pw)
 
 
