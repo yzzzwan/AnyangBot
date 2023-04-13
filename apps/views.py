@@ -103,23 +103,36 @@ from . import test
 def studyRoom_reserve(request):
     answer = ((request.body).decode('utf-8'))
     json_str = json.loads(answer)
-    #return_str = json_str['contexts']['params']['portal_id']['value']  # 사용자의 발화 텍스트
 
-    #PTid = str(json_str['contexts'][0]['params']['portal_id']['value'])
-    pw = str(json_str['contexts'])
-    #success = test.portal_login(id, pw)
+    id = json_str['action']['params']['portal_ID']
+    pw = json_str['action']['params']['portal_PW']
 
+    success = test.portal_login(id, pw)
 
-    return JsonResponse({
-            'version': "2.0",
-            'template': {
-                'outputs': [{
-                    'simpleText': {
-                        'text': pw
-                    }
-                }]
-            }
-        })
+    if(success == "s"):
+        return JsonResponse({
+                'version': "2.0",
+                'template': {
+                    'outputs': [{
+                        'simpleText': {
+                            'text': "로그인 성공"
+                        }
+                    }]
+                }
+            })
+
+    elif(success == "f"):
+        return JsonResponse({
+                'version': "2.0",
+                'template': {
+                    'outputs': [{
+                        'simpleText': {
+                            'text': "로그인 실패"
+                        }
+                    }]
+                }
+            })
+
 
 
 
