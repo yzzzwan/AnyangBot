@@ -99,39 +99,39 @@ def phoneDir(request):
 
 
 
-# @csrf_exempt
-# def portal_login(request):
-#     answer = ((request.body).decode('utf-8'))
-#     json_str = json.loads(answer)
-#
-#     Pid = json_str['action']['params']['portal_ID']
-#     Ppw = json_str['action']['params']['portal_PW']
-#
-#     login = test2.portal(Pid, Ppw)
-#
-#     if login == 's':
-#         return JsonResponse({
-#                 'version': "2.0",
-#                 'template': {
-#                     'outputs': [{
-#                         'simpleText': {
-#                             'text': "login success"
-#                        }
-#                     }]
-#                 }
-#             })
-#
-#     else:
-#         return JsonResponse({
-#                 'version': "2.0",
-#                 'template': {
-#                     'outputs': [{
-#                         'simpleText': {
-#                             'text': "login fail"
-#                        }
-#                     }]
-#                 }
-#             })
+@csrf_exempt
+def portal_login(request):
+    answer = ((request.body).decode('utf-8'))
+    json_str = json.loads(answer)
+
+    Pid = json_str['action']['params']['portal_ID']
+    Ppw = json_str['action']['params']['portal_PW']
+
+    login = test2.portal(Pid, Ppw)
+
+    if login == 's':
+        return JsonResponse({
+                'version': "2.0",
+                'template': {
+                    'outputs': [{
+                        'simpleText': {
+                            'text': "login success"
+                       }
+                    }]
+                }
+            })
+
+    else:
+        return JsonResponse({
+                'version': "2.0",
+                'template': {
+                    'outputs': [{
+                        'simpleText': {
+                            'text': "login fail"
+                       }
+                    }]
+                }
+            })
 
 
 
