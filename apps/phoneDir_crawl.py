@@ -108,7 +108,7 @@ def find_dept(cmd):
     driver.quit()
     return dept_phoneBook
 
-find_dept("학생회실(자치단체)")
+# find_dept("학생회실(자치단체)")
 
 
 #빈칸 빈칸 데이터 = 윗줄 3칸이랑 합치기 @
