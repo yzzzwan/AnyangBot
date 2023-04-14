@@ -97,47 +97,47 @@ def phoneDir(request):
     })
 
 
-from . import test2
-
-@csrf_exempt
-def studyRoom_reserve(request):
-    answer = ((request.body).decode('utf-8'))
-    json_str = json.loads(answer)
-
-    id = json_str['action']['params']['portal_ID']
-    pw = json_str['action']['params']['portal_PW']
-
-    t = test2.pl(id, pw)
-
-
-    if t=="s":
-        return JsonResponse({
-                'version': "2.0",
-                'template': {
-                    'outputs': [{
-                        'simpleText': {
-                            'text': 'yes'
-                       }
-                    }]
-                }
-            })
-    else:
-        return JsonResponse({
-                'version': "2.0",
-                'template': {
-                    'outputs': [{
-                        'simpleText': {
-                            'text': 'no'
-                       }
-                    }]
-                }
-            })
-
-
-
-
-
-
+# from . import test2
+#
+# @csrf_exempt
+# def studyRoom_reserve(request):
+#     answer = ((request.body).decode('utf-8'))
+#     json_str = json.loads(answer)
+#
+#     id = json_str['action']['params']['portal_ID']
+#     pw = json_str['action']['params']['portal_PW']
+#
+#     t = test2.pl(id, pw)
+#
+#
+#     if t=="s":
+#         return JsonResponse({
+#                 'version': "2.0",
+#                 'template': {
+#                     'outputs': [{
+#                         'simpleText': {
+#                             'text': 'yes'
+#                        }
+#                     }]
+#                 }
+#             })
+#     else:
+#         return JsonResponse({
+#                 'version': "2.0",
+#                 'template': {
+#                     'outputs': [{
+#                         'simpleText': {
+#                             'text': 'no'
+#                        }
+#                     }]
+#                 }
+#             })
+#
+#
+#
+#
+#
+#
 
 
 
