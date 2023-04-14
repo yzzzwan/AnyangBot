@@ -130,7 +130,7 @@
 #     for li in time_li_list:
 #         available_timetable = li.find_element(By.CSS_SELECTOR, 'label')
 #         print(available_timetable.text)
-#         test_print.append(available_timetable.text)
+    #         test_print.append(available_timetable.text)
 #
 #     return test_print
 #
