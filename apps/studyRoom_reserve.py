@@ -10,7 +10,13 @@
 #
 # # local
 # options = webdriver.ChromeOptions()
-# options.add_argument('headless')
+# prefs = {'profile.managed_default_content_settings.images': 2}
+# options.add_experimental_option('prefs', prefs)
+# # options.add_argument('--headless')
+# options.add_argument('--blink-settings=imagesEnabled=false')
+# options.add_argument('--disable-gpu')
+# options.add_argument('--no-sandbox')
+# options.add_argument('--disable-dev-shm-usage')
 # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 #
 #
@@ -72,15 +78,11 @@
 # except:
 #     pass
 #
-# c = driver.get_cookies()
-# cd = {}
-# for o in c:
-#     cd[o['name']] = o['value']
 #
 #
-# # 비밀번호 변경 페이지
-# if driver.current_url == "https://portal.anyang.ac.kr/c/portal/login_event":
-#     driver.find_element("name", "pwdReset").click()
+# # # 비밀번호 변경 페이지
+# # if driver.current_url == "https://portal.anyang.ac.kr/c/portal/login_event":
+# #     driver.find_element("name", "pwdReset").click()
 #
 #
 # # 로그인 완료되면 포탈페이지로 이동
@@ -120,7 +122,6 @@
 # for li in time_li_list:
 #     available_timetable = li.find_element(By.CSS_SELECTOR, 'label')
 #     print(available_timetable.text)
-#
 #
 # # 시간 선택
 # available_timetable.click()

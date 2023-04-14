@@ -97,8 +97,29 @@ def phoneDir(request):
     })
 
 
-# from . import test2
-#
+@csrf_exempt
+def portal_login(request):
+    answer = ((request.body).decode('utf-8'))
+    json_str = json.loads(answer)
+
+    Pid = json_str['action']['params']['portal_ID']
+    Ppw = json_str['action']['params']['portal_PW']
+
+    return JsonResponse({
+            'version': "2.0",
+            'template': {
+                'outputs': [{
+                    'simpleText': {
+                        'text': Pid + '\n' + Ppw
+                   }
+                }]
+            }
+        })
+
+
+
+from . import test2
+
 # @csrf_exempt
 # def studyRoom_reserve(request):
 #     answer = ((request.body).decode('utf-8'))
@@ -132,12 +153,6 @@ def phoneDir(request):
 #                     }]
 #                 }
 #             })
-#
-#
-#
-#
-#
-#
 
 
 
@@ -146,27 +161,122 @@ def phoneDir(request):
 
 
 
-# # stduy room 로그인
+
 # @csrf_exempt
-# def studyRoom_login(request):
+# def portal_login(request):
 #     answer = ((request.body).decode('utf-8'))
-#     return_json_str = json.loads(answer)
-#     return_str = str(return_json_str['action']['params']['portal_id'])  # 사용자의 발화 텍스트
+#     json_str = json.loads(answer)
+#
+#     Pid = json_str['action']['params']['portal_ID']
+#     Ppw = json_str['action']['params']['portal_PW']
+#
+#     login = test2.portal(Pid, Ppw)
+#
+#     if login == 's':
+#         return JsonResponse({
+#                 'version': "2.0",
+#                 'template': {
+#                     'outputs': [{
+#                         'simpleText': {
+#                             'text': "login success"
+#                        }
+#                     }]
+#                 }
+#             })
+#
+#     else:
+#         return JsonResponse({
+#                 'version': "2.0",
+#                 'template': {
+#                     'outputs': [{
+#                         'simpleText': {
+#                             'text': "login fail"
+#                        }
+#                     }]
+#                 }
+#             })
+
+
+# # self 학습실 시간표 보여주기
+# @csrf_exempt
+# def studyRoom_timetable(request):
+#     answer = ((request.body).decode('utf-8'))
+#     json_str = json.loads(answer)
+#     room_num = str(json_str['contexts'][1]['params']['room_num']['value']) # 룸 번호
+#
+#     available_time = test2.ari(room_num)
+#
+#     # portal_id = json_str['contexts'][0]['params']['portal_id']['value']
+#     # portal_pw = c
+#     # portal_id = json_str['contexts'][0]['params']['portal_id']
+#     # portal_pw = json_str['contexts'][0]['params']['portal_pw']
 #
 #     return JsonResponse({
 #         'version': "2.0",
 #         'template': {
 #             'outputs': [{
 #                 'simpleText': {
-#                     'text': return_str
+#                     'text':  available_time# 리스트를 문자열 식으로 받아와서 출력
 #                 }
 #             }]
 #         }
 #     })
 
-# self 학습실 시간표 보여주기
+
+
+
+
+
+
+
+# # self 학습실 예약하기
 # @csrf_exempt
 # def studyRoom_reserve(request):
+#     answer = ((request.body).decode('utf-8'))
+#     json_str = json.loads(answer)
+#     time_select = int(json_str['contexts'][1]['params']['time_select']['value']) # 선택한 시간대
+#     done = test2.reserve(time_select)
+#
+#     if done == 'done':
+#         return JsonResponse({
+#                 'version': "2.0",
+#                 'template': {
+#                     'outputs': [{
+#                         'simpleText': {
+#                             'text': "reserve success"
+#                        }
+#                     }]
+#                 }
+#             })
+#
+#     else:
+#         return JsonResponse({
+#                 'version': "2.0",
+#                 'template': {
+#                     'outputs': [{
+#                         'simpleText': {
+#                             'text': "reserve fail"
+#                        }
+#                     }]
+#                 }
+#             })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# self 학습실 예약하기
+# @csrf_exempt
+# def studyRoom_timetable(request):
 #     answer = ((request.body).decode('utf-8'))
 #     json_str = json.loads(answer)
 #     #return_str = json_str['contexts']['params']['portal_id']['value']  # 사용자의 발화 텍스트
