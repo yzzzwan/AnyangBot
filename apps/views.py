@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from . import haksik_crawl
 from . import phoneDir_crawl as pdc
+from . import portal_login_user
+
 # import test2
 # from test2 import portal
 
@@ -100,7 +102,6 @@ def phoneDir(request):
     })
 
 
-import portal_login_user
 
 @csrf_exempt
 def portal_login(request):
@@ -110,16 +111,15 @@ def portal_login(request):
     Pid = json_str['action']['params']['portal_ID']
     Ppw = json_str['action']['params']['portal_PW']
 
-    # login = portal_login_user.portal("2020E7011", "rladyddhks1!")
+    login = portal_login_user.portal("2020E7011", "rladyddhks1!")
     login ='s'
-    z=type(Pid)
     if login == 's':
         return JsonResponse({
                 'version': "2.0",
                 'template': {
                     'outputs': [{
                         'simpleText': {
-                            'text': "login success"+z
+                            'text': "login success"
                        }
                     }]
                 }
