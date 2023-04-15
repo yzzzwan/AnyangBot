@@ -108,10 +108,10 @@ def portal_login(request):
     answer = ((request.body).decode('utf-8'))
     json_str = json.loads(answer)
 
-    Pid = json_str['action']['params']['portal_ID']
-    Ppw = json_str['action']['params']['portal_PW']
+    Pid = str(json_str['action']['params']['portal_ID'])
+    Ppw = str(json_str['action']['params']['portal_PW'])
 
-    login = portal_login_user.portal("2020E7011", "rladyddhks1!")
+    login = portal_login_user.portal(Pid, Ppw)
     # login ='s'
     # login =portal_login_user.t()
     if login == 's':
