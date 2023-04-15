@@ -5,7 +5,7 @@ import time
 
 chrome_options = webdriver.ChromeOptions()
 
-chrome_options.add_argument('--headless')
+# chrome_options.add_argument('--headless')
 chrome_options.add_argument('--disable-gpu')
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')
@@ -61,7 +61,7 @@ def portal(pid, ppw):
 
     # 같은 계정으로 이미 로그인 되어있습니다. \n로그인 되어있던 계정은 로그아웃됩니다.
     try:
-        WebDriverWait(driver).until(EC.alert_is_present())
+        WebDriverWait(driver, 0.6).until(EC.alert_is_present())
         alert = driver.switch_to.com
         alert.accept()
 
@@ -86,3 +86,5 @@ def portal(pid, ppw):
     success="s"
     driver.quit()
     return success
+
+portal("2020E7011","rladyddhks1!")

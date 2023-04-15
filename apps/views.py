@@ -109,16 +109,17 @@ def portal_login(request):
     Pid = str(json_str['action']['params']['portal_ID'])
     Ppw = str(json_str['action']['params']['portal_PW'])
 
+    logi='s'
     login = portal_login_user.portal(Pid, Ppw)
     # login ='s'
     # login =portal_login_user.t()
-    if login == 's':
+    if logi == 's':
         return JsonResponse({
                 'version': "2.0",
                 'template': {
                     'outputs': [{
                         'simpleText': {
-                            'text': "login success"
+                            'text': login
                        }
                     }]
                 }
