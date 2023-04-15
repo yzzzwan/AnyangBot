@@ -100,7 +100,7 @@ def phoneDir(request):
     })
 
 
-from test2 import portal
+import portal_login_user
 
 @csrf_exempt
 def portal_login(request):
@@ -110,8 +110,8 @@ def portal_login(request):
     Pid = json_str['action']['params']['portal_ID']
     Ppw = json_str['action']['params']['portal_PW']
 
-    login = portal("2020E7011", "rladyddhks1!")
-
+    login = portal_login_user.portal("2020E7011", "rladyddhks1!")
+    #login ='s'
     if login == 's':
         return JsonResponse({
                 'version': "2.0",
