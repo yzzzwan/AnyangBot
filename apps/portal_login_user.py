@@ -14,22 +14,17 @@ driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver", chrome_option
 driver.implicitly_wait(3)  # seconds
 
 
-# available_timetable 변수를 받기 위한 전역변수
-available_timetable = ""
-available_time_list=[]
-driver.get("https://portal.anyang.ac.kr/")
-driver.implicitly_wait(3)  # seconds
-
-# pid = "2020E7011"
-# ppw="rladyddhks1!"
+def t(a, b):
+    s=a+b
+    return s
 
 
-def t():
-    a="s"
-    return a
 
 # 포탈 로그인
 def portal(pid, ppw):
+    driver.get("https://portal.anyang.ac.kr/")
+    driver.implicitly_wait(2)  # seconds
+
     print("start")
     start = time.time()
 

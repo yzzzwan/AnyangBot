@@ -3,9 +3,7 @@ from django.http import HttpResponse
 from . import haksik_crawl
 from . import phoneDir_crawl as pdc
 from . import portal_login_user
-
-# import test2
-# from test2 import portal
+# from . import test2
 
 from django.http import request as json
 # Create your views here.
