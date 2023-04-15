@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from . import haksik_crawl
 from . import phoneDir_crawl as pdc
-from . import portal_login_user
+# from . import portal_login_user
 # from . import test2
 
 from django.http import request as json
@@ -100,40 +100,40 @@ def phoneDir(request):
     })
 
 
-
-@csrf_exempt
-def portal_login(request):
-    answer = ((request.body).decode('utf-8'))
-    json_str = json.loads(answer)
-
-    Pid = str(json_str['action']['params']['portal_ID'])
-    Ppw = str(json_str['action']['params']['portal_PW'])
-
-    login = portal_login_user.t(Pid, Ppw)
-    lo = 's'
-    if lo == 's':
-        return JsonResponse({
-                'version': "2.0",
-                'template': {
-                    'outputs': [{
-                        'simpleText': {
-                            'text': login
-                       }
-                    }]
-                }
-            })
-
-    else:
-        return JsonResponse({
-                'version': "2.0",
-                'template': {
-                    'outputs': [{
-                        'simpleText': {
-                            'text': "login fail"
-                       }
-                    }]
-                }
-            })
+#
+# @csrf_exempt
+# def portal_login(request):
+#     answer = ((request.body).decode('utf-8'))
+#     json_str = json.loads(answer)
+#
+#     Pid = str(json_str['action']['params']['portal_ID'])
+#     Ppw = str(json_str['action']['params']['portal_PW'])
+#
+#     login = portal_login_user.t(Pid, Ppw)
+#     lo = 's'
+#     if lo == 's':
+#         return JsonResponse({
+#                 'version': "2.0",
+#                 'template': {
+#                     'outputs': [{
+#                         'simpleText': {
+#                             'text': login
+#                        }
+#                     }]
+#                 }
+#             })
+#
+#     else:
+#         return JsonResponse({
+#                 'version': "2.0",
+#                 'template': {
+#                     'outputs': [{
+#                         'simpleText': {
+#                             'text': "login fail"
+#                        }
+#                     }]
+#                 }
+#             })
 
 
 
