@@ -24,6 +24,10 @@ driver.implicitly_wait(3)  # seconds
 # ppw="rladyddhks1!"
 
 
+def t():
+    a="s"
+    return a
+
 # 포탈 로그인
 def portal(pid, ppw):
     print("start")
