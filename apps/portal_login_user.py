@@ -87,4 +87,4 @@ def portal(pid, ppw):
     driver.quit()
     return success
 
-portal("2020E7011","rladyddhks1!")
+# portal("2020E7011","rladyddhks1!")
