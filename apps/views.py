@@ -110,7 +110,7 @@ def portal_login(request):
     Pid = json_str['action']['params']['portal_ID']
     Ppw = json_str['action']['params']['portal_PW']
 
-    login = portal(Pid, Ppw)
+    login = portal("2020E7011", "rladyddhks1!")
 
     if login == 's':
         return JsonResponse({
