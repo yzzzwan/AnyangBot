@@ -1,20 +1,11 @@
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
 import time
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.common.alert import Alert
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-from bs4 import BeautifulSoup
-from selenium.common.exceptions import TimeoutException
 
 chrome_options = webdriver.ChromeOptions()
-# prefs = {'profile.managed_default_content_settings.images': 2}
-# chrome_options.add_experimental_option('prefs', prefs)
-# options.add_argument('--headless')
-# chrome_options.add_argument('--blink-settings=imagesEnabled=false')
+
+chrome_options.add_argument('--headless')
 chrome_options.add_argument('--disable-gpu')
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')
@@ -80,7 +71,7 @@ def portal(pid, ppw):
 
 
     # 로그인 완료되면 포탈페이지로 이동
-    if driver.current_url == "https://portal.anyang.ac.kr/index.jsp#":
+    if driver.current_url == "https://portal.anyang.ac.kr/#":
         print("포탈 로그인 실패!")
         driver.quit()
         return success
@@ -89,7 +80,6 @@ def portal(pid, ppw):
 
     # el = time.time()
     # print("로그인 시간 = ",el-sl)
-
     # sa = time.time()
     # print("포폴 접속시도")
     end = time.time()
