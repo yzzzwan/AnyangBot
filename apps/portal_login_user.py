@@ -89,4 +89,5 @@ def portal(pid, ppw):
     end = time.time()
     print("login :", end - start)
     success="s"
+    driver.quit()
     return success

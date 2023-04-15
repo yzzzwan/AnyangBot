@@ -111,9 +111,9 @@ def portal_login(request):
     Pid = json_str['action']['params']['portal_ID']
     Ppw = json_str['action']['params']['portal_PW']
 
-    #login = portal_login_user.portal("2020E7011", "rladyddhks1!")
+    login = portal_login_user.portal("2020E7011", "rladyddhks1!")
     # login ='s'
-    login =portal_login_user.t()
+    # login =portal_login_user.t()
     if login == 's':
         return JsonResponse({
                 'version': "2.0",
