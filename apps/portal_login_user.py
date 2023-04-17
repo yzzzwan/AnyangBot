@@ -18,25 +18,23 @@
 #     s=a+b
 #     return s
 #
-#
+# # 줄 마다 return 해서 return 되는지 test해보기 time으로 시간측정
 #
 # # 포탈 로그인
 # def portal(pid, ppw):
+#     print("포탈 접속 시도")
 #     driver.get("https://portal.anyang.ac.kr/")
 #     driver.implicitly_wait(2)  # seconds
+#
+#     ## test
 #
 #     print("start")
 #     start = time.time()
 #
-#     print("포탈 접속 시도")
 #     success = "f"
-#     # sp=time.time()
 #
 #     print("포탈 접속")
-#     # ep = time.time()
-#     # print("포탈 접속 시간 = ",ep-sp)
 #
-#     # sl = time.time()
 #
 #     # 아이디와 비밀번호 입력 후 로그인 버튼 클릭
 #     login_id = driver.find_element("name", "login")
@@ -49,6 +47,8 @@
 #
 #     # 로그인 버튼 클릭
 #     driver.find_element('id', 'loginImg').click()
+#
+#     #test
 #
 #     # 로그인 처리중입니다. 잠시만 기다려주세요 \n\n *최초 로그인시에는 로그인이 조금 지연될 수 있습니다.
 #     try:
@@ -68,18 +68,18 @@
 #     except:
 #         pass
 #
+#     ## test
 #
 #     # 로그인 완료되면 포탈페이지로 이동
 #     if driver.current_url == "https://portal.anyang.ac.kr/#":
 #         print("포탈 로그인 실패!")
 #         driver.quit()
 #         return success
+#
 #     else:
 #         print("포탈 로그인 성공!")
 #
-#     # el = time.time()
-#     # print("로그인 시간 = ",el-sl)
-#     # sa = time.time()
+#
 #     # print("포폴 접속시도")
 #     end = time.time()
 #     print("login :", end - start)

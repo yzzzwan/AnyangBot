@@ -100,7 +100,7 @@ def phoneDir(request):
     })
 
 
-#
+
 # @csrf_exempt
 # def portal_login(request):
 #     answer = ((request.body).decode('utf-8'))
