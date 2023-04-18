@@ -100,8 +100,8 @@ def portal(pid, ppw):
 # print(b-a)
 
 # a=portal("2020E7011","rladddhks1!")
-a=portal("2020E7011","rladyddhks1!")
-
-b=portal("2020E7011","rladyddhks1!")
+# a=portal("2020E7011","rladyddhks1!")
+#
+# b=portal("2020E7011","rladyddhks1!")
 
 
