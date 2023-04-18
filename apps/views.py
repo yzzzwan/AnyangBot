@@ -135,7 +135,7 @@ def portal_login(request):
                 'template': {
                     'outputs': [{
                         'simpleText': {
-                            'text': "입력하신 아이디 혹은 비밀번호가 일치하지 않습니다.\n 다시 시도해주세요."
+                            'text': '입력하신 아이디 혹은 비밀번호가 일치하지 않습니다.\n 다시 시도하려면 "다시 시도"버튼을 눌러주세요.'
                        }
                     }],
                     'quickReplies': [{
@@ -148,7 +148,22 @@ def portal_login(request):
             })
 
 
+# 셀프학습실 timetable
+@csrf_exempt
+def studyroom_timetable(request):
+    answer = ((request.body).decode('utf-8'))
+    return_json_str = str(json.loads(answer))
 
+    return JsonResponse({
+        'version': "2.0",
+        'template': {
+            'outputs': [{
+                'simpleText': {
+                    'text': return_json_str
+                }
+            }]
+        }
+    })
 
 
 # @csrf_exempt

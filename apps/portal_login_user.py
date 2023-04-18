@@ -8,7 +8,7 @@ import time
 
 chrome_options = webdriver.ChromeOptions()
 
-# chrome_options.add_argument('--headless')
+chrome_options.add_argument('--headless')
 chrome_options.add_argument('--disable-gpu')
 prefs = {'profile.managed_default_content_settings.images': 2}
 chrome_options.add_experimental_option('prefs', prefs)
@@ -41,8 +41,6 @@ def portal(pid, ppw):
 
         # 포탈 페이지를 새로고칩니다
         driver.get("https://portal.anyang.ac.kr/")
-
-
 
 
     # 아이디와 비밀번호 입력 후 로그인 버튼 클릭
