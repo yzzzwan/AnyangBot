@@ -12,27 +12,29 @@ from selenium.webdriver.common.by import By
 
 
 #server
-chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument('--headless')
-chrome_options.add_argument('--no-sandbox')
-chrome_options.add_argument('--disable-dev-shm-usage')
-#driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver",chrome_options=chrome_options)
-driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver",chrome_options=chrome_options)
 
-# time.sleep(1)
+
 
 # dept1 = soup.select(".tit01")
 # dept2 = soup.select("h4.tit02")
 
 
+chrome_options = webdriver.ChromeOptions()
+# chrome_options.add_argument('--headless')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--disable-dev-shm-usage')
+# driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver",chrome_options=chrome_options)
+driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver", chrome_options=chrome_options)
 
+driver.get('https://www.anyang.ac.kr/main/introduction/anyang-campus001.do')
+
+dept1 = driver.find_elements(By.CSS_SELECTOR, ".tit01")
+dept2 = driver.find_elements(By.CSS_SELECTOR, "h4.tit02")
 
 
 def find_dept(cmd):
-    driver.get('https://www.anyang.ac.kr/main/introduction/anyang-campus001.do')
+    print("start")
 
-    dept1 = driver.find_elements(By.CSS_SELECTOR, ".tit01")
-    dept2 = driver.find_elements(By.CSS_SELECTOR, "h4.tit02")
 
     # 모든 부서 이름 저장
     depts = dept1[2:9] + dept2[:8] + dept1[11:13] + dept2[8:]
@@ -49,7 +51,7 @@ def find_dept(cmd):
     # phone book 전체 data
     # data = soup.select(".board-table > tbody")
     data = driver.find_elements(By.CSS_SELECTOR, ".board-table > tbody")
-    print(cnt)
+    # print(cnt)
     # for d in data:
     #     print(d.text)
     #     print("@"*10)
@@ -109,11 +111,16 @@ def find_dept(cmd):
             dept_phoneBook += "\n" + "\n" + "[" + dept_name + "]" + "\n" + dept_service_pos + " : " + dept_phone + ". "
     notice = "※ 700~900번대 : 031-467-0___\n※ 100~300번대 : 031-463-1___\n==========================\n"
     dept_phoneBook = notice + dept_phoneBook[2:]
-    print(dept_phoneBook)
-    driver.quit()
+    # print(dept_phoneBook)
+    # driver.quit()
+    print("End")
     return dept_phoneBook
 
-find_dept("학생회실(자치단체)")
+# a=find_dept("학생회실(자치단체)")
+# b=find_dept("경비실")
+# print(a)
+# print(b)
+
 
 
 #빈칸 빈칸 데이터 = 윗줄 3칸이랑 합치기 @
