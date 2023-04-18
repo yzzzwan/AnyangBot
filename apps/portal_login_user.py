@@ -8,7 +8,7 @@ import time
 
 chrome_options = webdriver.ChromeOptions()
 
-chrome_options.add_argument('--headless')
+# chrome_options.add_argument('--headless')
 chrome_options.add_argument('--disable-gpu')
 prefs = {'profile.managed_default_content_settings.images': 2}
 chrome_options.add_experimental_option('prefs', prefs)
@@ -20,7 +20,6 @@ driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver", chrome_option
 driver.implicitly_wait(2)  # seconds
 
 
-
 # 줄 마다 return 해서 return 되는지 test해보기 time으로 시간측정
 
 # 포탈 로그인
@@ -29,14 +28,11 @@ def portal(pid, ppw):
     driver.get("https://portal.anyang.ac.kr/")
     driver.implicitly_wait(1)  # seconds
 
-    ## test
-
     print("start")
 
     success = "f"
 
     print("포탈 접속")
-
 
     # 아이디와 비밀번호 입력 후 로그인 버튼 클릭
     login_id = driver.find_element("name", "login")
@@ -50,7 +46,6 @@ def portal(pid, ppw):
     # 로그인 버튼 클릭
     driver.find_element('id', 'loginImg').click()
 
-    #test
 
     # 로그인 처리중입니다. 잠시만 기다려주세요 \n\n *최초 로그인시에는 로그인이 조금 지연될 수 있습니다.
     try:
@@ -70,22 +65,18 @@ def portal(pid, ppw):
     except:
         pass
 
-    ## test
 
     # 로그인 완료되면 포탈페이지로 이동
     if driver.current_url == "https://portal.anyang.ac.kr/#":
         print("포탈 로그인 실패!")
-        driver.quit()
         return success
 
     else:
         print("포탈 로그인 성공!")
 
 
-    # print("포폴 접속시도")
     success="s"
-    #driver.quit()
-    time.sleep(1)
+    # time.sleep(1)
     return success
 
 
@@ -95,4 +86,8 @@ def portal(pid, ppw):
 
 # b=time.time()
 # print(b-a)
+
+# a=portal("2020E7011","rladddhks1!")
+# b=portal("2020E7011","rladyddhks1!")
+
 
