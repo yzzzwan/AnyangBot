@@ -19,20 +19,31 @@ chrome_options.add_argument('--disable-dev-shm-usage')
 driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver", chrome_options=chrome_options)
 driver.implicitly_wait(2)  # seconds
 
-
 # 줄 마다 return 해서 return 되는지 test해보기 time으로 시간측정
 
 # 포탈 로그인
 def portal(pid, ppw):
+
     print("포탈 접속 시도")
     driver.get("https://portal.anyang.ac.kr/")
     driver.implicitly_wait(1)  # seconds
-
     print("start")
 
     success = "f"
 
+
     print("포탈 접속")
+
+    # 로그인 페이지에 접속했는데 이미 (앞 유저의)로그인되어 있는 경우
+    if driver.current_url =='https://portal.anyang.ac.kr/c/portal/login_event':
+        # 쿠키를 삭제합니다
+        driver.delete_all_cookies()
+
+        # 포탈 페이지를 새로고칩니다
+        driver.get("https://portal.anyang.ac.kr/")
+
+
+
 
     # 아이디와 비밀번호 입력 후 로그인 버튼 클릭
     login_id = driver.find_element("name", "login")
@@ -77,6 +88,7 @@ def portal(pid, ppw):
 
     success="s"
     # time.sleep(1)
+
     return success
 
 
@@ -88,6 +100,8 @@ def portal(pid, ppw):
 # print(b-a)
 
 # a=portal("2020E7011","rladddhks1!")
-# b=portal("2020E7011","rladyddhks1!")
+a=portal("2020E7011","rladyddhks1!")
+
+b=portal("2020E7011","rladyddhks1!")
 
 
