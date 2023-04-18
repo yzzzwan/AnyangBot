@@ -19,21 +19,24 @@ chrome_options.add_argument('--disable-dev-shm-usage')
 #driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver",chrome_options=chrome_options)
 driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver",chrome_options=chrome_options)
 
-driver.get('https://www.anyang.ac.kr/main/introduction/anyang-campus001.do')
 # time.sleep(1)
 
 # dept1 = soup.select(".tit01")
 # dept2 = soup.select("h4.tit02")
 
 
-dept1 = driver.find_elements(By.CSS_SELECTOR, ".tit01")
-dept2 = driver.find_elements(By.CSS_SELECTOR, "h4.tit02")
 
-# 모든 부서 이름 저장
-depts = dept1[2:9] + dept2[:8] + dept1[11:13] + dept2[8:]
 
 
 def find_dept(cmd):
+    driver.get('https://www.anyang.ac.kr/main/introduction/anyang-campus001.do')
+
+    dept1 = driver.find_elements(By.CSS_SELECTOR, ".tit01")
+    dept2 = driver.find_elements(By.CSS_SELECTOR, "h4.tit02")
+
+    # 모든 부서 이름 저장
+    depts = dept1[2:9] + dept2[:8] + dept1[11:13] + dept2[8:]
+
     cnt = 0
 
     # 부서 찾기
@@ -110,7 +113,7 @@ def find_dept(cmd):
     driver.quit()
     return dept_phoneBook
 
-# find_dept("학생회실(자치단체)")
+find_dept("학생회실(자치단체)")
 
 
 #빈칸 빈칸 데이터 = 윗줄 3칸이랑 합치기 @
