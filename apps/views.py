@@ -152,14 +152,16 @@ def portal_login(request):
 @csrf_exempt
 def studyroom_timetable(request):
     answer = ((request.body).decode('utf-8'))
-    return_json_str = str(json.loads(answer))
+    json_str = str(json.loads(answer))
+    room_num = str(json_str['action']['clientExtra']['room_num'])
+
 
     return JsonResponse({
         'version': "2.0",
         'template': {
             'outputs': [{
                 'simpleText': {
-                    'text': return_json_str
+                    'text': room_num
                 }
             }]
         }
