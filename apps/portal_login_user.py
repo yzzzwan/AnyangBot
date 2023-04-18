@@ -1,12 +1,18 @@
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.alert import Alert
+
 import time
 
 chrome_options = webdriver.ChromeOptions()
 
 chrome_options.add_argument('--headless')
 chrome_options.add_argument('--disable-gpu')
+prefs = {'profile.managed_default_content_settings.images': 2}
+chrome_options.add_experimental_option('prefs', prefs)
+chrome_options.add_argument('--blink-settings=imagesEnabled=false')
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')
 # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
@@ -14,9 +20,6 @@ driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver", chrome_option
 driver.implicitly_wait(2)  # seconds
 
 
-def t(a, b):
-    s=a+b
-    return s
 
 # 줄 마다 return 해서 return 되는지 test해보기 time으로 시간측정
 
@@ -29,7 +32,6 @@ def portal(pid, ppw):
     ## test
 
     print("start")
-    start = time.time()
 
     success = "f"
 
@@ -81,14 +83,16 @@ def portal(pid, ppw):
 
 
     # print("포폴 접속시도")
-    end = time.time()
-    print("login :", end - start)
     success="s"
     #driver.quit()
+    time.sleep(1)
     return success
 
 
 # a=time.time()
-# portal("2020E7011","rladyddhks1!")
+# a=portal("2020E7011","rladyddhks1!")
+# print(a)
+
 # b=time.time()
 # print(b-a)
+
