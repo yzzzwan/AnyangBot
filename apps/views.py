@@ -153,7 +153,7 @@ def portal_login(request):
 def studyroom_timetable(request):
     answer = ((request.body).decode('utf-8'))
     json_str = str(json.loads(answer))
-    room_num = str(json_str['action']['clientExtra']['room_num'])
+    room_num = str(json_str['clientExtra']['room_num'])
 
 
     return JsonResponse({
