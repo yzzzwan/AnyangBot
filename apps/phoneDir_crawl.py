@@ -20,7 +20,7 @@ from selenium.webdriver.common.by import By
 
 
 chrome_options = webdriver.ChromeOptions()
-# chrome_options.add_argument('--headless')
+chrome_options.add_argument('--headless')
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')
 # driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver",chrome_options=chrome_options)
@@ -33,9 +33,6 @@ dept2 = driver.find_elements(By.CSS_SELECTOR, "h4.tit02")
 
 
 def find_dept(cmd):
-    print("start")
-
-
     # 모든 부서 이름 저장
     depts = dept1[2:9] + dept2[:8] + dept1[11:13] + dept2[8:]
 
