@@ -147,21 +147,23 @@ def portal_login(request):
                 }
             })
 
+from . import studyroom_Timetable
+
 
 # 셀프학습실 timetable
 @csrf_exempt
 def studyroom_timetable(request):
     answer = ((request.body).decode('utf-8'))
-    json_str = str(json.loads(answer))
-    room_num = str(json_str['clientExtra']['room_num'])
-
+    json_str = json.loads(answer)
+    room_num = str(json_str['action']['clientExtra']['room_num'])
+    available_Time = studyroom_Timetable.show_studyroom_timetable(room_num)
 
     return JsonResponse({
         'version': "2.0",
         'template': {
             'outputs': [{
                 'simpleText': {
-                    'text': room_num
+                    'text': available_Time
                 }
             }]
         }
