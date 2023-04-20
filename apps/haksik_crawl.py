@@ -82,9 +82,6 @@ menu_list.append("\n")
 menu_list.append("\n")
 menu_list.append("\n")
 
-driver.close()
-
-
 # 현재 요일 (월:0 화:1 수:2 목:3 금:4 토:5 일:6)
 now = datetime.now().weekday()
 
