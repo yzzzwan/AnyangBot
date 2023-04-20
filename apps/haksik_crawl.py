@@ -1,3 +1,5 @@
+import time
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from datetime import datetime
@@ -7,7 +9,6 @@ from datetime import datetime
 # driver.add_experimental_option("excludeSwitches", ["enable-logging"])
 # driver = webdriver.Chrome('C:\\Users\\kyw01\\Downloads\\chromedriver_win32\\chromedriver')
 # driver.get('https://www.anyang.ac.kr/main/activities/school-cafeteria.do')
-
 # #server
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('--headless')
@@ -16,6 +17,8 @@ chrome_options.add_argument('--disable-dev-shm-usage')
 chrome_options.add_argument('--disable-gpu')
 driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver",chrome_options=chrome_options)
 driver.get('https://www.anyang.ac.kr/main/activities/school-cafeteria.do')
+
+# s=time.time()
 
 
 haksik_notice= ("=" * 11) + "\n""11:00 ~ 15:00" + "\n" "15:30 ~ 18:00\n(금요일 석식 X)"
@@ -100,11 +103,12 @@ today_menu += haksik_notice
 if len(menu_list[(2*now)+1]) == 1:
     today_menu = "오늘은 쉬는 날 입니다.😊"
 
-print(week_menu)
-print(today_menu)
+# print(week_menu)
+# print(today_menu)
 
-driver.quit()
+# driver.quit()
+driver.close()
 
-
-
+# e=time.time()
+# print(e-s)
 
