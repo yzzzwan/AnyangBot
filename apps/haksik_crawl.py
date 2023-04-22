@@ -78,6 +78,7 @@ def print_today_haksik():
         return today_menu
 
     menu_list=[]
+
     if now == 0:
         # "날짜 + 월요일" 출력
         search_box = driver.find_element(By.CSS_SELECTOR,'th#mon')
@@ -140,8 +141,6 @@ def print_today_haksik():
     # 휴일일 경우.
     if len(menu_list[1]) == 1:
         today_menu = "오늘은 쉬는 날 입니다.😊"
-
-    driver.close()
 
     return today_menu
 
