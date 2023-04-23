@@ -1,12 +1,12 @@
-# import portal_login_user as plu
-#
-#
-# # available_timetable 변수를 받기 위한 전역변수
-# # available_timetable = ""
-# # available_time_list=[]
-#
-# def test(room_num):
-#     return "hi"
+import portal_login_user as plu
+
+
+# available_timetable 변수를 받기 위한 전역변수
+# available_timetable = ""
+# available_time_list=[]
+
+def test():
+    return "hi"
 #
 # def show_studyroom_timetable(room_num):
 #     return "here"
@@ -43,25 +43,25 @@
 #         cnt+=1
 #
 #     return tt
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
