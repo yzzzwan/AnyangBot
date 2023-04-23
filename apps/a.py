@@ -32,12 +32,4 @@
 # one()
 # two()
 
-import haksik_crawl
-
-a=haksik_crawl.print_week_haksik()
-print(a)
-
-print(haksik_crawl.print_today_haksik())
-print(haksik_crawl.print_today_haksik())
-print(haksik_crawl.print_today_haksik())
 

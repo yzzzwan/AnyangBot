@@ -114,43 +114,60 @@ def portal_login(request):
     Pid = str(json_str['action']['params']['portal_ID'])
     Ppw = str(json_str['action']['params']['portal_PW'])
 
-    login = portal_login_user.portal(Pid, Ppw)
+    #login = portal_login_user.portal(Pid, Ppw)
 
-    if login == 's':
-        return JsonResponse({
-                'version': "2.0",
-                'template': {
-                    'outputs': [{
-                        'simpleText': {
-                            'text': "로그인에 성공했습니다.\n self-학습실 선택하기 버튼을 눌러주세요."
-                       }
-                    }],
-                    'quickReplies': [{
-                        'label': 'self-학습실 선택하기',
-                        'action': 'block',
-                        'messageText': '다시 시도하기',
-                        'blockId' : '6435ac1770eb005cb17a7588'
-                    }]
+    return JsonResponse({
+        'version': "2.0",
+        'template': {
+            'outputs': [{
+                'simpleText': {
+                    'text': Pid+Ppw
                 }
-            })
+            }],
+            'quickReplies': [{
+                'label': 'self-학습실 선택하기',
+                'action': 'block',
+                'messageText': '다시 시도하기',
+                'blockId': '6435ac1770eb005cb17a7588'
+            }]
+        }
+    })
 
-    else:
-        return JsonResponse({
-                'version': "2.0",
-                'template': {
-                    'outputs': [{
-                        'simpleText': {
-                            'text': '입력하신 아이디 혹은 비밀번호가 일치하지 않습니다.\n 다시 시도하려면 "다시 시도"버튼을 눌러주세요.'
-                       }
-                    }],
-                    'quickReplies': [{
-                        'label': '다시 시도하기',
-                        'action': 'block',
-                        'messageText': '다시 시도하기',
-                        'blockId' : '6435adf77ab7b038704cebf7'
-                    }]
-                }
-            })
+    # if login == 's':
+    #     return JsonResponse({
+    #             'version': "2.0",
+    #             'template': {
+    #                 'outputs': [{
+    #                     'simpleText': {
+    #                         'text': "로그인에 성공했습니다.\n self-학습실 선택하기 버튼을 눌러주세요."
+    #                    }
+    #                 }],
+    #                 'quickReplies': [{
+    #                     'label': 'self-학습실 선택하기',
+    #                     'action': 'block',
+    #                     'messageText': '다시 시도하기',
+    #                     'blockId' : '6435ac1770eb005cb17a7588'
+    #                 }]
+    #             }
+    #         })
+    #
+    # else:
+    #     return JsonResponse({
+    #             'version': "2.0",
+    #             'template': {
+    #                 'outputs': [{
+    #                     'simpleText': {
+    #                         'text': '입력하신 아이디 혹은 비밀번호가 일치하지 않습니다.\n 다시 시도하려면 "다시 시도"버튼을 눌러주세요.'
+    #                    }
+    #                 }],
+    #                 'quickReplies': [{
+    #                     'label': '다시 시도하기',
+    #                     'action': 'block',
+    #                     'messageText': '다시 시도하기',
+    #                     'blockId' : '6435adf77ab7b038704cebf7'
+    #                 }]
+    #             }
+    #         })
 
 from . import studyroom_Timetable
 
