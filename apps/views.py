@@ -164,8 +164,9 @@ def selfroom_timetable(request):
     json_str = json.loads(answer)
 
     room_num = str(json_str['action']['clientExtra']['room_num'])
-    available_Time = studyroom_Timetable.show_studyroom_timetable(room_num)
+    # available_Time = studyroom_Timetable.show_studyroom_timetable(room_num)
     #  아이디 입력 함수 어떻게 해결했는지 참고해서 해결하기. 윗함수실행시키면 타임오바
+    available_Time = studyroom_Timetable.test(room_num)
 
     return JsonResponse({
         'version': "2.0",

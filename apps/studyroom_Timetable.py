@@ -5,6 +5,9 @@ import portal_login_user as plu
 # available_timetable = ""
 # available_time_list=[]
 
+def test(room_num):
+    return "hi"
+
 def show_studyroom_timetable(room_num):
     return "here"
     # tt=""
