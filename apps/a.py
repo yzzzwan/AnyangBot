@@ -32,3 +32,5 @@ import time
 # one()
 # two()
 
+def tt():
+    return "test"
