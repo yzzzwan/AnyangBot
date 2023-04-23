@@ -51,14 +51,16 @@ def week_haksik(request):
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance'] # 사용자의 발화 텍스트
 
-    week_haksik_menu = haksik_crawl.print_week_haksik()
+    #week_haksik_menu = haksik_crawl.print_week_haksik()
 
     return JsonResponse({
         'version': "2.0",
         'template': {
             'outputs': [{
                 'simpleText': {
-                    'text': week_haksik_menu
+                    #'text': week_haksik_menu
+                    'text': "W"
+
                 }
             }],
         }
@@ -71,14 +73,16 @@ def today_haksik(request):
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance'] # 사용자의 발화 텍스트
 
-    today_haksik_menu = haksik_crawl.print_today_haksik()
+    #today_haksik_menu = haksik_crawl.print_today_haksik()
 
     return JsonResponse({
         'version': "2.0",
         'template': {
             'outputs': [{
                 'simpleText': {
-                    'text': today_haksik_menu
+                    #'text': today_haksik_menu
+                    'text': "t"
+
                 }
             }]
         }
