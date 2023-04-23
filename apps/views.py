@@ -3,8 +3,8 @@ from django.http import HttpResponse
 from . import haksik_crawl
 from . import phoneDir_crawl as pdc
 # from . import test2
-
 from django.http import request as json
+
 # Create your views here.
 # def index(request):
 #     return render(request, "apps/index.html")
@@ -162,6 +162,7 @@ from . import studyroom_Timetable
 def selfroom_timetable(request):
     answer = ((request.body).decode('utf-8'))
     json_str = json.loads(answer)
+
     room_num = str(json_str['action']['clientExtra']['room_num'])
     available_Time = studyroom_Timetable.show_studyroom_timetable(room_num)
     #  아이디 입력 함수 어떻게 해결했는지 참고해서 해결하기. 윗함수실행시키면 타임오바
