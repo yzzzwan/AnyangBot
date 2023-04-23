@@ -155,7 +155,7 @@ def portal_login(request):
             })
 
 # from . import studyroom_Timetable
-from . import a
+# from . import a
 
 # 셀프학습실 timetable
 @csrf_exempt
