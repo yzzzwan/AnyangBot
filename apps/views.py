@@ -163,14 +163,14 @@ def lost_found(request):
                                          lost_items[4][2] + "을/를 습득하여 " + lost_items[4][4] + "에서 보관중입니다."
                       },
                   ],
-                  # "buttons": [
-                  #   {
-                  #     "label": "더보기",
-                  #      "link": {
-                  #       "web": "https://www.anyang.ac.kr/main/communication/lost-found.do"
-                  #     }
-                  #   }
-                  # ]
+                  "buttons": [
+                    {
+                      "label": "더보기",
+                       "link": {
+                        "web": "https://www.anyang.ac.kr/main/communication/lost-found.do"
+                      }
+                    }
+                  ]
                 }
               }
             ]
