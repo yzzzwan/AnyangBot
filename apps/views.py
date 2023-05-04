@@ -109,9 +109,10 @@ from . import lost_and_found
 
 # 전화번호부
 @csrf_exempt
-def phoneDir(request):
-    # links = lost_and_found.lost_items_list()
-    # lost_items = lost_and_found.lost_item_detail(links)
+def lost_found(request):
+    links = lost_and_found.lost_items_list()
+    lost_items = lost_and_found.lost_item_detail(links)
+    a="1"
     return JsonResponse({
               "version": "2.0",
               "template": {
@@ -119,7 +120,7 @@ def phoneDir(request):
                   {
                     "listCard": {
                       "header": {
-                        "title": "안양대 분실물 센터"
+                        "title": "안양대 분실물 센터" + a
                       },
                       "items": [
                           {
