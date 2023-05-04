@@ -104,6 +104,79 @@ def phoneDir(request):
         }
     })
 
+from . import lost_and_found
+
+
+# 분실물 찾기
+@csrf_exempt
+def lost_found(request):
+    answer = ((request.body).decode('utf-8'))
+    return_json_str = json.loads(answer)
+    return_str = return_json_str['userRequest']['utterance'] # 사용자의 발화 텍스트
+
+    links = lost_and_found.lost_items_list()
+    lost_items = lost_and_found.lost_item_detail(links)
+
+    return JsonResponse({
+          "version": "2.0",
+          "template": {
+            "outputs": [
+              {
+                "listCard": {
+                  "header": {
+                    "title": "안양대 분실물 센터"
+                  },
+                  "items": [
+                      {
+                          "title": lost_items[0][0] + ") " + lost_items[0][2],
+                          "description": lost_items[0][1] + "에서 발견됨.",
+
+                          "messageText": lost_items[0][0] + ", " + lost_items[0][1] + "에서 " + lost_items[0][3] + "이/가" +
+                                         lost_items[0][2] + "을/를 습득하여 " + lost_items[0][4] + "에서 보관중입니다."
+                      },
+                      {
+                          "title": lost_items[1][0] + ") " + lost_items[1][2],
+                          "description": lost_items[1][1] + "에서 발견됨.",
+
+                          "messageText": lost_items[1][0] + ", " + lost_items[1][1] + "에서 " + lost_items[1][3] + "이/가" +
+                                         lost_items[1][2] + "을/를 습득하여 " + lost_items[1][4] + "에서 보관중입니다."
+                      },
+                      {
+                          "title": lost_items[2][0] + ") " + lost_items[2][2],
+                          "description": lost_items[2][1] + "에서 발견됨.",
+
+                          "messageText": lost_items[2][0] + ", " + lost_items[2][1] + "에서 " + lost_items[2][3] + "이/가" +
+                                         lost_items[2][2] + "을/를 습득하여 " + lost_items[2][4] + "에서 보관중입니다."
+                      },
+                      {
+                          "title": lost_items[3][0] + ") " + lost_items[3][2],
+                          "description": lost_items[3][1] + "에서 발견됨.",
+
+                          "messageText": lost_items[3][0] + ", " + lost_items[3][1] + "에서 " + lost_items[3][3] + "이/가" +
+                                         lost_items[3][2] + "을/를 습득하여 " + lost_items[3][4] + "에서 보관중입니다."
+                      },
+                      {
+                          "title": lost_items[4][0] + ") " + lost_items[4][2],
+                          "description": lost_items[4][1] + "에서 발견됨.",
+
+                          "messageText": lost_items[4][0] + ", " + lost_items[4][1] + "에서 " + lost_items[4][3] + "이/가" +
+                                         lost_items[4][2] + "을/를 습득하여 " + lost_items[4][4] + "에서 보관중입니다."
+                      },
+                  ],
+                  "buttons": [
+                    {
+                      "label": "더보기",
+                       "link": {
+                        "web": "https://www.anyang.ac.kr/main/communication/lost-found.do"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        })
+
 
 
 from . import portal_login_user

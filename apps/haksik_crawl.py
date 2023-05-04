@@ -89,7 +89,7 @@ def print_today_haksik():
 
     # 현재 요일 (월:0 화:1 수:2 목:3 금:4 토:5 일:6)
     now = datetime.now().weekday()
-    now=4
+
     # 주말
     if now == 5 or now == 6:
         today_menu = "오늘은 쉬는 날 입니다.😊"
@@ -163,18 +163,3 @@ def print_today_haksik():
     driver.quit()
 
     return today_menu
-
-
-# print(print_today_haksik())
-# print(print_week_haksik())
-
-
-# s=time.time()
-# print_today_haksik()
-# e=time.time()
-# print(e-s)
-#
-# s=time.time()
-# print_week_haksik()
-# e=time.time()
-# print(e-s)
