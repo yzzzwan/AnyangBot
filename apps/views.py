@@ -105,8 +105,9 @@ def phoneDir(request):
     })
 
 from . import lost_and_found
-
-
+#
+# "messageText": lost_items[4][0] + ", " + lost_items[4][1] + "에서 " + lost_items[4][3] + "이/가" +
+# lost_items[4][2] + "을/를 습득하여 " + lost_items[4][4] + "에서 보관중입니다."
 # 분실물 찾기
 @csrf_exempt
 def lost_found(request):
@@ -130,37 +131,32 @@ def lost_found(request):
                       {
                           "title": lost_items[0][0] + ") " + lost_items[0][2],
                           "description": lost_items[0][1] + "에서 발견함.",
-
-                          "messageText": lost_items[0][0] + ", " + lost_items[0][1] + "에서 " + lost_items[0][3] + "이/가" +
-                                         lost_items[0][2] + "을/를 습득하여 " + lost_items[0][4] + "에서 보관중입니다."
+                          "action": "block",
+                          "blockId": "6453cd9d77b75e38fd945ba1",
+                          "extra": {
+                              "num": 0,
+                          }
                       },
                       {
                           "title": lost_items[1][0] + ") " + lost_items[1][2],
                           "description": lost_items[1][1] + "에서 발견함.",
 
-                          "messageText": lost_items[1][0] + ", " + lost_items[1][1] + "에서 " + lost_items[1][3] + "이/가" +
-                                         lost_items[1][2] + "을/를 습득하여 " + lost_items[1][4] + "에서 보관중입니다."
                       },
                       {
                           "title": lost_items[2][0] + ") " + lost_items[2][2],
                           "description": lost_items[2][1] + "에서 발견함.",
 
-                          "messageText": lost_items[2][0] + ", " + lost_items[2][1] + "에서 " + lost_items[2][3] + "이/가" +
-                                         lost_items[2][2] + "을/를 습득하여 " + lost_items[2][4] + "에서 보관중입니다."
                       },
                       {
                           "title": lost_items[3][0] + ") " + lost_items[3][2],
                           "description": lost_items[3][1] + "에서 발견함.",
 
-                          "messageText": lost_items[3][0] + ", " + lost_items[3][1] + "에서 " + lost_items[3][3] + "이/가" +
-                                         lost_items[3][2] + "을/를 습득하여 " + lost_items[3][4] + "에서 보관중입니다."
                       },
                       {
                           "title": lost_items[4][0] + ") " + lost_items[4][2],
                           "description": lost_items[4][1] + "에서 발견함.",
 
-                          "messageText": lost_items[4][0] + ", " + lost_items[4][1] + "에서 " + lost_items[4][3] + "이/가" +
-                                         lost_items[4][2] + "을/를 습득하여 " + lost_items[4][4] + "에서 보관중입니다."
+
                       },
                   ],
                   "buttons": [
@@ -176,6 +172,23 @@ def lost_found(request):
           }
         })
 
+
+# 분실물 정보 자세히
+@csrf_exempt
+def lost_found_detail(request):
+    answer = ((request.body).decode('utf-8'))
+    return_json_str = json.loads(answer)
+    return_str = str(return_json_str)
+    return JsonResponse({
+        'version': "2.0",
+        'template': {
+            'outputs': [{
+                'simpleText': {
+                    'text': return_str
+                }
+            }]
+        }
+    })
 
 
 from . import portal_login_user

@@ -27,6 +27,7 @@ urlpatterns = [
     re_path(r'^todayHaksik/?$', v.today_haksik), # 오늘 학식
     re_path(r'^phoneBook/?$', v.phoneDir),  # 전화번호부
     re_path(r'^lost_and_found/?$', v.lost_found),  # 분실물 찾기
+    re_path(r'^lost_and_found_detail/?$', v.lost_found_detail),  # 분실물 찾기
 
     #re_path(r'^studyRoom_reserve/?$', v.studyRoom_reserve),  # 스터디룸 예약
 
