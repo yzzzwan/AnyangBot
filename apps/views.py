@@ -132,7 +132,7 @@ def lost_found(request):
                           "title": lost_items[0][0] + ") " + lost_items[0][2],
                           "description": lost_items[0][1] + "에서 발견함.",
                           "action": "block",
-                          "blockId": "6453cd9d77b75e38fd945ba1",
+                          "blockId": "6453e24cff276f32961c361",
                           "extra": {
                               "num": 0,
                           }
