@@ -176,21 +176,24 @@ def lost_found(request):
 def lost_found_detail(request):
     answer = ((request.body).decode('utf-8'))
     json_str = json.loads(answer)
-    detail = str(json_str['action']['clientExtra']['num'])
+    num = str(json_str['action']['clientExtra']['num'])
+
+    links = lost_and_found.lost_items_list()
+    lost_items = lost_and_found.lost_item_detail(links)
 
     return JsonResponse({
         'version': "2.0",
         'template': {
             'outputs': [{
                 'simpleText': {
-                    'text': detail
+                    'text': lost_items[num][0] + ", " + lost_items[num][1] + "에서 " + lost_items[num][3] + "이/가" +
+                            lost_items[num][2] + "을/를 습득하여 " + lost_items[num][4] + "에서 보관중입니다."
                 }
             }]
         }
     })
 #
-# "messageText": lost_items[4][0] + ", " + lost_items[4][1] + "에서 " + lost_items[4][3] + "이/가" +
-# lost_items[4][2] + "을/를 습득하여 " + lost_items[4][4] + "에서 보관중입니다."
+# "messageText":
 
 from . import portal_login_user
 
