@@ -105,9 +105,7 @@ def phoneDir(request):
     })
 
 from . import lost_and_found
-#
-# "messageText": lost_items[4][0] + ", " + lost_items[4][1] + "에서 " + lost_items[4][3] + "이/가" +
-# lost_items[4][2] + "을/를 습득하여 " + lost_items[4][4] + "에서 보관중입니다."
+
 # 분실물 찾기
 @csrf_exempt
 def lost_found(request):
@@ -132,7 +130,7 @@ def lost_found(request):
                           "title": lost_items[0][0] + ") " + lost_items[0][2],
                           "description": lost_items[0][1] + "에서 발견함.",
                           "action": "block",
-                          "blockId": "6453e24cff276f32961c361",
+                          "blockId": "6453e24cff276f32961c361c",
                           "extra": {
                               "num": 0,
                           }
@@ -189,7 +187,9 @@ def lost_found_detail(request):
             }]
         }
     })
-
+#
+# "messageText": lost_items[4][0] + ", " + lost_items[4][1] + "에서 " + lost_items[4][3] + "이/가" +
+# lost_items[4][2] + "을/를 습득하여 " + lost_items[4][4] + "에서 보관중입니다."
 
 from . import portal_login_user
 
