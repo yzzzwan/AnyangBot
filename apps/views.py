@@ -175,14 +175,15 @@ def lost_found(request):
 @csrf_exempt
 def lost_found_detail(request):
     answer = ((request.body).decode('utf-8'))
-    return_json_str = json.loads(answer)
-    return_str = str(return_json_str)
+    json_str = json.loads(answer)
+    detail = str(json_str['action']['clientExtra']['num'])
+
     return JsonResponse({
         'version': "2.0",
         'template': {
             'outputs': [{
                 'simpleText': {
-                    'text': return_str
+                    'text': detail
                 }
             }]
         }
