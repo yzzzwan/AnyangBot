@@ -138,21 +138,41 @@ def lost_found(request):
                       {
                           "title": lost_items[1][0] + ") " + lost_items[1][2],
                           "description": lost_items[1][1] + "에서 발견함.",
+                          "action": "block",
+                          "blockId": "6453e24cff276f32961c361c",
+                          "extra": {
+                              "num": 1,
+                          }
 
                       },
                       {
                           "title": lost_items[2][0] + ") " + lost_items[2][2],
                           "description": lost_items[2][1] + "에서 발견함.",
+                          "action": "block",
+                          "blockId": "6453e24cff276f32961c361c",
+                          "extra": {
+                              "num": 2,
+                          }
 
                       },
                       {
                           "title": lost_items[3][0] + ") " + lost_items[3][2],
                           "description": lost_items[3][1] + "에서 발견함.",
+                          "action": "block",
+                          "blockId": "6453e24cff276f32961c361c",
+                          "extra": {
+                              "num": 3,
+                          }
 
                       },
                       {
                           "title": lost_items[4][0] + ") " + lost_items[4][2],
                           "description": lost_items[4][1] + "에서 발견함.",
+                          "action": "block",
+                          "blockId": "6453e24cff276f32961c361c",
+                          "extra": {
+                              "num": 4,
+                          }
 
 
                       },
@@ -176,7 +196,7 @@ def lost_found(request):
 def lost_found_detail(request):
     answer = ((request.body).decode('utf-8'))
     json_str = json.loads(answer)
-    num = str(json_str['action']['clientExtra']['num'])
+    num = int(json_str['action']['clientExtra']['num'])
 
     links = lost_and_found.lost_items_list()
     lost_items = lost_and_found.lost_item_detail(links)
@@ -186,9 +206,14 @@ def lost_found_detail(request):
         'template': {
             'outputs': [{
                 'simpleText': {
-                    'text': lost_items[num][0] + ", " + lost_items[num][1] + "에서 " + lost_items[num][3] + "이/가" +
-                            lost_items[num][2] + "을/를 습득하여 " + lost_items[num][4] + "에서 보관중입니다."
+                    'text': lost_items[num][0] + ", " + lost_items[num][1] + "에서 " + lost_items[num][3] + "이(가) " +
+                            lost_items[num][2] + "을(를) 습득하여 " + lost_items[num][4] + "에서 보관중입니다."
                 }
+            }],
+            'quickReplies': [{
+                'label': '학생지원과 연락처',
+                'action': 'message',
+                'messageText': '학생지원처',
             }]
         }
     })
