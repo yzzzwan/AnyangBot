@@ -285,6 +285,7 @@ def selfroom_timetable(request):
 
     room_num = int(room_num) - 1
     room_name = room_names[room_num]
+
     return JsonResponse({
             "version": "2.0",
             "template": {
@@ -298,11 +299,26 @@ def selfroom_timetable(request):
                                 {
                                     "title": available_Time[0],
                                     "description": "원하는 사용시간을 선택해주세요.",
+
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    "extra": {
+                                        "num": 0,
+                                        "room": room_name
+                                    }
+
                                 },
 
                                 {
                                     "title": available_Time[1],
                                     "description": "원하는 사용시간을 선택해주세요.",
+
+                                                                        "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    "extra": {
+                                        "num": 1,
+                                        "room": room_name
+                                    }
 
                                 },
 
@@ -310,11 +326,25 @@ def selfroom_timetable(request):
                                     "title": available_Time[2],
                                     "description": "원하는 사용시간을 선택해주세요.",
 
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    "extra": {
+                                        "num": 2,
+                                    "room": room_name
+                                }
+
                                 },
 
                                 {
                                     "title": available_Time[3],
                                     "description": "원하는 사용시간을 선택해주세요.",
+
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    "extra": {
+                                        "num": 3,
+                                    "room": room_name
+                                }
 
 
                                 },
@@ -323,7 +353,12 @@ def selfroom_timetable(request):
                                     "title": available_Time[4],
                                     "description": "원하는 사용시간을 선택해주세요.",
 
-
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    "extra": {
+                                        "num": 4,
+                                    "room": room_name
+                                }
                                 },
                             ],
                         }
@@ -338,34 +373,59 @@ def selfroom_timetable(request):
                                     "title": available_Time[5],
                                     "description": "원하는 사용시간을 선택해주세요.",
 
-
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    "extra": {
+                                        "num": 5,
+                                    "room": room_name
+                                }
                                 },
 
                                 {
                                     "title": available_Time[6],
                                     "description": "원하는 사용시간을 선택해주세요.",
 
-
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    "extra": {
+                                        "num": 6,
+                                    "room": room_name
+                                }
                                 },
 
                                 {
                                     "title": available_Time[7],
                                     "description": "원하는 사용시간을 선택해주세요.",
-
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    "extra": {
+                                        "num": 7,
+                                    "room": room_name
+                                }
                                 },
 
                                 {
                                     "title": available_Time[8],
                                     "description": "원하는 사용시간을 선택해주세요.",
 
-
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    "extra": {
+                                        "num": 8,
+                                    "room": room_name
+                                }
                                 },
 
                                 {
                                     "title": available_Time[9],
                                     "description": "원하는 사용시간을 선택해주세요.",
 
-
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    "extra": {
+                                        "num": 9,
+                                    "room": room_name
+                                }
                                 },
                             ],
                         }
@@ -380,19 +440,34 @@ def selfroom_timetable(request):
                                     "title": available_Time[10],
                                     "description": "원하는 사용시간을 선택해주세요.",
 
-
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    "extra": {
+                                        "num": 10,
+                                    "room": room_name
+                                }
                                 },
 
                                 {
                                     "title": available_Time[11],
                                     "description": "원하는 사용시간을 선택해주세요.",
-
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    "extra": {
+                                        "num": 11,
+                                    "room": room_name
+                                }
                                 },
 
                                 {
                                     "title": available_Time[12],
                                     "description": "원하는 사용시간을 선택해주세요.",
-
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    "extra": {
+                                        "num": 12,
+                                    "room": room_name
+                                }
                                 },
                             ],
                         }
@@ -406,8 +481,8 @@ def selfroom_timetable(request):
 # 셀프학습실 예약 final check
 @csrf_exempt
 def studyRoom_final_check(request):
-    # answer = ((request.body).decode('utf-8'))
-    # json_str = json.loads(answer)
+    answer = ((request.body).decode('utf-8'))
+    json_str = json.loads(answer)
 
     # room_num = str(json_str['action']['clientExtra']['room_num'])
     # available_Time = studyroom_Timetable.show_studyroom_timetable(room_num)
@@ -417,7 +492,7 @@ def studyRoom_final_check(request):
         'template': {
             'outputs': [{
                 'simpleText': {
-                    'text': "test"
+                    'text': str(json_str)
                 }
             }]
         }
