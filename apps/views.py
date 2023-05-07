@@ -328,7 +328,7 @@ def selfroom_timetable(request):
                                     "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
                                     "extra": {
-                                        "num": 2,
+                                    "num": 2,
                                     "room": room_name
                                 }
 
@@ -341,7 +341,7 @@ def selfroom_timetable(request):
                                     "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
                                     "extra": {
-                                        "num": 3,
+                                    "num": 3,
                                     "room": room_name
                                 }
 
@@ -496,15 +496,19 @@ def studyRoom_final_check(request):
                     'text': "(" + select_time + ")" + "에 "+room + "을(를) 예약하시겠습니까?"
                 }
             }],
-            'quickReplies': [{
-                'label': '네',
-                'action': 'message',
-                'messageText': '네',
+            'quickReplies': [
+                {
+                    "type": "text",
+                    "label": "네",
+                    "message": "예약하겠습니다."
+                },
 
-                'label': '아니요',
-                'action': 'message',
-                'messageText': '네',
-            }],
+                {
+                    "type": "text",
+                    "label": "아니요",
+                    "message": "다시 시도"
+                },
+            ],
         }
     })
 
