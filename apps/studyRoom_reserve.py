@@ -3,7 +3,7 @@ import time
 
 
 def selfroom_reserve(idx):
-    sucess="f"
+    s = "f"
     # 시간 선택
     sT.available_time_list_tag[idx].click()
 
@@ -43,7 +43,7 @@ def selfroom_reserve(idx):
 
     sT.Alert(sT.driver).accept()
 
-    sucess="s"
-    return sucess
+    s = "s"
+    return s
 
 
