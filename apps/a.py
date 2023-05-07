@@ -1,4 +1,4 @@
-# import portal_login_user
+import portal_login_user
 import studyroom_Timetable
 import time
 # # print("start a")
@@ -28,7 +28,7 @@ import time
 # def two():
 #     K=studyroom_Timetable.show_studyroom_timetable(a)
 #     print(K)
-#
+# #
 # one()
 # two()
 
