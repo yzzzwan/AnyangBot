@@ -5,16 +5,14 @@ from . import portal_login_user as plu
 
 # available_timetable 변수를 받기 위한 전역변수
 # available_timetable = ""
-# available_time_list=[]
+available_time_list_tag=[]
 
-def test():
-    return "hi"
-#
+
 def show_studyroom_timetable(room_num):
     tt=""
     print("start b")
     # global available_timetable
-    # global available_time_list
+    global available_time_list_tag
 
     print("start")
     plu.driver.get("https://ari.anyang.ac.kr/sso/index.jsp")
@@ -35,13 +33,21 @@ def show_studyroom_timetable(room_num):
     time_li_list = time_div.find_elements(plu.By.CSS_SELECTOR, 'li:not(.dsb)')
 
     available_time_list = []
+    available_time_list_tag = []
+
+
     for li in time_li_list:
         available_timetable = li.find_element(plu.By.CSS_SELECTOR, 'label')
         #print(available_timetable.text)
-        # available_time_list.append(available_timetable)
-        available_time_list.append(available_timetable.text)
+        available_time_list_tag.append(available_timetable)
+        available_time_list.append(available_timetable)
 
         # tt+=available_timetable.text+"\n"
+
+    # 9시부터 22시 까지의 13시 타임들 중에서 사용 중인 시간대들은 - 로 표시.
+    for i in range(len(available_time_list), 13):
+        available_time_list_tag.append("-")
+        available_time_list.append("-")
 
     return available_time_list
 

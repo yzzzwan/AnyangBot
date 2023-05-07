@@ -280,9 +280,6 @@ def selfroom_timetable(request):
     available_Time = studyroom_Timetable.show_studyroom_timetable(room_num)
     cnt_available_time = len(available_Time)
 
-    for i in range(cnt_available_time, 13):
-        available_Time.append("-")
-
     room_names = ["Self 학습실1(Career design)", "Self 학습실2(Thinking design)", "Self 학습실3(Life story design)", "Self 학습실4", "Self 학습실5", "Self 학습실6", "Self 학습실7-1", "Self 학습실7-2", "Self 학습실8-1", "Self 학습실8-1"]
     room_num = int(room_num) -1
     room_name = room_names[room_num]
@@ -294,7 +291,7 @@ def selfroom_timetable(request):
                     {
                         "listCard": {
                             "header": {
-                                "title": room_name + "의 사용 가능 시간표"
+                                "title": room_name + "의 이용 가능 시간표"
                             },
                             "items": [
                                 {
@@ -332,7 +329,7 @@ def selfroom_timetable(request):
                     {
                         "listCard": {
                             "header": {
-                                "title": room_name + "의 사용 가능 시간표"
+                                "title": room_name + "의 이용 가능 시간표"
                             },
                             "items": [
                                 {
@@ -370,7 +367,7 @@ def selfroom_timetable(request):
                     {
                         "listCard": {
                             "header": {
-                                "title": room_name + "의 사용 가능 시간표"
+                                "title": room_name + "의 이용 가능 시간표"
                             },
                             "items": [
                                 {
@@ -394,7 +391,13 @@ def selfroom_timetable(request):
                         }
                     },
 
-                ]
+                ],
+                'quickReplies': [{
+                    'label': '다른 Self-학습실 보기',
+                    'action': 'block',
+                    'messageText': '다른 Self-학습실 보기',
+                    'blockId': '6435ac1770eb005cb17a7588'
+                }]
             }
         })
 
