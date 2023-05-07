@@ -34,7 +34,7 @@ def portal(pid, ppw):
     print("포탈 접속")
 
     # 로그인 페이지에 접속했는데 이미 (앞 유저의)로그인되어 있는 경우
-    if driver.current_url =='https://portal.anyang.ac.kr/c/portal/login_event':
+    if driver.current_url != 'https://portal.anyang.ac.kr/':
         # 쿠키를 삭제합니다
         driver.delete_all_cookies()
 
