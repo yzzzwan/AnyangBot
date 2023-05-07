@@ -296,59 +296,31 @@ def selfroom_timetable(request):
                                 {
                                     "title": available_Time[0],
                                     "description": "원하는 사용시간을 선택해주세요.",
-                                    "action": "block",
-                                    "blockId": "645794dfa58bfd17ce539370",
-                                    "extra": {
-                                        # "room": room_name,
-                                        "idx": 0,
-                                    }
-
                                 },
 
                                 {
                                     "title": available_Time[1],
                                     "description": "원하는 사용시간을 선택해주세요.",
-                                    "action": "block",
-                                    "blockId": "645794dfa58bfd17ce539370",
-                                    "extra": {
-                                        # "room": room_name,
-                                        "idx": 1,
-                                    }
+
                                 },
 
                                 {
                                     "title": available_Time[2],
                                     "description": "원하는 사용시간을 선택해주세요.",
-                                    "action": "block",
-                                    "blockId": "645794dfa58bfd17ce539370",
-                                    "extra": {
-                                        # "room": room_name,
-                                        "idx": 2,
-                                    }
 
                                 },
 
                                 {
                                     "title": available_Time[3],
                                     "description": "원하는 사용시간을 선택해주세요.",
-                                    "action": "block",
-                                    "blockId": "645794dfa58bfd17ce539370",
-                                    "extra": {
-                                        # "room": room_name,
-                                        "idx": 3,
-                                    }
+
 
                                 },
 
                                 {
                                     "title": available_Time[4],
                                     "description": "원하는 사용시간을 선택해주세요.",
-                                    "action": "block",
-                                    "blockId": "645794dfa58bfd17ce539370",
-                                    "extra": {
-                                        # "room": room_name,
-                                        "idx": 4,
-                                    }
+
 
                                 },
                             ],
@@ -363,60 +335,34 @@ def selfroom_timetable(request):
                                 {
                                     "title": available_Time[5],
                                     "description": "원하는 사용시간을 선택해주세요.",
-                                    "action": "block",
-                                    "blockId": "645794dfa58bfd17ce539370",
-                                    "extra": {
-                                        # "room": room_name,
-                                        "idx": 5,
-                                    }
+
 
                                 },
 
                                 {
                                     "title": available_Time[6],
                                     "description": "원하는 사용시간을 선택해주세요.",
-                                    "action": "block",
-                                    "blockId": "645794dfa58bfd17ce539370",
-                                    "extra": {
-                                        # "room": room_name,
-                                        "idx": 6,
-                                    }
+
 
                                 },
 
                                 {
                                     "title": available_Time[7],
                                     "description": "원하는 사용시간을 선택해주세요.",
-                                    "action": "block",
-                                    "blockId": "645794dfa58bfd17ce539370",
-                                    "extra": {
-                                        # "room": room_name,
-                                        "idx": 7,
-                                    }
 
                                 },
 
                                 {
                                     "title": available_Time[8],
                                     "description": "원하는 사용시간을 선택해주세요.",
-                                    "action": "block",
-                                    "blockId": "645794dfa58bfd17ce539370",
-                                    "extra": {
-                                        # "room": room_name,
-                                        "idx": 8,
-                                    }
+
 
                                 },
 
                                 {
                                     "title": available_Time[9],
                                     "description": "원하는 사용시간을 선택해주세요.",
-                                    "action": "block",
-                                    "blockId": "645794dfa58bfd17ce539370",
-                                    "extra": {
-                                        # "room": room_name,
-                                        "idx": 9,
-                                    }
+
 
                                 },
                             ],
@@ -431,36 +377,21 @@ def selfroom_timetable(request):
                                 {
                                     "title": available_Time[10],
                                     "description": "원하는 사용시간을 선택해주세요.",
-                                    "action": "block",
-                                    "blockId": "645794dfa58bfd17ce539370",
-                                    "extra": {
-                                        # "room": room_name,
-                                        "idx": 10,
-                                    }
+
 
                                 },
 
                                 {
                                     "title": available_Time[11],
                                     "description": "원하는 사용시간을 선택해주세요.",
-                                    "action": "block",
-                                    "blockId": "645794dfa58bfd17ce539370",
-                                    "extra": {
-                                        # "room": room_name,
-                                        "idx": 11,
-                                    }
+
 
                                 },
 
                                 {
                                     "title": available_Time[12],
                                     "description": "원하는 사용시간을 선택해주세요.",
-                                    "action": "block",
-                                    "blockId": "645794dfa58bfd17ce539370",
-                                    "extra": {
-                                        # "room": room_name,
-                                        "idx": 12,
-                                    }
+
 
                                 },
                             ],
