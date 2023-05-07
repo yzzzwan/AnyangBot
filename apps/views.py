@@ -269,7 +269,6 @@ def portal_login(request):
 from . import studyroom_Timetable
 # from . import a
 
-# self 학습실 1에 9:00 ~ 10:00 에 사용 신청을 하시겠습니까?
 # 셀프학습실 timetable
 @csrf_exempt
 def selfroom_timetable(request):
@@ -484,17 +483,29 @@ def studyRoom_final_check(request):
     answer = ((request.body).decode('utf-8'))
     json_str = json.loads(answer)
 
-    # room_num = str(json_str['action']['clientExtra']['room_num'])
-    # available_Time = studyroom_Timetable.show_studyroom_timetable(room_num)
+    idx = int(json_str['action']['clientExtra']['num'])
+    room = str(json_str['action']['clientExtra']['room'])
+    select_time=studyroom_Timetable.available_time_list_tag[idx].text
+    # 9:00 ~ 10:00에 self 학습실 1를 예약하시겠습니까?
 
     return JsonResponse({
         'version': "2.0",
         'template': {
             'outputs': [{
                 'simpleText': {
-                    'text': str(json_str)
+                    'text': select_time + "에 "+room + "을(를) 예약하시겠습니까?"
                 }
-            }]
+            }],
+            'quickReplies': [{
+                'label': '네',
+                'action': 'message',
+                'messageText': '네',
+            }],
+            'quickReplies': [{
+                'label': '아니요',
+                'action': 'message',
+                'messageText': '네',
+            }],
         }
     })
 
