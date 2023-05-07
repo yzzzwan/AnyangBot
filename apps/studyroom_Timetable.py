@@ -1,6 +1,8 @@
-# import portal_login_user as plu
+import time
 
-from . import portal_login_user as plu
+import portal_login_user as plu
+
+# from . import portal_login_user as plu
 
 
 # available_timetable 변수를 받기 위한 전역변수
@@ -48,7 +50,7 @@ def show_studyroom_timetable(room_num):
     for i in range(len(available_time_list), 13):
         available_time_list_tag.append("-")
         available_time_list.append("-")
-
+    time.sleep(10)
     return available_time_list
 
 

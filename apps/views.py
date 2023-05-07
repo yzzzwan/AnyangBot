@@ -283,6 +283,16 @@ def selfroom_timetable(request):
                   "Self 학습실4", "Self 학습실5", "Self 학습실6", "Self 학습실7-1", "Self 학습실7-2", "Self 학습실8-1",
                   "Self 학습실8-1"]
 
+    return JsonResponse({
+        'version': "2.0",
+        'template': {
+            'outputs': [{
+                'simpleText': {
+                    'text': room_num
+                }
+            }]
+        }
+    })
     room_num = int(room_num) - 1
     room_name = room_names[room_num]
 
@@ -303,7 +313,7 @@ def selfroom_timetable(request):
                                     "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
                                     "extra": {
-                                        "num": 0,
+                                        "idx": 0,
                                         "room": room_name
                                     }
 
@@ -313,10 +323,10 @@ def selfroom_timetable(request):
                                     "title": available_Time[1],
                                     "description": "원하는 사용시간을 선택해주세요.",
 
-                                                                        "action": "block",
+                                    "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
                                     "extra": {
-                                        "num": 1,
+                                        "idx": 1,
                                         "room": room_name
                                     }
 
@@ -329,8 +339,8 @@ def selfroom_timetable(request):
                                     "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
                                     "extra": {
-                                    "num": 2,
-                                    "room": room_name
+                                        "idx": 2,
+                                        "room": room_name
                                 }
 
                                 },
@@ -342,8 +352,8 @@ def selfroom_timetable(request):
                                     "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
                                     "extra": {
-                                    "num": 3,
-                                    "room": room_name
+                                        "idx": 3,
+                                        "room": room_name
                                 }
 
 
@@ -356,8 +366,8 @@ def selfroom_timetable(request):
                                     "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
                                     "extra": {
-                                        "num": 4,
-                                    "room": room_name
+                                        "idx": 4,
+                                        "room": room_name
                                 }
                                 },
                             ],
@@ -376,8 +386,8 @@ def selfroom_timetable(request):
                                     "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
                                     "extra": {
-                                        "num": 5,
-                                    "room": room_name
+                                        "idx": 5,
+                                        "room": room_name
                                 }
                                 },
 
@@ -388,8 +398,8 @@ def selfroom_timetable(request):
                                     "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
                                     "extra": {
-                                        "num": 6,
-                                    "room": room_name
+                                        "idx": 6,
+                                        "room": room_name
                                 }
                                 },
 
@@ -399,8 +409,8 @@ def selfroom_timetable(request):
                                     "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
                                     "extra": {
-                                        "num": 7,
-                                    "room": room_name
+                                        "idx": 7,
+                                        "room": room_name
                                 }
                                 },
 
@@ -411,8 +421,8 @@ def selfroom_timetable(request):
                                     "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
                                     "extra": {
-                                        "num": 8,
-                                    "room": room_name
+                                        "idx": 8,
+                                        "room": room_name
                                 }
                                 },
 
@@ -423,8 +433,8 @@ def selfroom_timetable(request):
                                     "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
                                     "extra": {
-                                        "num": 9,
-                                    "room": room_name
+                                        "idx": 9,
+                                        "room": room_name
                                 }
                                 },
                             ],
@@ -443,8 +453,8 @@ def selfroom_timetable(request):
                                     "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
                                     "extra": {
-                                        "num": 10,
-                                    "room": room_name
+                                        "idx": 10,
+                                        "room": room_name
                                 }
                                 },
 
@@ -454,8 +464,8 @@ def selfroom_timetable(request):
                                     "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
                                     "extra": {
-                                        "num": 11,
-                                    "room": room_name
+                                        "idx": 11,
+                                        "room": room_name
                                 }
                                 },
 
@@ -465,8 +475,8 @@ def selfroom_timetable(request):
                                     "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
                                     "extra": {
-                                        "num": 12,
-                                    "room": room_name
+                                        "idx": 12,
+                                        "room": room_name
                                 }
                                 },
                             ],
@@ -484,7 +494,7 @@ def studyRoom_final_check(request):
     answer = ((request.body).decode('utf-8'))
     json_str = json.loads(answer)
 
-    idx = int(json_str['action']['clientExtra']['num'])
+    idx = int(json_str['action']['clientExtra']['idx'])
     room = str(json_str['action']['clientExtra']['room'])
     select_time = studyroom_Timetable.available_time_list_tag[idx].text
     # 9:00 ~ 10:00에 self 학습실 1를 예약하시겠습니까?

@@ -1,26 +1,28 @@
-from . import portal_login_user as sT
+from . import studyroom_Timetable as st
+from . import portal_login_user as plu
 import time
+
 
 
 def selfroom_reserve(idx):
     s = "f"
     # 시간 선택
-    sT.available_time_list_tag[idx].click()
-
+    st.available_time_list_tag[idx].click()
     # 신청 버튼 클릭
-    sT.driver.find_element(sT.By.CSS_SELECTOR, "a.btn02.green01.hv01").click()
+    plu.driver.find_element(plu.By.CSS_SELECTOR, "a.btn02.green01.hv01").click()
     time.sleep(1)
+
     #print(driver.current_url)
 
-    win = sT.driver.window_handles
+    win = plu.driver.window_handles
     #print(win)
 
     # 신청 팝업 창으로 이동
-    sT.driver.switch_to.window(win[1])
+    plu.driver.switch_to.window(win[1])
 
 
 
-    input_member = sT.driver.find_element("name", "mem")
+    input_member = plu.driver.find_element("name", "mem")
 
     # 사용인원 입력
     input_member.send_keys("1")
@@ -28,20 +30,20 @@ def selfroom_reserve(idx):
     # 신청사유
     reason = "공부"
 
-    input_reason = sT.driver.find_element("name", "reason")
+    input_reason = plu.driver.find_element("name", "reason")
 
     # 신청사유 입력
     input_reason.send_keys(reason)
 
     # 동의 라벨 클릭
-    sT.driver.find_element("id", "agree").click()
+    plu.driver.find_element("id", "agree").click()
 
     # 완료 버튼 클릭
-    sT.driver.find_element(sT.By.CSS_SELECTOR, "a.btn02.green01.hv01").click()
+    plu.driver.find_element(plu.By.CSS_SELECTOR, "a.btn02.green01.hv01").click()
 
     time.sleep(1)
 
-    sT.Alert(sT.driver).accept()
+    plu.Alert(plu.driver).accept()
 
     s = "s"
     return s

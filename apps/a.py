@@ -1,5 +1,22 @@
-# import portal_login_user
-# import studyroom_Timetable
+import portal_login_user
+import studyroom_Timetable
+# import studyRoom_reserve
+a="01"
+def one():
+    portal_login_user.portal("2020E7011","rladyddhks1!")
+
+def two():
+    K=studyroom_Timetable.show_studyroom_timetable(a)
+    print(K)
+
+def thr():
+    print(studyRoom_reserve.selfroom_reserve(1))
+#
+one()
+two()
+# thr()
+
+# o,
 # import time
 # # # print("start a")
 # # # sa=time.time()
