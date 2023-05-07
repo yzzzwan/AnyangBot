@@ -529,6 +529,10 @@ def studyRoom_final_check(request):
         }
     })
 
+## 다른 학습실 보기 버튼
+## 출력은 리스트 버튼으로
+## 리스트 버튼 클릭 시 예약하겠습니까 버튼.
+
 from . import studyRoom_reserve
 
 # self 학습실 예약
@@ -538,7 +542,9 @@ def studyRoom_reserve(request):
     json_str = json.loads(answer)
 
     idx = int(json_str['action']['clientExtra']['num'])
-    s = studyRoom_reserve.selfroom_reserve(idx)
+    # s = studyRoom_reserve.selfroom_reserve(idx)
+    s = studyRoom_reserve.test()
+
     return JsonResponse({
         'version': "2.0",
         'template': {
@@ -550,172 +556,7 @@ def studyRoom_reserve(request):
         }
     })
 
-# # 셀프학습실 timetable
-# @csrf_exempt
-# def selfroom_timetable(request):
-#     answer = ((request.body).decode('utf-8'))
-#     json_str = json.loads(answer)
-#
-#     room_num = str(json_str['action']['clientExtra']['room_num'])
-#     # available_Time = studyroom_Timetable.show_studyroom_timetable(room_num)
-#     #  아이디 입력 함수 어떻게 해결했는지 참고해서 해결하기. 윗함수실행시키면 타임오바
-#
-#     return JsonResponse({
-#         'version': "2.0",
-#         'template': {
-#             'outputs': [{
-#                 'simpleText': {
-#                     'text': room_num
-#                 }
-#             }]
-#         }
-#     })
-## 다른 학습실 보기 버튼
-## 출력은 리스트 버튼으로
-## 리스트 버튼 클릭 시 예약하겠습니까 버튼.
 
-
-
-# @csrf_exempt
-# def studyRoom_reserve(request):
-#     answer = ((request.body).decode('utf-8'))
-#     json_str = json.loads(answer)
-#
-#     id = json_str['action']['params']['portal_ID']
-#     pw = json_str['action']['params']['portal_PW']
-#
-#     t = test2.pl(id, pw)
-#
-#
-#     if t=="s":
-#         return JsonResponse({
-#                 'version': "2.0",
-#                 'template': {
-#                     'outputs': [{
-#                         'simpleText': {
-#                             'text': 'yes'
-#                        }
-#                     }]
-#                 }
-#             })
-#     else:
-#         return JsonResponse({
-#                 'version': "2.0",
-#                 'template': {
-#                     'outputs': [{
-#                         'simpleText': {
-#                             'text': 'no'
-#                        }
-#                     }]
-#                 }
-#             })
-
-
-
-
-
-
-
-
-
-# @csrf_exempt
-# def portal_login(request):
-#     answer = ((request.body).decode('utf-8'))
-#     json_str = json.loads(answer)
-#
-#     Pid = json_str['action']['params']['portal_ID']
-#     Ppw = json_str['action']['params']['portal_PW']
-#
-#     login = test2.portal(Pid, Ppw)
-#
-#     if login == 's':
-#         return JsonResponse({
-#                 'version': "2.0",
-#                 'template': {
-#                     'outputs': [{
-#                         'simpleText': {
-#                             'text': "login success"
-#                        }
-#                     }]
-#                 }
-#             })
-#
-#     else:
-#         return JsonResponse({
-#                 'version': "2.0",
-#                 'template': {
-#                     'outputs': [{
-#                         'simpleText': {
-#                             'text': "login fail"
-#                        }
-#                     }]
-#                 }
-#             })
-
-
-# # self 학습실 시간표 보여주기
-# @csrf_exempt
-# def studyRoom_timetable(request):
-#     answer = ((request.body).decode('utf-8'))
-#     json_str = json.loads(answer)
-#     room_num = str(json_str['contexts'][1]['params']['room_num']['value']) # 룸 번호
-#
-#     available_time = test2.ari(room_num)
-#
-#     # portal_id = json_str['contexts'][0]['params']['portal_id']['value']
-#     # portal_pw = c
-#     # portal_id = json_str['contexts'][0]['params']['portal_id']
-#     # portal_pw = json_str['contexts'][0]['params']['portal_pw']
-#
-#     return JsonResponse({
-#         'version': "2.0",
-#         'template': {
-#             'outputs': [{
-#                 'simpleText': {
-#                     'text':  available_time# 리스트를 문자열 식으로 받아와서 출력
-#                 }
-#             }]
-#         }
-#     })
-
-
-
-
-
-
-
-
-# # self 학습실 예약하기
-# @csrf_exempt
-# def studyRoom_reserve(request):
-#     answer = ((request.body).decode('utf-8'))
-#     json_str = json.loads(answer)
-#     time_select = int(json_str['contexts'][1]['params']['time_select']['value']) # 선택한 시간대
-#     done = test2.reserve(time_select)
-#
-#     if done == 'done':
-#         return JsonResponse({
-#                 'version': "2.0",
-#                 'template': {
-#                     'outputs': [{
-#                         'simpleText': {
-#                             'text': "reserve success"
-#                        }
-#                     }]
-#                 }
-#             })
-#
-#     else:
-#         return JsonResponse({
-#                 'version': "2.0",
-#                 'template': {
-#                     'outputs': [{
-#                         'simpleText': {
-#                             'text': "reserve fail"
-#                        }
-#                     }]
-#                 }
-#             })
 
 
 

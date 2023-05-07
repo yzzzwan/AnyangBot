@@ -2,7 +2,8 @@ from . import studyroom_Timetable as st
 from . import portal_login_user as plu
 import time
 
-
+def test():
+    return "test"
 
 def selfroom_reserve(idx):
     s = "f"
@@ -19,8 +20,6 @@ def selfroom_reserve(idx):
 
     # 신청 팝업 창으로 이동
     plu.driver.switch_to.window(win[1])
-
-
 
     input_member = plu.driver.find_element("name", "mem")
 
