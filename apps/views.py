@@ -279,6 +279,10 @@ def selfroom_timetable(request):
     room_num = str(json_str['action']['clientExtra']['room_num'])
     available_Time = studyroom_Timetable.show_studyroom_timetable(room_num)
     cnt_available_time = len(available_Time)
+
+    for i in range(cnt_available_time, 13):
+        available_Time.append("-")
+
     cnt = 0
     return JsonResponse({
             "version": "2.0",
@@ -292,22 +296,32 @@ def selfroom_timetable(request):
                             "items": [
                                 {
                                     "title": available_Time[cnt],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
                                 },
 
                                 {
                                     "title": available_Time[cnt+1],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
                                 },
 
                                 {
                                     "title": available_Time[cnt+2],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
                                 },
 
                                 {
                                     "title": available_Time[cnt+3],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
                                 },
 
                                 {
                                     "title": available_Time[cnt+4],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
                                 },
                             ],
                         }
@@ -320,22 +334,32 @@ def selfroom_timetable(request):
                             "items": [
                                 {
                                     "title": available_Time[cnt+5],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
                                 },
 
                                 {
                                     "title": available_Time[cnt + 6],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
                                 },
 
                                 {
                                     "title": available_Time[cnt + 7],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
                                 },
 
                                 {
                                     "title": available_Time[cnt + 8],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
                                 },
 
                                 {
                                     "title": available_Time[cnt + 9],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
                                 },
                             ],
                         }
@@ -348,14 +372,20 @@ def selfroom_timetable(request):
                             "items": [
                                 {
                                     "title": available_Time[cnt + 10],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
                                 },
 
                                 {
                                     "title": available_Time[cnt + 11],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
                                 },
 
                                 {
                                     "title": available_Time[cnt + 12],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
                                 },
                             ],
                         }
