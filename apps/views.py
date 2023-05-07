@@ -536,14 +536,14 @@ def studyRoom_reserve(request):
     answer = ((request.body).decode('utf-8'))
     json_str = json.loads(answer)
 
-    idx = int(json_str['action']['clientExtra']['num'])
-    sucess = studyRoom_reserve.selfroom_reserve(idx)
+    # idx = int(json_str['action']['clientExtra']['num'])
+    # sucess = studyRoom_reserve.selfroom_reserve(idx)
     return JsonResponse({
         'version': "2.0",
         'template': {
             'outputs': [{
                 'simpleText': {
-                    'text': sucess
+                    'text': str(json_str)
                 }
             }]
         }
