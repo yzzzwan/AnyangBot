@@ -498,15 +498,21 @@ def studyRoom_final_check(request):
             }],
             'quickReplies': [
                 {
-                    "type": "text",
-                    "label": "네",
-                    "message": "예약하겠습니다."
+                    "messageText": "예약하겠습니다.",
+                    "action": "message",
+                    "label": "네"
                 },
 
                 {
-                    "type": "text",
-                    "label": "아니요",
-                    "message": "다시 시도"
+                    "messageText": "다시 선택할게요",
+                    "action": "message",
+                    "label": "다시 선택"
+                },
+
+                {
+                    "messageText": "self 학습실 예약을 종료합니다.",
+                    "action": "message",
+                    "label": "종료하기"
                 },
             ],
         }
