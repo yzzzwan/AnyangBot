@@ -534,7 +534,7 @@ def studyRoom_final_check(request):
 ## 리스트 버튼 클릭 시 예약하겠습니까 버튼.
 
 from . import studyRoom_reserve
-from . import test3
+# from . import test3
 
 # self 학습실 예약
 @csrf_exempt
@@ -544,7 +544,7 @@ def studyRoom_reserve(request):
 
     idx = int(json_str['action']['clientExtra']['num'])
     # s = studyRoom_reserve.selfroom_reserve(idx)
-    s = test3.test()
+    s = studyRoom_reserve.test()
 
     return JsonResponse({
         'version': "2.0",
