@@ -269,7 +269,7 @@ def portal_login(request):
 from . import studyroom_Timetable
 # from . import a
 
-
+# self 학습실 1에 9:00 ~ 10:00 에 사용 신청을 하시겠습니까?
 # 셀프학습실 timetable
 @csrf_exempt
 def selfroom_timetable(request):
@@ -281,7 +281,7 @@ def selfroom_timetable(request):
     cnt_available_time = len(available_Time)
 
     room_names = ["Self 학습실1(Career design)", "Self 학습실2(Thinking design)", "Self 학습실3(Life story design)", "Self 학습실4", "Self 학습실5", "Self 학습실6", "Self 학습실7-1", "Self 학습실7-2", "Self 학습실8-1", "Self 학습실8-1"]
-    room_num = int(room_num) -1
+    room_num = int(room_num) - 1
     room_name = room_names[room_num]
     cnt = 0
     return JsonResponse({
@@ -297,30 +297,59 @@ def selfroom_timetable(request):
                                 {
                                     "title": available_Time[cnt],
                                     "description": "원하는 사용시간을 선택해주세요.",
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    "extra": {
+                                        "room": room_name,
+                                        "idx": cnt,
+                                    }
 
                                 },
 
                                 {
                                     "title": available_Time[cnt+1],
                                     "description": "원하는 사용시간을 선택해주세요.",
-
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    "extra": {
+                                        "room": room_name,
+                                        "idx": cnt + 1,
+                                    }
                                 },
 
                                 {
                                     "title": available_Time[cnt+2],
                                     "description": "원하는 사용시간을 선택해주세요.",
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    "extra": {
+                                        "room": room_name,
+                                        "idx": cnt + 2,
+                                    }
 
                                 },
 
                                 {
                                     "title": available_Time[cnt+3],
                                     "description": "원하는 사용시간을 선택해주세요.",
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    "extra": {
+                                        "room": room_name,
+                                        "idx": cnt + 3,
+                                    }
 
                                 },
 
                                 {
                                     "title": available_Time[cnt+4],
                                     "description": "원하는 사용시간을 선택해주세요.",
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    "extra": {
+                                        "room": room_name,
+                                        "idx": cnt + 4,
+                                    }
 
                                 },
                             ],
@@ -335,30 +364,60 @@ def selfroom_timetable(request):
                                 {
                                     "title": available_Time[cnt+5],
                                     "description": "원하는 사용시간을 선택해주세요.",
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    "extra": {
+                                        "room": room_name,
+                                        "idx": cnt + 5,
+                                    }
 
                                 },
 
                                 {
                                     "title": available_Time[cnt + 6],
                                     "description": "원하는 사용시간을 선택해주세요.",
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    "extra": {
+                                        "room": room_name,
+                                        "idx": cnt + 6,
+                                    }
 
                                 },
 
                                 {
                                     "title": available_Time[cnt + 7],
                                     "description": "원하는 사용시간을 선택해주세요.",
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    "extra": {
+                                        "room": room_name,
+                                        "idx": cnt + 7,
+                                    }
 
                                 },
 
                                 {
                                     "title": available_Time[cnt + 8],
                                     "description": "원하는 사용시간을 선택해주세요.",
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    "extra": {
+                                        "room": room_name,
+                                        "idx": cnt + 8,
+                                    }
 
                                 },
 
                                 {
                                     "title": available_Time[cnt + 9],
                                     "description": "원하는 사용시간을 선택해주세요.",
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    "extra": {
+                                        "room": room_name,
+                                        "idx": cnt + 9,
+                                    }
 
                                 },
                             ],
@@ -373,18 +432,36 @@ def selfroom_timetable(request):
                                 {
                                     "title": available_Time[cnt + 10],
                                     "description": "원하는 사용시간을 선택해주세요.",
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    "extra": {
+                                        "room": room_name,
+                                        "idx": cnt + 10,
+                                    }
 
                                 },
 
                                 {
                                     "title": available_Time[cnt + 11],
                                     "description": "원하는 사용시간을 선택해주세요.",
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    "extra": {
+                                        "room": room_name,
+                                        "idx": cnt + 11,
+                                    }
 
                                 },
 
                                 {
                                     "title": available_Time[cnt + 12],
                                     "description": "원하는 사용시간을 선택해주세요.",
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    "extra": {
+                                        "room": room_name,
+                                        "idx": cnt + 12,
+                                    }
 
                                 },
                             ],
@@ -392,15 +469,29 @@ def selfroom_timetable(request):
                     },
 
                 ],
-                'quickReplies': [{
-                    'label': '다른 Self-학습실 보기',
-                    'action': 'block',
-                    'messageText': '다른 Self-학습실 보기',
-                    'blockId': '6435ac1770eb005cb17a7588'
-                }]
             }
         })
 
+
+# 셀프학습실 예약 final check
+@csrf_exempt
+def studyRoom_final_check(request):
+    answer = ((request.body).decode('utf-8'))
+    json_str = json.loads(answer)
+
+    # room_num = str(json_str['action']['clientExtra']['room_num'])
+    # available_Time = studyroom_Timetable.show_studyroom_timetable(room_num)
+
+    return JsonResponse({
+        'version': "2.0",
+        'template': {
+            'outputs': [{
+                'simpleText': {
+                    'text': str(json_str)
+                }
+            }]
+        }
+    })
 
 
 # # 셀프학습실 timetable
@@ -575,187 +666,5 @@ def selfroom_timetable(request):
 
 
 
-
-
-
-
-
-
-
-
-# self 학습실 예약하기
-# @csrf_exempt
-# def studyRoom_timetable(request):
-#     answer = ((request.body).decode('utf-8'))
-#     json_str = json.loads(answer)
-#     #return_str = json_str['contexts']['params']['portal_id']['value']  # 사용자의 발화 텍스트
-#     sta = str(str(json_str['contexts'][1]['params']['portal_pw']['value']))
-#
-#     #json_str = str(json_str)
-#     #cons=str(return_str)
-#     # portal_id = json_str['contexts'][0]['params']['portal_id']['value']
-#     # portal_pw = c
-#     # portal_id = json_str['contexts'][0]['params']['portal_id']
-#     # portal_pw = json_str['contexts'][0]['params']['portal_pw']
-#
-#     return JsonResponse({
-#         'version': "2.0",
-#         'template': {
-#             'outputs': [{
-#                 'simpleText': {
-#                     'text': sta
-#                 }
-#             }]
-#         }
-#     })
-
-    # if len(times) <= 5:
-    #     return JsonResponse({
-    #         'version': "2.0",
-    #         "template": {
-    #             "outputs": [
-    #               {
-    #                   "listCard": {
-    #                   "header": {
-    #                     "title": room+"의 이용 가능 시간"
-    #                   },
-    #                     "items": [
-    #                         {
-    #                             "title": test.test[0],
-    #                         },
-    #
-    #                         {
-    #                             "title": test.test[1],
-    #                         },
-    #
-    #                         {
-    #                             "title": test.test[2],
-    #                         },
-    #
-    #                         {
-    #                             "title": test.test[3],
-    #                         },
-    #
-    #                         {
-    #                             "title": test.test[4],
-    #                         },
-    #                     ],
-    #                 }
-    #               }]
-    #          }
-    #     })
-    #
-    # elif len(times) <= 10:
-    #     return JsonResponse({
-    #         'version': "2.0",
-    #          "template": {
-    #             "outputs": [
-    #               {
-    #                 "listCard": {
-    #                   "header": {
-    #                     "title": room+"의 이용 가능 시간2"
-    #                   },
-    #                     "items": [
-    #                         {
-    #                             "title": test.test[0],
-    #                         },
-    #
-    #                         {
-    #                             "title": test.test[1],
-    #                         },
-    #
-    #                         {
-    #                             "title": test.test[2],
-    #                         },
-    #
-    #                         {
-    #                             "title": test.test[3],
-    #                         },
-    #
-    #                         {
-    #                             "title": test.test[4],
-    #                         },
-    #
-    #                         {
-    #                             "title": test.test[5],
-    #                         },
-    #
-    #                         {
-    #                             "title": test.test[6],
-    #                         },
-    #
-    #                         {
-    #                             "title": test.test[7],
-    #                         },
-    #
-    #                         {
-    #                             "title": test.test[8],
-    #                         },
-    #
-    #                         {
-    #                             "title": test.test[9],
-    #                         },
-    #                     ],
-    #
-    #                 }
-    #               }]
-    #          }
-    #     })
-    #
-    # else:
-    #     return JsonResponse({
-    #         'version': "2.0",
-    #         "template": {
-    #             "outputs": [
-    #                 {
-    #                     "listCard": {
-    #                         "header": {
-    #                             "title": room + "의 이용 가능 시간2"
-    #                         },
-    #                         "items": [
-    #                             {
-    #                                 "title": test.test[0],
-    #                             },
-    #                             {
-    #                                 "title": test.test[1],
-    #                             },
-    #                             {
-    #                                 "title": test.test[2],
-    #                             },
-    #                             {
-    #                                 "title": test.test[3],
-    #                             },
-    #                             {
-    #                                 "title": test.test[4],
-    #                             },
-    #                             {
-    #                                 "title": test.test[5],
-    #                             },
-    #                             {
-    #                                 "title": test.test[6],
-    #                             },
-    #                             {
-    #                                 "title": test.test[7],
-    #                             },
-    #                             {
-    #                                 "title": test.test[8],
-    #                             },
-    #                             {
-    #                                 "title": test.test[9],
-    #                             },
-    #                             {
-    #                                 "title": test.test[10],
-    #                             },
-    #                             {
-    #                                 "title": test.test[11],
-    #                             },
-    #                             {
-    #                                 "title": test.test[12],
-    #                             },
-    #                         ],
-    #                     }
-    #                 }]
-    #         }
-    #     })
 
 
