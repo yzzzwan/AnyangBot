@@ -475,8 +475,8 @@ def selfroom_timetable(request):
 # 셀프학습실 예약 final check
 @csrf_exempt
 def studyRoom_final_check(request):
-    answer = ((request.body).decode('utf-8'))
-    json_str = json.loads(answer)
+    # answer = ((request.body).decode('utf-8'))
+    # json_str = json.loads(answer)
 
     # room_num = str(json_str['action']['clientExtra']['room_num'])
     # available_Time = studyroom_Timetable.show_studyroom_timetable(room_num)
@@ -486,7 +486,7 @@ def studyRoom_final_check(request):
         'template': {
             'outputs': [{
                 'simpleText': {
-                    'text': str(json_str)
+                    'text': "test"
                 }
             }]
         }
