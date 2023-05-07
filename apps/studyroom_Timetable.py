@@ -11,7 +11,6 @@ def test():
     return "hi"
 #
 def show_studyroom_timetable(room_num):
-    # return "here"
     tt=""
     print("start b")
     # global available_timetable
@@ -36,15 +35,13 @@ def show_studyroom_timetable(room_num):
     time_li_list = time_div.find_elements(plu.By.CSS_SELECTOR, 'li:not(.dsb)')
 
     available_time_list=[]
-    cnt=0
     for li in time_li_list:
         available_timetable = li.find_element(plu.By.CSS_SELECTOR, 'label')
         #print(available_timetable.text)
         available_time_list.append(available_timetable)
-        tt+=available_timetable.text+"\n"
-        cnt+=1
+        # tt+=available_timetable.text+"\n"
 
-    return tt
+    return available_time_list
 
 
 

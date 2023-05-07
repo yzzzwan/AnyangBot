@@ -278,18 +278,46 @@ def selfroom_timetable(request):
 
     room_num = str(json_str['action']['clientExtra']['room_num'])
     available_Time = studyroom_Timetable.show_studyroom_timetable(room_num)
-    #  아이디 입력 함수 어떻게 해결했는지 참고해서 해결하기. 윗함수실행시키면 타임오바
+    cnt_available_time = len(available_Time)
+    cnt = 0
+    if cnt_available_time < 5:
+        return JsonResponse({
+            "version": "2.0",
+            "template": {
+                "outputs": [
+                    {
+                        "listCard": {
+                            "header": {
+                                "title": "test"
+                            },
+                            "items": [
+                                {
+                                    "title": available_Time[cnt],
+                                },
 
-    return JsonResponse({
-        'version': "2.0",
-        'template': {
-            'outputs': [{
-                'simpleText': {
-                    'text': available_Time
-                }
-            }]
-        }
-    })
+                                {
+                                    "title": available_Time[cnt+1],
+                                },
+
+                                {
+                                    "title": available_Time[cnt+2],
+                                },
+
+                                {
+                                    "title": available_Time[cnt],
+                                },
+
+                                {
+                                    "title": available_Time[cnt],
+                                },
+                            ],
+                        }
+                    },
+
+                ]
+            }
+        })
+
 
 
 # # 셀프학습실 timetable
