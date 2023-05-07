@@ -43,5 +43,18 @@ def selfroom_reserve(idx):
 
     plu.Alert(plu.driver).accept()
 
+    try:
+        plu.Alert(plu.driver).accept()
+        s="d"
+        return s
+
+    except:
+        pass
+
     s = "s"
+
+    # s= "f"  실패
+    # s= "s"  성공
+    # s= "d"  실패(예약횟수 초과)
+
     return s
