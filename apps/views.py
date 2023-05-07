@@ -506,6 +506,7 @@ def studyRoom_final_check(request):
                     'blockId': '6457acc18edae924e926b707',
                     "extra": {
                         "num": idx,
+                        "room": room
                     }
 
                 },
@@ -543,19 +544,49 @@ def studyRoom_reserve(request):
     json_str = json.loads(answer)
 
     idx = int(json_str['action']['clientExtra']['num'])
+    room = str(json_str['action']['clientExtra']['room'])
+
     # s = studyRoom_reserve.selfroom_reserve(idx)
     s = test3.selfroom_reserve(idx)
 
-    return JsonResponse({
-        'version': "2.0",
-        'template': {
-            'outputs': [{
-                'simpleText': {
-                    'text': s
-                }
-            }]
-        }
-    })
+    select_time = studyroom_Timetable.available_time_list_tag[idx].text
+
+# 9시에 self 학습실4를 예약했습니다.
+    if s =="s":
+        return JsonResponse({
+            'version': "2.0",
+            'template': {
+                'outputs': [{
+                    'simpleText': {
+                        'text': "[" + select_time + "]에 " + room + "을(를) 예약했습니다."
+                    }
+                }]
+            }
+        })
+
+    elif s =="d":
+        return JsonResponse({
+            'version': "2.0",
+            'template': {
+                'outputs': [{
+                    'simpleText': {
+                        'text': "예약은 1일 최대 2시간까지 가능합니다."
+                    }
+                }]
+            }
+        })
+
+    if s =="f":
+        return JsonResponse({
+            'version': "2.0",
+            'template': {
+                'outputs': [{
+                    'simpleText': {
+                        'text': "예약에 실패했습니다. \n다시 시도해주세요."
+                    }
+                }]
+            }
+        })
 
 
 
