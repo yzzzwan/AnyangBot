@@ -501,7 +501,7 @@ def studyRoom_final_check(request):
         'template': {
             'outputs': [{
                 'simpleText': {
-                    'text': "(" + select_time + ")" + "에 "+room + "을(를) 예약하시겠습니까?"
+                    'text': "[" + select_time + "]" + "에 "+room + "을(를) 예약하시겠습니까?"
                 }
             }],
             'quickReplies': [
@@ -540,7 +540,7 @@ def studyRoom_final_check(request):
 ## 출력은 리스트 버튼으로
 ## 리스트 버튼 클릭 시 예약하겠습니까 버튼.
 
-from . import studyroom_reserve
+from . import reserve_studyroom
 
 # self 학습실 예약
 @csrf_exempt
@@ -551,7 +551,7 @@ def studyRoom_reserve(request):
     idx = int(json_str['action']['clientExtra']['num'])
     room = str(json_str['action']['clientExtra']['room'])
 
-    s = studyroom_reserve.selfroom_reserve(idx)
+    s = reserve_studyroom.selfroom_reserve(idx)
 
     select_time = studyroom_Timetable.available_time_list_tag[idx].text
 
