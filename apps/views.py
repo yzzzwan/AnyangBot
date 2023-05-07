@@ -220,6 +220,7 @@ def lost_found_detail(request):
 
 from . import portal_login_user
 
+# 포탈 로그인
 @csrf_exempt
 def portal_login(request):
     answer = ((request.body).decode('utf-8'))
@@ -269,7 +270,7 @@ def portal_login(request):
 from . import studyroom_Timetable
 # from . import a
 
-# 셀프학습실 timetable
+# 셀프학습실 이용가능 시간표 출력
 @csrf_exempt
 def selfroom_timetable(request):
     answer = ((request.body).decode('utf-8'))
@@ -477,7 +478,7 @@ def selfroom_timetable(request):
         })
 
 
-# 셀프학습실 예약 final check
+# 셀프학습실 예약 final check 질문
 @csrf_exempt
 def studyRoom_final_check(request):
     answer = ((request.body).decode('utf-8'))
@@ -498,26 +499,55 @@ def studyRoom_final_check(request):
             }],
             'quickReplies': [
                 {
+                    "label": "네",
+                    "action": "block",
                     "messageText": "예약하겠습니다.",
-                    "action": "message",
-                    "label": "네"
+                    'blockId': '6457acc18edae924e926b707',
+                    "extra": {
+                        "num": idx,
+                    }
+
                 },
 
                 {
-                    "messageText": "다시 선택할게요",
-                    "action": "message",
-                    "label": "다시 선택"
+                    "label": "다시 선택",
+                    "action": "block",
+                    "messageText": "다시 선택할게요.",
+                    'blockId': '6435ac1770eb005cb17a7588'
+
                 },
 
                 {
+                    "label": "종료하기",
+                    "action": "block",
                     "messageText": "self 학습실 예약을 종료합니다.",
-                    "action": "message",
-                    "label": "종료하기"
+                    'blockId': '6435ac1770eb005cb17a7588'
+
                 },
             ],
         }
     })
 
+from . import studyRoom_reserve
+
+# self 학습실 예약
+@csrf_exempt
+def studyRoom_reserve(request):
+    answer = ((request.body).decode('utf-8'))
+    json_str = json.loads(answer)
+
+    idx = int(json_str['action']['clientExtra']['num'])
+    sucess = studyRoom_reserve.selfroom_reserve(idx)
+    return JsonResponse({
+        'version': "2.0",
+        'template': {
+            'outputs': [{
+                'simpleText': {
+                    'text': sucess
+                }
+            }]
+        }
+    })
 
 # # 셀프학습실 timetable
 # @csrf_exempt

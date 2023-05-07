@@ -31,9 +31,8 @@ urlpatterns = [
 
     re_path(r'^studyRoom_login/?$', v.portal_login),  # 스터디룸 login
     re_path(r'^studyRoom_timetable/?$', v.selfroom_timetable),  # 스터디룸 login
-    re_path(r'^studyRoom_final_check/?$', v.studyRoom_final_check),  # 스터디룸 예약
-
-    # re_path(r'^studyRoom_reserve/?$', v.studyRoom_reserve),  # 스터디룸 예약
+    re_path(r'^studyRoom_final_check/?$', v.studyRoom_final_check),  # 스터디룸 예약 최종 체크
+    re_path(r'^studyRoom_reserve/?$', v.studyRoom_reserve),  # 스터디룸 예약
 
     #re_path(r'^test/?$', v.test),  # 테스트
 
