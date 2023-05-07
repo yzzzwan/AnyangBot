@@ -283,6 +283,9 @@ def selfroom_timetable(request):
     for i in range(cnt_available_time, 13):
         available_Time.append("-")
 
+    room_names = ["Self 학습실1(Career design)", "Self 학습실2(Thinking design)", "Self 학습실3(Life story design)", "Self 학습실4", "Self 학습실5", "Self 학습실6", "Self 학습실7-1", "Self 학습실7-2", "Self 학습실8-1", "Self 학습실8-1"]
+    room_num = int(room_num) -1
+    room_name = room_names[room_num]
     cnt = 0
     return JsonResponse({
             "version": "2.0",
@@ -291,7 +294,7 @@ def selfroom_timetable(request):
                     {
                         "listCard": {
                             "header": {
-                                "title": "test"
+                                "title": room_name + "의 사용 가능 시간표"
                             },
                             "items": [
                                 {
@@ -329,7 +332,7 @@ def selfroom_timetable(request):
                     {
                         "listCard": {
                             "header": {
-                                "title": "test"
+                                "title": room_name + "의 사용 가능 시간표"
                             },
                             "items": [
                                 {
@@ -367,7 +370,7 @@ def selfroom_timetable(request):
                     {
                         "listCard": {
                             "header": {
-                                "title": "test"
+                                "title": room_name + "의 사용 가능 시간표"
                             },
                             "items": [
                                 {
