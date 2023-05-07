@@ -29,10 +29,10 @@ urlpatterns = [
     re_path(r'^lost_and_found/?$', v.lost_found),  # 분실물 찾기
     re_path(r'^lost_and_found_detail/?$', v.lost_found_detail),  # 분실물 찾기
 
-    #re_path(r'^studyRoom_reserve/?$', v.studyRoom_reserve),  # 스터디룸 예약
-
     re_path(r'^studyRoom_login/?$', v.portal_login),  # 스터디룸 login
     re_path(r'^studyRoom_timetable/?$', v.selfroom_timetable),  # 스터디룸 login
+
+    # re_path(r'^studyRoom_reserve/?$', v.studyRoom_reserve),  # 스터디룸 예약
 
     #re_path(r'^test/?$', v.test),  # 테스트
 

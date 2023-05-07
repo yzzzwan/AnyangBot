@@ -1,4 +1,4 @@
-import portal_login_user as plu
+# import portal_login_user as plu
 
 
 # available_timetable 변수를 받기 위한 전역변수

@@ -271,35 +271,13 @@ from . import studyroom_Timetable
 
 
 # 셀프학습실 timetable
-# @csrf_exempt
-# def selfroom_timetable(request):
-#     answer = ((request.body).decode('utf-8'))
-#     json_str = json.loads(answer)
-#
-#     room_num = str(json_str['action']['clientExtra']['room_num'])
-#     available_Time = studyroom_Timetable.show_studyroom_timetable(room_num)
-#     #  아이디 입력 함수 어떻게 해결했는지 참고해서 해결하기. 윗함수실행시키면 타임오바
-#
-#     return JsonResponse({
-#         'version': "2.0",
-#         'template': {
-#             'outputs': [{
-#                 'simpleText': {
-#                     'text': available_Time
-#                 }
-#             }]
-#         }
-#     })
-
-
-# # 셀프학습실 timetable
 @csrf_exempt
 def selfroom_timetable(request):
     answer = ((request.body).decode('utf-8'))
     json_str = json.loads(answer)
 
     room_num = str(json_str['action']['clientExtra']['room_num'])
-    # available_Time = studyroom_Timetable.show_studyroom_timetable(room_num)
+    available_Time = studyroom_Timetable.show_studyroom_timetable(room_num)
     #  아이디 입력 함수 어떻게 해결했는지 참고해서 해결하기. 윗함수실행시키면 타임오바
 
     return JsonResponse({
@@ -307,11 +285,33 @@ def selfroom_timetable(request):
         'template': {
             'outputs': [{
                 'simpleText': {
-                    'text': room_num
+                    'text': available_Time
                 }
             }]
         }
     })
+
+
+# # 셀프학습실 timetable
+# @csrf_exempt
+# def selfroom_timetable(request):
+#     answer = ((request.body).decode('utf-8'))
+#     json_str = json.loads(answer)
+#
+#     room_num = str(json_str['action']['clientExtra']['room_num'])
+#     # available_Time = studyroom_Timetable.show_studyroom_timetable(room_num)
+#     #  아이디 입력 함수 어떻게 해결했는지 참고해서 해결하기. 윗함수실행시키면 타임오바
+#
+#     return JsonResponse({
+#         'version': "2.0",
+#         'template': {
+#             'outputs': [{
+#                 'simpleText': {
+#                     'text': room_num
+#                 }
+#             }]
+#         }
+#     })
 ## 다른 학습실 보기 버튼
 ## 출력은 리스트 버튼으로
 ## 리스트 버튼 클릭 시 예약하겠습니까 버튼.
