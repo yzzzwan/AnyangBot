@@ -335,7 +335,27 @@ def selfroom_timetable(request):
                                 },
 
                                 {
-                                    "title": available_Time[cnt + 4],
+                                    "title": available_Time[cnt + 9],
+                                },
+                            ],
+                        }
+                    },
+                    {
+                        "listCard": {
+                            "header": {
+                                "title": "test"
+                            },
+                            "items": [
+                                {
+                                    "title": available_Time[cnt + 10],
+                                },
+
+                                {
+                                    "title": available_Time[cnt + 11],
+                                },
+
+                                {
+                                    "title": available_Time[cnt + 12],
                                 },
                             ],
                         }
