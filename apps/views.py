@@ -475,6 +475,12 @@ def selfroom_timetable(request):
                     },
 
                 ],
+                'quickReplies': [{
+                    'label': '다른 self-학습실 보기',
+                    'action': 'block',
+                    'messageText': 'self-학습실 선택하기',
+                    'blockId': '6435ac1770eb005cb17a7588'
+                }]
             }
         })
 
@@ -551,14 +557,15 @@ def studyRoom_reserve(request):
 
     select_time = studyroom_Timetable.available_time_list_tag[idx].text
 
-# 9시에 self 학습실4를 예약했습니다.
     if s =="s":
         return JsonResponse({
             'version': "2.0",
             'template': {
                 'outputs': [{
                     'simpleText': {
+                        # 9시에 self 학습실4를 예약했습니다.
                         'text': "[" + select_time + "]에 " + room + "을(를) 예약했습니다."
+
                     }
                 }]
             }
@@ -570,7 +577,7 @@ def studyRoom_reserve(request):
             'template': {
                 'outputs': [{
                     'simpleText': {
-                        'text': "예약은 1일 최대 2시간까지 가능합니다."
+                        'text': "예약에 실패했습니다.\n예약은 1일 최대 2시간까지 가능합니다."
                     }
                 }]
             }
@@ -582,8 +589,14 @@ def studyRoom_reserve(request):
             'template': {
                 'outputs': [{
                     'simpleText': {
-                        'text': "예약에 실패했습니다. \n다시 시도해주세요."
+                        'text': "예약에 실패했습니다.\n다시 시도해주세요."
                     }
+                }],
+                'quickReplies': [{
+                    'label': '다시 시도',
+                    'action': 'block',
+                    'messageText': '다시 시도하기',
+                    'blockId': '6435adf77ab7b038704cebf7'
                 }]
             }
         })
