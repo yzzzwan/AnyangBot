@@ -485,7 +485,7 @@ def studyRoom_final_check(request):
 
     idx = int(json_str['action']['clientExtra']['num'])
     room = str(json_str['action']['clientExtra']['room'])
-    select_time=studyroom_Timetable.available_time_list_tag[idx].text
+    select_time = studyroom_Timetable.available_time_list_tag[idx].text
     # 9:00 ~ 10:00에 self 학습실 1를 예약하시겠습니까?
 
     return JsonResponse({
@@ -493,15 +493,14 @@ def studyRoom_final_check(request):
         'template': {
             'outputs': [{
                 'simpleText': {
-                    'text': select_time + "에 "+room + "을(를) 예약하시겠습니까?"
+                    'text': "(" + select_time + ")" + "에 "+room + "을(를) 예약하시겠습니까?"
                 }
             }],
             'quickReplies': [{
                 'label': '네',
                 'action': 'message',
                 'messageText': '네',
-            }],
-            'quickReplies': [{
+
                 'label': '아니요',
                 'action': 'message',
                 'messageText': '네',
