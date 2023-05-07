@@ -280,8 +280,7 @@ def selfroom_timetable(request):
     available_Time = studyroom_Timetable.show_studyroom_timetable(room_num)
     cnt_available_time = len(available_Time)
     cnt = 0
-    if cnt_available_time < 5:
-        return JsonResponse({
+    return JsonResponse({
             "version": "2.0",
             "template": {
                 "outputs": [
@@ -304,11 +303,39 @@ def selfroom_timetable(request):
                                 },
 
                                 {
-                                    "title": available_Time[cnt],
+                                    "title": available_Time[cnt+3],
                                 },
 
                                 {
-                                    "title": available_Time[cnt],
+                                    "title": available_Time[cnt+4],
+                                },
+                            ],
+                        }
+                    },
+                    {
+                        "listCard": {
+                            "header": {
+                                "title": "test"
+                            },
+                            "items": [
+                                {
+                                    "title": available_Time[cnt+5],
+                                },
+
+                                {
+                                    "title": available_Time[cnt + 6],
+                                },
+
+                                {
+                                    "title": available_Time[cnt + 7],
+                                },
+
+                                {
+                                    "title": available_Time[cnt + 8],
+                                },
+
+                                {
+                                    "title": available_Time[cnt + 4],
                                 },
                             ],
                         }

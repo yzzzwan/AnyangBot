@@ -34,11 +34,13 @@ def show_studyroom_timetable(room_num):
     # 선택 가능한 시간표 리스트
     time_li_list = time_div.find_elements(plu.By.CSS_SELECTOR, 'li:not(.dsb)')
 
-    available_time_list=[]
+    available_time_list = []
     for li in time_li_list:
         available_timetable = li.find_element(plu.By.CSS_SELECTOR, 'label')
         #print(available_timetable.text)
-        available_time_list.append(available_timetable)
+        # available_time_list.append(available_timetable)
+        available_time_list.append(available_timetable.text)
+
         # tt+=available_timetable.text+"\n"
 
     return available_time_list
