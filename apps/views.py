@@ -544,7 +544,7 @@ def studyRoom_reserve(request):
 
     idx = int(json_str['action']['clientExtra']['num'])
     # s = studyRoom_reserve.selfroom_reserve(idx)
-    s = test3.test()
+    s = test3.selfroom_reserve(idx)
 
     return JsonResponse({
         'version': "2.0",
