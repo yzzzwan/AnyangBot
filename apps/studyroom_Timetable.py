@@ -5,7 +5,7 @@ from . import portal_login_user as plu
 
 # available_timetable 변수를 받기 위한 전역변수
 # available_timetable = ""
-available_time_list_tag=[]
+available_time_list_tag = []
 
 
 def show_studyroom_timetable(room_num):
@@ -40,7 +40,7 @@ def show_studyroom_timetable(room_num):
         available_timetable = li.find_element(plu.By.CSS_SELECTOR, 'label')
         #print(available_timetable.text)
         available_time_list_tag.append(available_timetable)
-        available_time_list.append(available_timetable)
+        available_time_list.append(available_timetable.text)
 
         # tt+=available_timetable.text+"\n"
 

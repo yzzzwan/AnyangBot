@@ -278,9 +278,11 @@ def selfroom_timetable(request):
 
     room_num = str(json_str['action']['clientExtra']['room_num'])
     available_Time = studyroom_Timetable.show_studyroom_timetable(room_num)
-    cnt_available_time = len(available_Time)
 
-    room_names = ["Self 학습실1(Career design)", "Self 학습실2(Thinking design)", "Self 학습실3(Life story design)", "Self 학습실4", "Self 학습실5", "Self 학습실6", "Self 학습실7-1", "Self 학습실7-2", "Self 학습실8-1", "Self 학습실8-1"]
+    room_names = ["Self 학습실1(Career design)", "Self 학습실2(Thinking design)", "Self 학습실3(Life story design)",
+                  "Self 학습실4", "Self 학습실5", "Self 학습실6", "Self 학습실7-1", "Self 학습실7-2", "Self 학습실8-1",
+                  "Self 학습실8-1"]
+
     room_num = int(room_num) - 1
     room_name = room_names[room_num]
     return JsonResponse({
@@ -385,13 +387,11 @@ def selfroom_timetable(request):
                                     "title": available_Time[11],
                                     "description": "원하는 사용시간을 선택해주세요.",
 
-
                                 },
 
                                 {
                                     "title": available_Time[12],
                                     "description": "원하는 사용시간을 선택해주세요.",
-
 
                                 },
                             ],
