@@ -8,7 +8,7 @@ import time
 
 chrome_options = webdriver.ChromeOptions()
 
-chrome_options.add_argument('--headless')
+# chrome_options.add_argument('--headless')
 chrome_options.add_argument('--disable-gpu')
 prefs = {'profile.managed_default_content_settings.images': 2}
 chrome_options.add_experimental_option('prefs', prefs)
@@ -24,23 +24,27 @@ driver.implicitly_wait(2)  # seconds
 def portal(pid, ppw):
 
     print("포탈 접속 시도")
-    driver.get("https://portal.anyang.ac.kr/")
-    driver.implicitly_wait(1)  # seconds
+    # driver.get("https://portal.anyang.ac.kr/")
+    #driver.implicitly_wait(1)  # seconds
     print("start")
 
     success = "f"
 
-
     print("포탈 접속")
 
     # 로그인 페이지에 접속했는데 이미 (앞 유저의)로그인되어 있는 경우
-    if driver.current_url != 'https://portal.anyang.ac.kr/':
-        # 쿠키를 삭제합니다
-        driver.delete_all_cookies()
+    # if driver.current_url != 'https://portal.anyang.ac.kr/':
+    #     # 쿠키를 삭제합니다
+    #     driver.delete_all_cookies()
+    #
+    #     # 포탈 페이지를 새로고칩니다
+    #     driver.get("https://portal.anyang.ac.kr/")
 
-        # 포탈 페이지를 새로고칩니다
-        driver.get("https://portal.anyang.ac.kr/")
+    # 쿠키를 삭제합니다
+    driver.delete_all_cookies()
 
+    # 포탈 페이지를 새로고칩니다
+    driver.get("https://portal.anyang.ac.kr/")
 
     # 아이디와 비밀번호 입력 후 로그인 버튼 클릭
     login_id = driver.find_element("name", "login")
@@ -97,7 +101,7 @@ def portal(pid, ppw):
 # print(b-a)
 
 # a=portal("2020E7011","rladddhks1!")
-# a=portal("2020E7011","rladyddhks1!")
+a=portal("2020E7011","rladyddhks1!")
 #
 # b=portal("2020E7011","rladyddhks1!")
 
