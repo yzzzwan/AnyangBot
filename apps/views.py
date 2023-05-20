@@ -570,6 +570,7 @@ def studyRoom_final_check(request):
 # 리스트 버튼 클릭 시 예약하겠습니까 버튼.
 
 from . import reserve_studyroom
+from . import test5
 
 # self 학습실 예약
 @csrf_exempt
@@ -580,7 +581,7 @@ def studyRoom_reserve(request):
     idx = int(json_str['action']['clientExtra']['idx'])
     room = str(json_str['action']['clientExtra']['room'])
 
-    s = reserve_studyroom.selfroom_reserve(idx)
+    s = test5.selfroom_reserve(idx)
     #
     # select_time = studyroom_Timetable.available_time_list_tag[idx].text
 
