@@ -581,7 +581,7 @@ def studyRoom_reserve(request):
     idx = int(json_str['action']['clientExtra']['idx'])
     room = str(json_str['action']['clientExtra']['room'])
 
-    s = test5.selfroom_reserve(idx)
+    # s = test5.selfroom_reserve(idx)
     #
     # select_time = studyroom_Timetable.available_time_list_tag[idx].text
 
@@ -590,7 +590,7 @@ def studyRoom_reserve(request):
             'template': {
                 'outputs': [{
                     'simpleText': {
-                        'text': str(s)
+                        'text': str(room) + str(idx)
                     }
                 }]
             }
