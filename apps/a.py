@@ -1,6 +1,6 @@
 # import portal_login_user
 # import studyroom_Timetable
-# # import studyRoom_reserve
+# import reserve_studyroom
 # a="01"
 # def one():
 #     portal_login_user.portal("2020E7011","rladyddhks1!")
@@ -10,11 +10,11 @@
 #     print(K)
 #
 # def thr():
-#     print(studyRoom_reserve.selfroom_reserve(1))
+#     print(reserve_studyroom.selfroom_reserve(1))
 # #
 # one()
 # two()
-# # thr()
+# thr()
 
 # o,
 # import time
@@ -245,29 +245,29 @@
 # # print( end)
 #
 #
-{
-    'bot': {
-        'id': '63e23010dcff7159538d8bcd!',
-        'name': 'Anyang_Bot'
-    },
-    'intent': {
-        'id': '6457acc18edae924e926b707',
-        'name': 'self 학습실 예약',
-        'extra': {
-            'reason': {
-                'code': 101,
-                'message': 'DIRECT_ID'
-            }
-        }
-    },
-    'action': {
-        'id': '6457ae843cae9c5307475315',
-        'name': 'self 학습실 예약',
-        'params': {
-
-        },
-        'detailParams': {
-
-        },
-        'clientExtra': {
-            'num': 12, 'room': 'Self 학습실4'}}, 'userRequest': {'block': {'id': '6457acc18edae924e926b707', 'name': 'self 학습실 예약'}, 'user': {'id': '53a84e54ebe5c3a7b96390e4551f0a3c0766c6455cea41a434e679388a80ea94b5', 'type': 'botUserKey', 'properties': {'botUserKey': '53a84e54ebe5c3a7b96390e4551f0a3c0766c6455cea41a434e679388a80ea94b5', 'bot_user_key': '53a84e54ebe5c3a7b96390e4551f0a3c0766c6455cea41a434e679388a80ea94b5'}}, 'utterance': '', 'params': {'ignoreMe': 'true', 'surface': 'BuilderBotTest'}, 'lang': 'ko', 'timezone': 'Asia/Seoul'}, 'contexts': [{'name': 'portal_id', 'lifespan': 1, 'ttl': 600, 'params': {'portal_id': {'value': '2020e7011', 'resolvedValue': '2020e7011'}, 'portal_pw': {'value': 'rladyddhks1!', 'resolvedValue': 'rladyddhks1!'}}}, {'name': 'portal_pw', 'lifespan': 1, 'ttl': 600, 'params': {'portal_id': {'value': '2020e7011', 'resolvedValue': '2020e7011'}, 'portal_pw': {'value': 'rladyddhks1!', 'resolvedValue': 'rladyddhks1!'}}}, {'name': 'where_room', 'lifespan': 3, 'ttl': 600, 'params': {}}]}
+# {
+#     'bot': {
+#         'id': '63e23010dcff7159538d8bcd!',
+#         'name': 'Anyang_Bot'
+#     },
+#     'intent': {
+#         'id': '6457acc18edae924e926b707',
+#         'name': 'self 학습실 예약',
+#         'extra': {
+#             'reason': {
+#                 'code': 101,
+#                 'message': 'DIRECT_ID'
+#             }
+#         }
+#     },
+#     'action': {
+#         'id': '6457ae843cae9c5307475315',
+#         'name': 'self 학습실 예약',
+#         'params': {
+#
+#         },
+#         'detailParams': {
+#
+#         },
+#         'clientExtra': {
+#             'num': 12, 'room': 'Self 학습실4'}}, 'userRequest': {'block': {'id': '6457acc18edae924e926b707', 'name': 'self 학습실 예약'}, 'user': {'id': '53a84e54ebe5c3a7b96390e4551f0a3c0766c6455cea41a434e679388a80ea94b5', 'type': 'botUserKey', 'properties': {'botUserKey': '53a84e54ebe5c3a7b96390e4551f0a3c0766c6455cea41a434e679388a80ea94b5', 'bot_user_key': '53a84e54ebe5c3a7b96390e4551f0a3c0766c6455cea41a434e679388a80ea94b5'}}, 'utterance': '', 'params': {'ignoreMe': 'true', 'surface': 'BuilderBotTest'}, 'lang': 'ko', 'timezone': 'Asia/Seoul'}, 'contexts': [{'name': 'portal_id', 'lifespan': 1, 'ttl': 600, 'params': {'portal_id': {'value': '2020e7011', 'resolvedValue': '2020e7011'}, 'portal_pw': {'value': 'rladyddhks1!', 'resolvedValue': 'rladyddhks1!'}}}, {'name': 'portal_pw', 'lifespan': 1, 'ttl': 600, 'params': {'portal_id': {'value': '2020e7011', 'resolvedValue': '2020e7011'}, 'portal_pw': {'value': 'rladyddhks1!', 'resolvedValue': 'rladyddhks1!'}}}, {'name': 'where_room', 'lifespan': 3, 'ttl': 600, 'params': {}}]}

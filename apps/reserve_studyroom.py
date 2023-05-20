@@ -33,7 +33,7 @@ def selfroom_reserve(idx):
     # 신청사유 입력
     input_reason.send_keys(reason)
 
-    # 동의 라벨 클릭
+    # 동의 체크박스 클릭
     plu.driver.find_element("id", "agree").click()
 
     # 완료 버튼 클릭
@@ -41,17 +41,24 @@ def selfroom_reserve(idx):
 
     time.sleep(1)
 
+    # 저장하시겠습니까? 확인버튼
     plu.Alert(plu.driver).accept()
+    time.sleep(1)
 
-    try:
+    if plu.Alert(plu.driver).text == "저장되었습니다.":
+        # 저장되었습니다. 확인버튼
+        plu.Alert(plu.driver).accept()
+        s = "s"
+
+    else:
+        # 예약은 1일 최대 2시간까지 가능합니다. 확인버튼
         plu.Alert(plu.driver).accept()
         s="d"
-        return s
 
-    except:
-        pass
 
-    s = "s"
+
+    # plu.quit()
+
 
     # s= "f"  실패
     # s= "s"  성공

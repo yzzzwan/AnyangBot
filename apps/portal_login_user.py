@@ -88,7 +88,7 @@ def portal(pid, ppw):
 
 
     success="s"
-    time.sleep(1)
+    time.sleep(0.3)
 
     return success
 
@@ -101,7 +101,7 @@ def portal(pid, ppw):
 # print(b-a)
 
 # a=portal("2020E7011","rladddhks1!")
-a=portal("2020E7011","rladyddhks1!")
+# a=portal("2020E7011","rladyddhks1!")
 #
 # b=portal("2020E7011","rladyddhks1!")
 
