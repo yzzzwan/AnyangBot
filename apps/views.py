@@ -576,20 +576,20 @@ from . import reserve_studyroom
 def studyRoom_reserve(request):
     answer = ((request.body).decode('utf-8'))
     json_str = json.loads(answer)
-    #
-    idx = int(json_str['action']['clientExtra']['num'])
+
+    idx = int(json_str['action']['clientExtra']['idx'])
     room = str(json_str['action']['clientExtra']['room'])
     #
-    # s = reserve_studyroom.selfroom_reserve(idx)
+    s = reserve_studyroom.selfroom_reserve(idx)
     #
-    # select_time = studyroom_Timetable.available_time_list_tag[idx].text
+    select_time = studyroom_Timetable.available_time_list_tag[idx].text
 
     return JsonResponse({
             'version': "2.0",
             'template': {
                 'outputs': [{
                     'simpleText': {
-                        'text': room + idx
+                        'text': s
                     }
                 }]
             }
