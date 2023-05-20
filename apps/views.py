@@ -529,7 +529,7 @@ def studyRoom_final_check(request):
             'template': {
                 'outputs': [{
                     'simpleText': {
-                        'text': idx
+                        'text': str(json_str)
                     }
                 }]
             }
