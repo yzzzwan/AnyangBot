@@ -1,8 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
 
-
-
 def lost_items_list():
     url = 'https://www.anyang.ac.kr/main/communication/lost-found.do'
     response = requests.get(url)
@@ -17,6 +15,7 @@ def lost_items_list():
         lost_items_link.append(lost_item['href'])
 
     return lost_items_link
+
 
 def lost_item_detail(link):
     lost_item_details = []
