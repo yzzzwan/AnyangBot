@@ -519,8 +519,8 @@ def studyRoom_final_check(request):
     answer = ((request.body).decode('utf-8'))
     json_str = json.loads(answer)
 
-    # idx = int(json_str['action']['clientExtra']['idx'])
-    # room = str(json_str['action']['clientExtra']['room'])
+    idx = int(json_str['action']['clientExtra']['idx'])
+    room = str(json_str['action']['clientExtra']['room'])
     # select_time = studyroom_Timetable.available_time_list_tag[idx].text
     # 9:00 ~ 10:00에 self 학습실 1를 예약하시겠습니까?
 
@@ -529,7 +529,7 @@ def studyRoom_final_check(request):
             'template': {
                 'outputs': [{
                     'simpleText': {
-                        'text': str(json_str)
+                        'text': idx + room
                     }
                 }]
             }
