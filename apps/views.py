@@ -216,324 +216,324 @@ def lost_found_detail(request):
             }]
         }
     })
-#
-# from . import portal_login_user
-#
-# # 포탈 로그인
-# @csrf_exempt
-# def portal_login(request):
-#     answer = ((request.body).decode('utf-8'))
-#     json_str = json.loads(answer)
-#
-#     Pid = str(json_str['action']['params']['portal_ID'])
-#     Ppw = str(json_str['action']['params']['portal_PW'])
-#
-#     login = portal_login_user.portal(Pid, Ppw)
-#
-#     if login == 's':
-#         return JsonResponse({
-#                 'version': "2.0",
-#                 'template': {
-#                     'outputs': [{
-#                         'simpleText': {
-#                             'text': "로그인에 성공했습니다.\n self-학습실 선택하기 버튼을 눌러주세요."
-#                        }
-#                     }],
-#                     'quickReplies': [{
-#                         'label': 'self-학습실 선택하기',
-#                         'action': 'block',
-#                         'messageText': '다시 시도하기',
-#                         'blockId' : '6435ac1770eb005cb17a7588'
-#                         # [self 학습실 선택하기] 블록
-#                     }]
-#                 }
-#             })
-#
-#     else:
-#         return JsonResponse({
-#                 'version': "2.0",
-#                 'template': {
-#                     'outputs': [{
-#                         'simpleText': {
-#                             'text': '입력하신 아이디 혹은 비밀번호가 일치하지 않습니다.\n 다시 시도하려면 "다시 시도"버튼을 눌러주세요.'
-#                        }
-#                     }],
-#                     'quickReplies': [{
-#                         'label': '다시 시도하기',
-#                         'action': 'block',
-#                         'messageText': '다시 시도하기',
-#                         'blockId' : '6435adf77ab7b038704cebf7'
-#                         # [self 학습실 ID PW 입력] 블록
-#                     }]
-#                 }
-#             })
-#
-# from . import studyroom_Timetable
-# # from . import a
-#
-# # 셀프학습실 이용가능 시간표 출력
-# @csrf_exempt
-# def selfroom_timetable(request):
-#     answer = ((request.body).decode('utf-8'))
-#     json_str = json.loads(answer)
-#
-#     room_num = str(json_str['action']['clientExtra']['room_num'])
-#     available_Time = studyroom_Timetable.show_studyroom_timetable(room_num)
-#
-#     room_names = ["Self 학습실1(Career design)", "Self 학습실2(Thinking design)", "Self 학습실3(Life story design)",
-#                   "Self 학습실4", "Self 학습실5", "Self 학습실6", "Self 학습실7-1", "Self 학습실7-2", "Self 학습실8-1",
-#                   "Self 학습실8-1"]
-#
-#
-#     room_num = int(room_num) - 1
-#     room_name = room_names[room_num]
-#
-#     return JsonResponse({
-#             "version": "2.0",
-#             "template": {
-#                 "outputs": [
-#                     {
-#                         "listCard": {
-#                             "header": {
-#                                 "title": room_name + "의 이용 가능 시간표"
-#                             },
-#                             "items": [
-#                                 {
-#                                     "title": available_Time[0],
-#                                     "description": "원하는 사용시간을 선택해주세요.",
-#
-#                                     "action": "block",
-#                                     "blockId": "645794dfa58bfd17ce539370",
-#                                     # [self 학습실 final check] 블록
-#                                     "extra": {
-#                                         "idx": 0,
-#                                         "room": room_name
-#                                     }
-#
-#                                 },
-#
-#                                 {
-#                                     "title": available_Time[1],
-#                                     "description": "원하는 사용시간을 선택해주세요.",
-#
-#                                     "action": "block",
-#                                     "blockId": "645794dfa58bfd17ce539370",
-#                                     # [self 학습실 final check] 블록
-#
-#                                     "extra": {
-#                                         "idx": 1,
-#                                         "room": room_name
-#                                     }
-#
-#                                 },
-#
-#                                 {
-#                                     "title": available_Time[2],
-#                                     "description": "원하는 사용시간을 선택해주세요.",
-#
-#                                     "action": "block",
-#                                     "blockId": "645794dfa58bfd17ce539370",
-#                                     # [self 학습실 final check] 블록
-#
-#                                     "extra": {
-#                                         "idx": 2,
-#                                         "room": room_name
-#                                 }
-#
-#                                 },
-#
-#                                 {
-#                                     "title": available_Time[3],
-#                                     "description": "원하는 사용시간을 선택해주세요.",
-#
-#                                     "action": "block",
-#                                     "blockId": "645794dfa58bfd17ce539370",
-#                                     # [self 학습실 final check] 블록
-#
-#                                     "extra": {
-#                                         "idx": 3,
-#                                         "room": room_name
-#                                 }
-#
-#
-#                                 },
-#
-#                                 {
-#                                     "title": available_Time[4],
-#                                     "description": "원하는 사용시간을 선택해주세요.",
-#
-#                                     "action": "block",
-#                                     "blockId": "645794dfa58bfd17ce539370",
-#                                     # [self 학습실 final check] 블록
-#
-#                                     "extra": {
-#                                         "idx": 4,
-#                                         "room": room_name
-#                                 }
-#                                 },
-#                             ],
-#                         }
-#                     },
-#                     {
-#                         "listCard": {
-#                             "header": {
-#                                 "title": room_name + "의 이용 가능 시간표"
-#                             },
-#                             "items": [
-#                                 {
-#                                     "title": available_Time[5],
-#                                     "description": "원하는 사용시간을 선택해주세요.",
-#
-#                                     "action": "block",
-#                                     "blockId": "645794dfa58bfd17ce539370",
-#                                     # [self 학습실 final check] 블록
-#
-#                                     "extra": {
-#                                         "idx": 5,
-#                                         "room": room_name
-#                                 }
-#                                 },
-#
-#                                 {
-#                                     "title": available_Time[6],
-#                                     "description": "원하는 사용시간을 선택해주세요.",
-#
-#                                     "action": "block",
-#                                     "blockId": "645794dfa58bfd17ce539370",
-#                                     # [self 학습실 final check] 블록
-#
-#                                     "extra": {
-#                                         "idx": 6,
-#                                         "room": room_name
-#                                 }
-#                                 },
-#
-#                                 {
-#                                     "title": available_Time[7],
-#                                     "description": "원하는 사용시간을 선택해주세요.",
-#                                     "action": "block",
-#                                     "blockId": "645794dfa58bfd17ce539370",
-#                                     # [self 학습실 final check] 블록
-#
-#                                     "extra": {
-#                                         "idx": 7,
-#                                         "room": room_name
-#                                 }
-#                                 },
-#
-#                                 {
-#                                     "title": available_Time[8],
-#                                     "description": "원하는 사용시간을 선택해주세요.",
-#
-#                                     "action": "block",
-#                                     "blockId": "645794dfa58bfd17ce539370",
-#                                     # [self 학습실 final check] 블록
-#
-#                                     "extra": {
-#                                         "idx": 8,
-#                                         "room": room_name
-#                                 }
-#                                 },
-#
-#                                 {
-#                                     "title": available_Time[9],
-#                                     "description": "원하는 사용시간을 선택해주세요.",
-#
-#                                     "action": "block",
-#                                     "blockId": "645794dfa58bfd17ce539370",
-#                                     # [self 학습실 final check] 블록
-#
-#                                     "extra": {
-#                                         "idx": 9,
-#                                         "room": room_name
-#                                 }
-#                                 },
-#                             ],
-#                         }
-#                     },
-#                     {
-#                         "listCard": {
-#                             "header": {
-#                                 "title": room_name + "의 이용 가능 시간표"
-#                             },
-#                             "items": [
-#                                 {
-#                                     "title": available_Time[10],
-#                                     "description": "원하는 사용시간을 선택해주세요.",
-#
-#                                     "action": "block",
-#                                     "blockId": "645794dfa58bfd17ce539370",
-#                                     # [self 학습실 final check] 블록
-#
-#                                     "extra": {
-#                                         "idx": 10,
-#                                         "room": room_name
-#                                 }
-#                                 },
-#
-#                                 {
-#                                     "title": available_Time[11],
-#                                     "description": "원하는 사용시간을 선택해주세요.",
-#                                     "action": "block",
-#                                     "blockId": "645794dfa58bfd17ce539370",
-#                                     # [self 학습실 final check] 블록
-#
-#                                     "extra": {
-#                                         "idx": 11,
-#                                         "room": room_name
-#                                 }
-#                                 },
-#
-#                                 {
-#                                     "title": available_Time[12],
-#                                     "description": "원하는 사용시간을 선택해주세요.",
-#                                     "action": "block",
-#                                     "blockId": "645794dfa58bfd17ce539370",
-#                                     # [self 학습실 final check] 블록
-#
-#                                     "extra": {
-#                                         "idx": 12,
-#                                         "room": room_name
-#                                 }
-#                                 },
-#                             ],
-#                         }
-#                     },
-#
-#                 ],
-#                 'quickReplies': [{
-#                     'label': '다른 self-학습실 보기',
-#                     'action': 'block',
-#                     'messageText': 'self-학습실 선택하기',
-#                     'blockId': '6435ac1770eb005cb17a7588'
-#                     # [self 학습실 선택하기] 블록
-#
-#                 }]
-#             }
-#         })
-#
-#
-# # 셀프학습실 예약 final check 질문
-# @csrf_exempt
-# def studyRoom_final_check(request):
-#     answer = ((request.body).decode('utf-8'))
-#     json_str = json.loads(answer)
-#
-#     idx = int(json_str['action']['clientExtra']['idx'])
-#     room = str(json_str['action']['clientExtra']['room'])
-#     select_time = studyroom_Timetable.available_time_list_tag[idx].text
-#     # 9:00 ~ 10:00에 self 학습실 1를 예약하시겠습니까?
-#
-#     return JsonResponse({
-#             'version': "2.0",
-#             'template': {
-#                 'outputs': [{
-#                     'simpleText': {
-#                         'text': str(json_str)
-#                     }
-#                 }]
-#             }
-#         })
+
+from . import portal_login_user
+
+# 포탈 로그인
+@csrf_exempt
+def portal_login(request):
+    answer = ((request.body).decode('utf-8'))
+    json_str = json.loads(answer)
+
+    Pid = str(json_str['action']['params']['portal_ID'])
+    Ppw = str(json_str['action']['params']['portal_PW'])
+
+    login = portal_login_user.portal(Pid, Ppw)
+
+    if login == 's':
+        return JsonResponse({
+                'version': "2.0",
+                'template': {
+                    'outputs': [{
+                        'simpleText': {
+                            'text': "로그인에 성공했습니다.\n self-학습실 선택하기 버튼을 눌러주세요."
+                       }
+                    }],
+                    'quickReplies': [{
+                        'label': 'self-학습실 선택하기',
+                        'action': 'block',
+                        'messageText': '다시 시도하기',
+                        'blockId' : '6435ac1770eb005cb17a7588'
+                        # [self 학습실 선택하기] 블록
+                    }]
+                }
+            })
+
+    else:
+        return JsonResponse({
+                'version': "2.0",
+                'template': {
+                    'outputs': [{
+                        'simpleText': {
+                            'text': '입력하신 아이디 혹은 비밀번호가 일치하지 않습니다.\n 다시 시도하려면 "다시 시도"버튼을 눌러주세요.'
+                       }
+                    }],
+                    'quickReplies': [{
+                        'label': '다시 시도하기',
+                        'action': 'block',
+                        'messageText': '다시 시도하기',
+                        'blockId' : '6435adf77ab7b038704cebf7'
+                        # [self 학습실 ID PW 입력] 블록
+                    }]
+                }
+            })
+
+from . import studyroom_Timetable
+# from . import a
+
+# 셀프학습실 이용가능 시간표 출력
+@csrf_exempt
+def selfroom_timetable(request):
+    answer = ((request.body).decode('utf-8'))
+    json_str = json.loads(answer)
+
+    room_num = str(json_str['action']['clientExtra']['room_num'])
+    available_Time = studyroom_Timetable.show_studyroom_timetable(room_num)
+
+    room_names = ["Self 학습실1(Career design)", "Self 학습실2(Thinking design)", "Self 학습실3(Life story design)",
+                  "Self 학습실4", "Self 학습실5", "Self 학습실6", "Self 학습실7-1", "Self 학습실7-2", "Self 학습실8-1",
+                  "Self 학습실8-1"]
+
+
+    room_num = int(room_num) - 1
+    room_name = room_names[room_num]
+
+    return JsonResponse({
+            "version": "2.0",
+            "template": {
+                "outputs": [
+                    {
+                        "listCard": {
+                            "header": {
+                                "title": room_name + "의 이용 가능 시간표"
+                            },
+                            "items": [
+                                {
+                                    "title": available_Time[0],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+                                    "extra": {
+                                        "idx": 0,
+                                        "room": room_name
+                                    }
+
+                                },
+
+                                {
+                                    "title": available_Time[1],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
+                                    "extra": {
+                                        "idx": 1,
+                                        "room": room_name
+                                    }
+
+                                },
+
+                                {
+                                    "title": available_Time[2],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
+                                    "extra": {
+                                        "idx": 2,
+                                        "room": room_name
+                                }
+
+                                },
+
+                                {
+                                    "title": available_Time[3],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
+                                    "extra": {
+                                        "idx": 3,
+                                        "room": room_name
+                                }
+
+
+                                },
+
+                                {
+                                    "title": available_Time[4],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
+                                    "extra": {
+                                        "idx": 4,
+                                        "room": room_name
+                                }
+                                },
+                            ],
+                        }
+                    },
+                    {
+                        "listCard": {
+                            "header": {
+                                "title": room_name + "의 이용 가능 시간표"
+                            },
+                            "items": [
+                                {
+                                    "title": available_Time[5],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
+                                    "extra": {
+                                        "idx": 5,
+                                        "room": room_name
+                                }
+                                },
+
+                                {
+                                    "title": available_Time[6],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
+                                    "extra": {
+                                        "idx": 6,
+                                        "room": room_name
+                                }
+                                },
+
+                                {
+                                    "title": available_Time[7],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
+                                    "extra": {
+                                        "idx": 7,
+                                        "room": room_name
+                                }
+                                },
+
+                                {
+                                    "title": available_Time[8],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
+                                    "extra": {
+                                        "idx": 8,
+                                        "room": room_name
+                                }
+                                },
+
+                                {
+                                    "title": available_Time[9],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
+                                    "extra": {
+                                        "idx": 9,
+                                        "room": room_name
+                                }
+                                },
+                            ],
+                        }
+                    },
+                    {
+                        "listCard": {
+                            "header": {
+                                "title": room_name + "의 이용 가능 시간표"
+                            },
+                            "items": [
+                                {
+                                    "title": available_Time[10],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
+                                    "extra": {
+                                        "idx": 10,
+                                        "room": room_name
+                                }
+                                },
+
+                                {
+                                    "title": available_Time[11],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
+                                    "extra": {
+                                        "idx": 11,
+                                        "room": room_name
+                                }
+                                },
+
+                                {
+                                    "title": available_Time[12],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
+                                    "extra": {
+                                        "idx": 12,
+                                        "room": room_name
+                                }
+                                },
+                            ],
+                        }
+                    },
+
+                ],
+                'quickReplies': [{
+                    'label': '다른 self-학습실 보기',
+                    'action': 'block',
+                    'messageText': 'self-학습실 선택하기',
+                    'blockId': '6435ac1770eb005cb17a7588'
+                    # [self 학습실 선택하기] 블록
+
+                }]
+            }
+        })
+
+
+# 셀프학습실 예약 final check 질문
+@csrf_exempt
+def studyRoom_final_check(request):
+    answer = ((request.body).decode('utf-8'))
+    json_str = json.loads(answer)
+
+    # idx = int(json_str['action']['clientExtra']['idx'])
+    # room = str(json_str['action']['clientExtra']['room'])
+    # select_time = studyroom_Timetable.available_time_list_tag[idx].text
+    # 9:00 ~ 10:00에 self 학습실 1를 예약하시겠습니까?
+
+    return JsonResponse({
+            'version': "2.0",
+            'template': {
+                'outputs': [{
+                    'simpleText': {
+                        'text': str(json_str)
+                    }
+                }]
+            }
+        })
 
 
     # return JsonResponse({
@@ -577,68 +577,70 @@ def lost_found_detail(request):
     #     }
     # })
 
-## 다른 학습실 보기 버튼
-## 출력은 리스트 버튼으로
-## 리스트 버튼 클릭 시 예약하겠습니까 버튼.
+# 다른 학습실 보기 버튼
+# 출력은 리스트 버튼으로
+# 리스트 버튼 클릭 시 예약하겠습니까 버튼.
 
-# from . import reserve_studyroom
-#
-# # self 학습실 예약
-# @csrf_exempt
-# def studyRoom_reserve(request):
-#     answer = ((request.body).decode('utf-8'))
-#     json_str = json.loads(answer)
-#
-#     idx = int(json_str['action']['clientExtra']['num'])
-#     room = str(json_str['action']['clientExtra']['room'])
-#
-#     s = reserve_studyroom.selfroom_reserve(idx)
-#
-#     select_time = studyroom_Timetable.available_time_list_tag[idx].text
-#
-#     if s =="s":
-#         return JsonResponse({
-#             'version': "2.0",
-#             'template': {
-#                 'outputs': [{
-#                     'simpleText': {
-#                         # 9시에 self 학습실4를 예약했습니다.
-#                         'text': "[" + select_time + "]에 " + room + "을(를) 예약했습니다."
-#
-#                     }
-#                 }]
-#             }
-#         })
-#
-#     elif s =="d":
-#         return JsonResponse({
-#             'version': "2.0",
-#             'template': {
-#                 'outputs': [{
-#                     'simpleText': {
-#                         'text': "예약에 실패했습니다.\n예약은 1일 최대 2시간까지 가능합니다."
-#                     }
-#                 }]
-#             }
-#         })
-#
-#     if s =="f":
-#         return JsonResponse({
-#             'version': "2.0",
-#             'template': {
-#                 'outputs': [{
-#                     'simpleText': {
-#                         'text': "예약에 실패했습니다.\n다시 시도해주세요."
-#                     }
-#                 }],
-#                 'quickReplies': [{
-#                     'label': '다시 시도',
-#                     'action': 'block',
-#                     'messageText': '다시 시도하기',
-#                     'blockId': '6435adf77ab7b038704cebf7'
-#                 }]
-#             }
-#         })
+from . import reserve_studyroom
+
+# self 학습실 예약
+@csrf_exempt
+def studyRoom_reserve(request):
+    answer = ((request.body).decode('utf-8'))
+    json_str = json.loads(answer)
+    #
+    # idx = int(json_str['action']['clientExtra']['num'])
+    # room = str(json_str['action']['clientExtra']['room'])
+    #
+    # s = reserve_studyroom.selfroom_reserve(idx)
+    #
+    # select_time = studyroom_Timetable.available_time_list_tag[idx].text
+
+    if s =="s":
+        return JsonResponse({
+            'version': "2.0",
+            'template': {
+                'outputs': [{
+                    'simpleText': {
+                        # 9시에 self 학습실4를 예약했습니다.
+                        # 'text': "[" + select_time + "]에 " + room + "을(를) 예약했습니다.",
+                        'text': "["
+
+
+        }
+                }]
+            }
+        })
+
+    elif s =="d":
+        return JsonResponse({
+            'version': "2.0",
+            'template': {
+                'outputs': [{
+                    'simpleText': {
+                        'text': "예약에 실패했습니다.\n예약은 1일 최대 2시간까지 가능합니다."
+                    }
+                }]
+            }
+        })
+
+    if s =="f":
+        return JsonResponse({
+            'version': "2.0",
+            'template': {
+                'outputs': [{
+                    'simpleText': {
+                        'text': "예약에 실패했습니다.\n다시 시도해주세요."
+                    }
+                }],
+                'quickReplies': [{
+                    'label': '다시 시도',
+                    'action': 'block',
+                    'messageText': '다시 시도하기',
+                    'blockId': '6435adf77ab7b038704cebf7'
+                }]
+            }
+        })
 
 
 
