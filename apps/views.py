@@ -577,8 +577,8 @@ def studyRoom_reserve(request):
     answer = ((request.body).decode('utf-8'))
     json_str = json.loads(answer)
     #
-    idx = int(json_str['action']['clientExtra']['num'])
-    room = str(json_str['action']['clientExtra']['room'])
+    # idx = int(json_str['action']['clientExtra']['num'])
+    # room = str(json_str['action']['clientExtra']['room'])
     #
     # s = reserve_studyroom.selfroom_reserve(idx)
     #
@@ -589,7 +589,7 @@ def studyRoom_reserve(request):
             'template': {
                 'outputs': [{
                     'simpleText': {
-                        'text': idx + room
+                        'text': str(json_str)
                     }
                 }]
             }
