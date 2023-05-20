@@ -79,7 +79,7 @@ def portal(pid, ppw):
 
 
     # 로그인 완료되면 포탈페이지로 이동
-    if driver.current_url == "https://portal.anyang.ac.kr/#":
+    if driver.current_url == "https://portal.anyang.ac.kr/":
         print("포탈 로그인 실패!")
         return success
 

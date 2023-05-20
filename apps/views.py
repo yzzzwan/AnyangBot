@@ -206,8 +206,7 @@ def lost_found_detail(request):
         'template': {
             'outputs': [{
                 'simpleText': {
-                    'text': lost_items[num][0] + ", " + lost_items[num][1] + "에서 " + lost_items[num][3] + "이(가) " +
-                            lost_items[num][2] + "을(를) 습득하여 " + lost_items[num][4] + "에서 보관중입니다."
+                    'text': lost_items[num][0] + ", " + lost_items[num][1] + "에서 " + lost_items[num][3] + "이(가) " + lost_items[num][2] + "을(를) 습득하여 " + lost_items[num][4] + "에서 보관중입니다."
                 }
             }],
             'quickReplies': [{
@@ -245,6 +244,7 @@ def portal_login(request):
                         'action': 'block',
                         'messageText': '다시 시도하기',
                         'blockId' : '6435ac1770eb005cb17a7588'
+                        # [self 학습실 선택하기] 블록
                     }]
                 }
             })
@@ -263,6 +263,7 @@ def portal_login(request):
                         'action': 'block',
                         'messageText': '다시 시도하기',
                         'blockId' : '6435adf77ab7b038704cebf7'
+                        # [self 학습실 ID PW 입력] 블록
                     }]
                 }
             })
@@ -303,6 +304,7 @@ def selfroom_timetable(request):
 
                                     "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
                                     "extra": {
                                         "idx": 0,
                                         "room": room_name
@@ -316,6 +318,8 @@ def selfroom_timetable(request):
 
                                     "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
                                     "extra": {
                                         "idx": 1,
                                         "room": room_name
@@ -329,6 +333,8 @@ def selfroom_timetable(request):
 
                                     "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
                                     "extra": {
                                         "idx": 2,
                                         "room": room_name
@@ -342,6 +348,8 @@ def selfroom_timetable(request):
 
                                     "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
                                     "extra": {
                                         "idx": 3,
                                         "room": room_name
@@ -356,6 +364,8 @@ def selfroom_timetable(request):
 
                                     "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
                                     "extra": {
                                         "idx": 4,
                                         "room": room_name
@@ -376,6 +386,8 @@ def selfroom_timetable(request):
 
                                     "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
                                     "extra": {
                                         "idx": 5,
                                         "room": room_name
@@ -388,6 +400,8 @@ def selfroom_timetable(request):
 
                                     "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
                                     "extra": {
                                         "idx": 6,
                                         "room": room_name
@@ -399,6 +413,8 @@ def selfroom_timetable(request):
                                     "description": "원하는 사용시간을 선택해주세요.",
                                     "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
                                     "extra": {
                                         "idx": 7,
                                         "room": room_name
@@ -411,6 +427,8 @@ def selfroom_timetable(request):
 
                                     "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
                                     "extra": {
                                         "idx": 8,
                                         "room": room_name
@@ -423,6 +441,8 @@ def selfroom_timetable(request):
 
                                     "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
                                     "extra": {
                                         "idx": 9,
                                         "room": room_name
@@ -443,6 +463,8 @@ def selfroom_timetable(request):
 
                                     "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
                                     "extra": {
                                         "idx": 10,
                                         "room": room_name
@@ -454,6 +476,8 @@ def selfroom_timetable(request):
                                     "description": "원하는 사용시간을 선택해주세요.",
                                     "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
                                     "extra": {
                                         "idx": 11,
                                         "room": room_name
@@ -465,6 +489,8 @@ def selfroom_timetable(request):
                                     "description": "원하는 사용시간을 선택해주세요.",
                                     "action": "block",
                                     "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
                                     "extra": {
                                         "idx": 12,
                                         "room": room_name
@@ -480,6 +506,8 @@ def selfroom_timetable(request):
                     'action': 'block',
                     'messageText': 'self-학습실 선택하기',
                     'blockId': '6435ac1770eb005cb17a7588'
+                    # [self 학습실 선택하기] 블록
+
                 }]
             }
         })
@@ -497,44 +525,57 @@ def studyRoom_final_check(request):
     # 9:00 ~ 10:00에 self 학습실 1를 예약하시겠습니까?
 
     return JsonResponse({
-        'version': "2.0",
-        'template': {
-            'outputs': [{
-                'simpleText': {
-                    'text': "[" + select_time + "]" + "에 "+room + "을(를) 예약하시겠습니까?"
-                }
-            }],
-            'quickReplies': [
-                {
-                    "label": "네",
-                    "action": "block",
-                    "messageText": "예약하겠습니다.",
-                    'blockId': '6457acc18edae924e926b707',
-                    "extra": {
-                        "num": idx,
-                        "room": room
+            'version': "2.0",
+            'template': {
+                'outputs': [{
+                    'simpleText': {
+                        'text': idx
                     }
+                }]
+            }
+        })
 
-                },
 
-                {
-                    "label": "다시 선택",
-                    "action": "block",
-                    "messageText": "다시 선택할게요.",
-                    'blockId': '6435ac1770eb005cb17a7588'
-
-                },
-
-                {
-                    "label": "종료하기",
-                    "action": "block",
-                    "messageText": "self 학습실 예약을 종료합니다.",
-                    'blockId': '6435ac1770eb005cb17a7588'
-
-                },
-            ],
-        }
-    })
+    # return JsonResponse({
+    #     'version': "2.0",
+    #     'template': {
+    #         'outputs': [{
+    #             'simpleText': {
+    #                 'text': "[" + select_time + "]" + "에 "+room + "을(를) 예약하시겠습니까?"
+    #             }
+    #         }],
+    #         'quickReplies': [
+    #             {
+    #                 "label": "네",
+    #                 "action": "block",
+    #                 "messageText": "예약하겠습니다.",
+    #                 'blockId': '6457acc18edae924e926b707',
+    #                 # self 학습실 예약
+    #                 "extra": {
+    #                     "num": idx,
+    #                     "room": room
+    #                 }
+    #
+    #             },
+    #
+    #             {
+    #                 "label": "다시 선택",
+    #                 "action": "block",
+    #                 "messageText": "다시 선택할게요.",
+    #                 'blockId': '6435ac1770eb005cb17a7588'
+    #
+    #             },
+    #
+    #             {
+    #                 "label": "종료하기",
+    #                 "action": "block",
+    #                 "messageText": "self 학습실 예약을 종료합니다.",
+    #                 'blockId': '6435ac1770eb005cb17a7588'
+    #
+    #             },
+    #         ],
+    #     }
+    # })
 
 ## 다른 학습실 보기 버튼
 ## 출력은 리스트 버튼으로
@@ -606,5 +647,9 @@ def studyRoom_reserve(request):
 
 
 
-
+#예약은 돼..
+# 근데 알터 창이 어디선 하나 더뜨고 어디서 안뜨나봐
+# 현재는 알터 창이 한번 더 뜨면 초과로 인식하는데 이걸 수정해야돼
+#
+# 그리고 2번째 예약때 로그인이 아에 작동안해
 
