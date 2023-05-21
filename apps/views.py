@@ -616,15 +616,15 @@ def selfroom_timetable(request):
                     'blockId': '6435ac1770eb005cb17a7588'
                     # [self 학습실 선택하기] 블록
 
-                }],
-                'quickReplies': [{
-                    'label': '다른 날짜 선택하기',
-                    'action': 'block',
-                    'messageText': '다른 날짜 선택하기',
-                    'blockId': '66469c17b318d31192baf21d2'
-                    # [self 학습실 선택하기] 블록
-
-                }]
+                },
+                    {
+                        'label': '다른 날짜 선택하기',
+                        'action': 'block',
+                        'messageText': '다른 날짜 선택하기',
+                        'blockId': '66469c17b318d31192baf21d2'
+                        # [self 학습실 선택하기] 블록
+                    }
+                ],
             }
         })
 
