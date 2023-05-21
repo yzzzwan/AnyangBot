@@ -689,7 +689,6 @@ def studyRoom_final_check(request):
 # 리스트 버튼 클릭 시 예약하겠습니까 버튼.
 
 from . import reserve_studyroom
-
 # self 학습실 예약
 @csrf_exempt
 def studyRoom_reserve(request):
@@ -701,54 +700,66 @@ def studyRoom_reserve(request):
     date= str(json_str['action']['clientExtra']['date'])
 
 
-    s = reserve_studyroom.selfroom_reserve(idx)
+    # s = reserve_studyroom.selfroom_reserve(idx)
 
 
-    select_time = studyroom_Timetable.available_time_list_tag[idx].text
+    # select_time = studyroom_Timetable.available_time_list_tag[idx].text
 
-    if s =="s":
-        return JsonResponse({
-            'version': "2.0",
-            'template': {
-                'outputs': [{
-                    'simpleText': {
-                        # 2023-05-04 (수), [9:00 ~ 10:00]에 [self 학습실4]를 예약했습니다.
-                        'text':  date + ", " + "[" + select_time + "]에 [" + room + "]을(를) 예약했습니다."
-                    }
-                }]
-            },
+    return JsonResponse({
+        'version': "2.0",
+        'template': {
+            'outputs': [{
+                'simpleText': {
+                    'text': str(json_str)
+                }
+            }]
+        }
+    })
 
-        })
 
-    elif s =="d":
-        return JsonResponse({
-            'version': "2.0",
-            'template': {
-                'outputs': [{
-                    'simpleText': {
-                        'text': "예약에 실패했습니다.\n예약은 1일 최대 2시간까지 가능합니다."
-                    }
-                }]
-            }
-        })
-
-    elif s =="f":
-        return JsonResponse({
-            'version': "2.0",
-            'template': {
-                'outputs': [{
-                    'simpleText': {
-                        'text': "예약에 실패했습니다.\n다시 시도해주세요."
-                    }
-                }],
-                'quickReplies': [{
-                    'label': '다시 시도',
-                    'action': 'block',
-                    'messageText': '다시 시도하기',
-                    'blockId': '6435adf77ab7b038704cebf7'
-                }]
-            }
-        })
+    # if s =="s":
+    #     return JsonResponse({
+    #         'version': "2.0",
+    #         'template': {
+    #             'outputs': [{
+    #                 'simpleText': {
+    #                     # 2023-05-04 (수), [9:00 ~ 10:00]에 [self 학습실4]를 예약했습니다.
+    #                     'text':  date + ", " + "[" + select_time + "]에 [" + room + "]을(를) 예약했습니다."
+    #                 }
+    #             }]
+    #         },
+    #
+    #     })
+    #
+    # elif s =="d":
+    #     return JsonResponse({
+    #         'version': "2.0",
+    #         'template': {
+    #             'outputs': [{
+    #                 'simpleText': {
+    #                     'text': "예약에 실패했습니다.\n예약은 1일 최대 2시간까지 가능합니다."
+    #                 }
+    #             }]
+    #         }
+    #     })
+    #
+    # elif s =="f":
+    #     return JsonResponse({
+    #         'version': "2.0",
+    #         'template': {
+    #             'outputs': [{
+    #                 'simpleText': {
+    #                     'text': "예약에 실패했습니다.\n다시 시도해주세요."
+    #                 }
+    #             }],
+    #             'quickReplies': [{
+    #                 'label': '다시 시도',
+    #                 'action': 'block',
+    #                 'messageText': '다시 시도하기',
+    #                 'blockId': '6435adf77ab7b038704cebf7'
+    #             }]
+    #         }
+    #     })
 
 
 
