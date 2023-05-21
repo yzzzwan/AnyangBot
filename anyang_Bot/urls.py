@@ -29,8 +29,9 @@ urlpatterns = [
     re_path(r'^lost_and_found/?$', v.lost_found),  # 분실물 찾기
     re_path(r'^lost_and_found_detail/?$', v.lost_found_detail),  # 분실물 찾기
 
-    re_path(r'^studyRoom_login/?$', v.portal_login),  # 스터디룸 login
-    re_path(r'^studyRoom_timetable/?$', v.selfroom_timetable),  # 스터디룸 login
+    re_path(r'^studyRoom_login/?$', v.portal_login),  # portal login
+    re_path(r'^choose_weekdays/?$', v.choose_weekday),  # 스터디룸 이용일 선택
+    re_path(r'^studyRoom_timetable/?$', v.selfroom_timetable),  # 스터디룸 이용가능 시간 출력
     re_path(r'^studyRoom_final_check/?$', v.studyRoom_final_check),  # 스터디룸 예약 최종 체크
     re_path(r'^studyRoom_reserve/?$', v.studyRoom_reserve),  # 스터디룸 예약
 
