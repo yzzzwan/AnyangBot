@@ -635,70 +635,54 @@ def studyRoom_final_check(request):
     answer = ((request.body).decode('utf-8'))
     json_str = json.loads(answer)
 
+    idx = int(json_str['action']['clientExtra']['idx'])
+    room = str(json_str['action']['clientExtra']['room'])
+    date = str(json_str['action']['clientExtra']['date'])
 
-
-    # idx = int(json_str['action']['clientExtra']['idx'])
-    # room = str(json_str['action']['clientExtra']['room'])
-    # date = str(json_str['action']['clientExtra']['date'])
-    #
-    # s = reserve_studyroom.selfroom_reserve(idx)
-    #
-    # select_time = studyroom_Timetable.available_time_list_tag[idx].text
-    # # 9:00 ~ 10:00에 self 학습실 1를 예약하시겠습니까?
-    #
+    select_time = studyroom_Timetable.available_time_list_tag[idx].text
+    # [2023-05-04 (수)], [9:00 ~ 10:00]에 [self 학습실4]를 예약하시겠습니까?
 
     return JsonResponse({
         'version': "2.0",
         'template': {
             'outputs': [{
                 'simpleText': {
-                    'text': str(json_str)
+                    'text': "[" + date + "], [" + select_time + "]" + "에 "+room + "을(를) 예약하시겠습니까?"
                 }
-            }]
+            }],
+            'quickReplies': [
+                {
+                    "label": "네",
+                    "action": "block",
+                    "messageText": "예약하겠습니다.",
+                    'blockId': '6457acc18edae924e926b707',
+                    # self 학습실 예약
+                    "extra": {
+                        "num": idx,
+                        "room": room,
+                        "date": date
+                    }
+
+                },
+
+                {
+                    "label": "다시 선택",
+                    "action": "block",
+                    "messageText": "다시 선택할게요.",
+                    'blockId': '6435ac1770eb005cb17a7588'
+
+                },
+
+                {
+                    "label": "종료하기",
+                    "action": "block",
+                    "messageText": "self 학습실 예약을 종료합니다.",
+                    'blockId': '6435ac1770eb005cb17a7588'
+
+                },
+            ],
         }
     })
-
-    # return JsonResponse({
-    #     'version': "2.0",
-    #     'template': {
-    #         'outputs': [{
-    #             'simpleText': {
-    #                 'text': "[" + select_time + "]" + "에 "+room + "을(를) 예약하시겠습니까?"
-    #             }
-    #         }],
-    #         'quickReplies': [
-    #             {
-    #                 "label": "네",
-    #                 "action": "block",
-    #                 "messageText": "예약하겠습니다.",
-    #                 'blockId': '6457acc18edae924e926b707',
-    #                 # self 학습실 예약
-    #                 "extra": {
-    #                     "num": idx,
-    #                     "room": room,
-    #                     "date": date
-    #                 }
-    #
-    #             },
-    #
-    #             {
-    #                 "label": "다시 선택",
-    #                 "action": "block",
-    #                 "messageText": "다시 선택할게요.",
-    #                 'blockId': '6435ac1770eb005cb17a7588'
-    #
-    #             },
-    #
-    #             {
-    #                 "label": "종료하기",
-    #                 "action": "block",
-    #                 "messageText": "self 학습실 예약을 종료합니다.",
-    #                 'blockId': '6435ac1770eb005cb17a7588'
-    #
-    #             },
-    #         ],
-    #     }
-    # })
 
 # 다른 학습실 보기 버튼
 # 출력은 리스트 버튼으로
