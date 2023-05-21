@@ -621,7 +621,7 @@ def selfroom_timetable(request):
                         'label': '다른 날짜 선택하기',
                         'action': 'block',
                         'messageText': '다른 날짜 선택하기',
-                        'blockId': '66469c17b318d31192baf21d2'
+                        'blockId': '6469c17b318d31192baf21d2'
                         # [self 학습실 선택하기] 블록
                     }
                 ],
@@ -695,13 +695,8 @@ def studyRoom_reserve(request):
     date= str(json_str['action']['clientExtra']['date'])
     select_time = str(json_str['action']['clientExtra']['select_time'])
 
-
     s = reserve_studyroom.selfroom_reserve(idx)
-
-
     # select_time = studyroom_Timetable.available_time_list_tag[idx].text
-
-
 
     if s =="s":
         return JsonResponse({
