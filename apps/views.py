@@ -384,259 +384,249 @@ def selfroom_timetable(request):
 
 
     return JsonResponse({
-        'version': "2.0",
-        'template': {
-            'outputs': [{
-                'simpleText': {
-                    'text': room_name + room_num + str(week_days) + date
-                }
-            }]
-        }
-    })
-    # return JsonResponse({
-    #         "version": "2.0",
-    #         "template": {
-    #             "outputs": [
-    #                 {
-    #                     "listCard": {
-    #                         "header": {
-    #                             "title": room_name + "의 이용 가능 시간표"
-    #                         },
-    #                         "items": [
-    #                             {
-    #                                 "title": available_Time[0],
-    #                                 "description": "원하는 사용시간을 선택해주세요.",
-    #
-    #                                 "action": "block",
-    #                                 "blockId": "645794dfa58bfd17ce539370",
-    #                                 # [self 학습실 final check] 블록
-    #                                 "extra": {
-    #                                     "idx": 0,
-    #                                     "room": room_name,
-    #                                     "date": date
-    #                                 }
-    #
-    #                             },
-    #
-    #                             {
-    #                                 "title": available_Time[1],
-    #                                 "description": "원하는 사용시간을 선택해주세요.",
-    #
-    #                                 "action": "block",
-    #                                 "blockId": "645794dfa58bfd17ce539370",
-    #                                 # [self 학습실 final check] 블록
-    #
-    #                                 "extra": {
-    #                                     "idx": 1,
-    #                                     "room": room_name,
-    #                                     "date": date
-    #                                 }
-    #
-    #                             },
-    #
-    #                             {
-    #                                 "title": available_Time[2],
-    #                                 "description": "원하는 사용시간을 선택해주세요.",
-    #
-    #                                 "action": "block",
-    #                                 "blockId": "645794dfa58bfd17ce539370",
-    #                                 # [self 학습실 final check] 블록
-    #
-    #                                 "extra": {
-    #                                     "idx": 2,
-    #                                     "room": room_name,
-    #                                     "date": date
-    #                             }
-    #
-    #                             },
-    #
-    #                             {
-    #                                 "title": available_Time[3],
-    #                                 "description": "원하는 사용시간을 선택해주세요.",
-    #
-    #                                 "action": "block",
-    #                                 "blockId": "645794dfa58bfd17ce539370",
-    #                                 # [self 학습실 final check] 블록
-    #
-    #                                 "extra": {
-    #                                     "idx": 3,
-    #                                     "room": room_name,
-    #                                     "date": date
-    #                             }
-    #
-    #
-    #                             },
-    #
-    #                             {
-    #                                 "title": available_Time[4],
-    #                                 "description": "원하는 사용시간을 선택해주세요.",
-    #
-    #                                 "action": "block",
-    #                                 "blockId": "645794dfa58bfd17ce539370",
-    #                                 # [self 학습실 final check] 블록
-    #
-    #                                 "extra": {
-    #                                     "idx": 4,
-    #                                     "room": room_name,
-    #                                     "date": date
-    #                             }
-    #                             },
-    #                         ],
-    #                     }
-    #                 },
-    #                 {
-    #                     "listCard": {
-    #                         "header": {
-    #                             "title": room_name + "의 이용 가능 시간표"
-    #                         },
-    #                         "items": [
-    #                             {
-    #                                 "title": available_Time[5],
-    #                                 "description": "원하는 사용시간을 선택해주세요.",
-    #
-    #                                 "action": "block",
-    #                                 "blockId": "645794dfa58bfd17ce539370",
-    #                                 # [self 학습실 final check] 블록
-    #
-    #                                 "extra": {
-    #                                     "idx": 5,
-    #                                     "room": room_name,
-    #                                     "date": date
-    #                             }
-    #                             },
-    #
-    #                             {
-    #                                 "title": available_Time[6],
-    #                                 "description": "원하는 사용시간을 선택해주세요.",
-    #
-    #                                 "action": "block",
-    #                                 "blockId": "645794dfa58bfd17ce539370",
-    #                                 # [self 학습실 final check] 블록
-    #
-    #                                 "extra": {
-    #                                     "idx": 6,
-    #                                     "room": room_name,
-    #                                     "date": date
-    #                             }
-    #                             },
-    #
-    #                             {
-    #                                 "title": available_Time[7],
-    #                                 "description": "원하는 사용시간을 선택해주세요.",
-    #                                 "action": "block",
-    #                                 "blockId": "645794dfa58bfd17ce539370",
-    #                                 # [self 학습실 final check] 블록
-    #
-    #                                 "extra": {
-    #                                     "idx": 7,
-    #                                     "room": room_name,
-    #                                     "date": date
-    #                             }
-    #                             },
-    #
-    #                             {
-    #                                 "title": available_Time[8],
-    #                                 "description": "원하는 사용시간을 선택해주세요.",
-    #
-    #                                 "action": "block",
-    #                                 "blockId": "645794dfa58bfd17ce539370",
-    #                                 # [self 학습실 final check] 블록
-    #
-    #                                 "extra": {
-    #                                     "idx": 8,
-    #                                     "room": room_name,
-    #                                     "date": date
-    #                             }
-    #                             },
-    #
-    #                             {
-    #                                 "title": available_Time[9],
-    #                                 "description": "원하는 사용시간을 선택해주세요.",
-    #
-    #                                 "action": "block",
-    #                                 "blockId": "645794dfa58bfd17ce539370",
-    #                                 # [self 학습실 final check] 블록
-    #
-    #                                 "extra": {
-    #                                     "idx": 9,
-    #                                     "room": room_name,
-    #                                     "date": date
-    #                             }
-    #                             },
-    #                         ],
-    #                     }
-    #                 },
-    #                 {
-    #                     "listCard": {
-    #                         "header": {
-    #                             "title": room_name + "의 이용 가능 시간표"
-    #                         },
-    #                         "items": [
-    #                             {
-    #                                 "title": available_Time[10],
-    #                                 "description": "원하는 사용시간을 선택해주세요.",
-    #
-    #                                 "action": "block",
-    #                                 "blockId": "645794dfa58bfd17ce539370",
-    #                                 # [self 학습실 final check] 블록
-    #
-    #                                 "extra": {
-    #                                     "idx": 10,
-    #                                     "room": room_name,
-    #                                     "date": date
-    #                             }
-    #                             },
-    #
-    #                             {
-    #                                 "title": available_Time[11],
-    #                                 "description": "원하는 사용시간을 선택해주세요.",
-    #                                 "action": "block",
-    #                                 "blockId": "645794dfa58bfd17ce539370",
-    #                                 # [self 학습실 final check] 블록
-    #
-    #                                 "extra": {
-    #                                     "idx": 11,
-    #                                     "room": room_name,
-    #                                     "date": date
-    #                             }
-    #                             },
-    #
-    #                             {
-    #                                 "title": available_Time[12],
-    #                                 "description": "원하는 사용시간을 선택해주세요.",
-    #                                 "action": "block",
-    #                                 "blockId": "645794dfa58bfd17ce539370",
-    #                                 # [self 학습실 final check] 블록
-    #
-    #                                 "extra": {
-    #                                     "idx": 12,
-    #                                     "room": room_name,
-    #                                     "date": date
-    #                             }
-    #                             },
-    #                         ],
-    #                     }
-    #                 },
-    #
-    #             ],
-    #             'quickReplies': [{
-    #                 'label': '다른 self-학습실 보기',
-    #                 'action': 'block',
-    #                 'messageText': 'self-학습실 선택하기',
-    #                 'blockId': '6435ac1770eb005cb17a7588'
-    #                 # [self 학습실 선택하기] 블록
-    #
-    #             }],
-    #             'quickReplies': [{
-    #                 'label': '다른 날짜 선택하기',
-    #                 'action': 'block',
-    #                 'messageText': 'self-학습실 선택하기',
-    #                 'blockId': '6435ac1770eb005cb17a7588'
-    #                 # [self 학습실 선택하기] 블록
-    #
-    #             }]
-    #         }
-    #     })
+            "version": "2.0",
+            "template": {
+                "outputs": [
+                    {
+                        "listCard": {
+                            "header": {
+                                "title": room_name + "의 이용 가능 시간표"
+                            },
+                            "items": [
+                                {
+                                    "title": available_Time[0],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+                                    "extra": {
+                                        "idx": 0,
+                                        "room": room_name,
+                                        "date": date
+                                    }
+
+                                },
+
+                                {
+                                    "title": available_Time[1],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
+                                    "extra": {
+                                        "idx": 1,
+                                        "room": room_name,
+                                        "date": date
+                                    }
+
+                                },
+
+                                {
+                                    "title": available_Time[2],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
+                                    "extra": {
+                                        "idx": 2,
+                                        "room": room_name,
+                                        "date": date
+                                }
+
+                                },
+
+                                {
+                                    "title": available_Time[3],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
+                                    "extra": {
+                                        "idx": 3,
+                                        "room": room_name,
+                                        "date": date
+                                }
+
+
+                                },
+
+                                {
+                                    "title": available_Time[4],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
+                                    "extra": {
+                                        "idx": 4,
+                                        "room": room_name,
+                                        "date": date
+                                }
+                                },
+                            ],
+                        }
+                    },
+                    {
+                        "listCard": {
+                            "header": {
+                                "title": room_name + "의 이용 가능 시간표"
+                            },
+                            "items": [
+                                {
+                                    "title": available_Time[5],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
+                                    "extra": {
+                                        "idx": 5,
+                                        "room": room_name,
+                                        "date": date
+                                }
+                                },
+
+                                {
+                                    "title": available_Time[6],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
+                                    "extra": {
+                                        "idx": 6,
+                                        "room": room_name,
+                                        "date": date
+                                }
+                                },
+
+                                {
+                                    "title": available_Time[7],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
+                                    "extra": {
+                                        "idx": 7,
+                                        "room": room_name,
+                                        "date": date
+                                }
+                                },
+
+                                {
+                                    "title": available_Time[8],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
+                                    "extra": {
+                                        "idx": 8,
+                                        "room": room_name,
+                                        "date": date
+                                }
+                                },
+
+                                {
+                                    "title": available_Time[9],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
+                                    "extra": {
+                                        "idx": 9,
+                                        "room": room_name,
+                                        "date": date
+                                }
+                                },
+                            ],
+                        }
+                    },
+                    {
+                        "listCard": {
+                            "header": {
+                                "title": room_name + "의 이용 가능 시간표"
+                            },
+                            "items": [
+                                {
+                                    "title": available_Time[10],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
+                                    "extra": {
+                                        "idx": 10,
+                                        "room": room_name,
+                                        "date": date
+                                }
+                                },
+
+                                {
+                                    "title": available_Time[11],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
+                                    "extra": {
+                                        "idx": 11,
+                                        "room": room_name,
+                                        "date": date
+                                }
+                                },
+
+                                {
+                                    "title": available_Time[12],
+                                    "description": "원하는 사용시간을 선택해주세요.",
+                                    "action": "block",
+                                    "blockId": "645794dfa58bfd17ce539370",
+                                    # [self 학습실 final check] 블록
+
+                                    "extra": {
+                                        "idx": 12,
+                                        "room": room_name,
+                                        "date": date
+                                }
+                                },
+                            ],
+                        }
+                    },
+
+                ],
+                'quickReplies': [{
+                    'label': '다른 self-학습실 보기',
+                    'action': 'block',
+                    'messageText': 'self-학습실 선택하기',
+                    'blockId': '6435ac1770eb005cb17a7588'
+                    # [self 학습실 선택하기] 블록
+
+                }],
+                'quickReplies': [{
+                    'label': '다른 날짜 선택하기',
+                    'action': 'block',
+                    'messageText': 'self-학습실 선택하기',
+                    'blockId': '6435ac1770eb005cb17a7588'
+                    # [self 학습실 선택하기] 블록
+
+                }]
+            }
+        })
 
 
 # 셀프학습실 예약 final check 질문

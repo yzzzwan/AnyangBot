@@ -148,7 +148,6 @@ def show_studyroom_timetable(room_num, weekday):
         available_time_list_tag.append("-")
         available_time_list.append("-")
 
-    time.sleep(10)
     return available_time_list
 
 
