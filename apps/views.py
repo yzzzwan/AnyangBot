@@ -243,11 +243,11 @@ def portal_login(request):
                         'label': 'self-학습실 선택하기',
                         'action': 'block',
                         'messageText': 'self-학습실 선택하기',
-                        # 'blockId' : '6435ac1770eb005cb17a7588'
+                        'blockId' : '6435ac1770eb005cb17a7588'
                         # [self 학습실 선택하기] 블록
 
-                        'blockId' : '6469c17b318d31192baf21d2'
-                        # [self 학습실 이용 날짜 선택] 블록
+                        # 'blockId' : '6469c17b318d31192baf21d2'
+                        # # [self 학습실 이용 날짜 선택] 블록
 
                     }]
                 }
@@ -271,7 +271,6 @@ def portal_login(request):
                     }]
                 }
             })
-
 from . import choose_date
 # self 학습실 이용일 선택
 @csrf_exempt
@@ -279,7 +278,11 @@ def choose_weekday(request):
     answer = ((request.body).decode('utf-8'))
     json_str = json.loads(answer)
 
+    room_num = str(json_str['action']['clientExtra']['room_num'])
+    room_name = str(json_str['action']['clientExtra']['room_name'])
+
     weekdays = choose_date.five_days()
+
     return JsonResponse({
         "version": "2.0",
         "template": {
@@ -294,10 +297,12 @@ def choose_weekday(request):
                                 "title": weekdays[0] + " (" + weekdays[1] + ")",
                                 "description": "원하는 이용 날짜를 선택해주세요.",
                                 "action": "block",
-                                "blockId": "6435ac1770eb005cb17a7588",
+                                "blockId": "6435b4bb66adba12b7012a30",
                                 # [self 학습실 final check] 블록
                                 "extra": {
                                     "week_day": 0,
+                                    "room_num": room_num,
+                                    "room_name": room_name
                                 }
                             },
 
@@ -305,10 +310,12 @@ def choose_weekday(request):
                                 "title": weekdays[2] + " (" + weekdays[3] + ")",
                                 "description": "원하는 이용 날짜를 선택해주세요.",
                                 "action": "block",
-                                "blockId": "6435ac1770eb005cb17a7588",
+                                "blockId": "6435b4bb66adba12b7012a30",
                                 # [self 학습실 final check] 블록
                                 "extra": {
                                     "week_day": 2,
+                                    "room_num": room_num,
+                                    "room_name": room_name
                                 }
                             },
 
@@ -316,10 +323,12 @@ def choose_weekday(request):
                                 "title": weekdays[4] + " (" + weekdays[5] + ")",
                                 "description": "원하는 이용 날짜를 선택해주세요.",
                                 "action": "block",
-                                "blockId": "6435ac1770eb005cb17a7588",
+                                "blockId": "6435b4bb66adba12b7012a30",
                                 # [self 학습실 final check] 블록
                                 "extra": {
                                     "week_day": 4,
+                                    "room_num": room_num,
+                                    "room_name": room_name
                                 }
                             },
 
@@ -327,10 +336,12 @@ def choose_weekday(request):
                                 "title": weekdays[6] + " (" + weekdays[7] + ")",
                                 "description": "원하는 이용 날짜를 선택해주세요.",
                                 "action": "block",
-                                "blockId": "6435ac1770eb005cb17a7588",
+                                "blockId": "6435b4bb66adba12b7012a30",
                                 # [self 학습실 final check] 블록
                                 "extra": {
                                     "week_day": 6,
+                                    "room_num": room_num,
+                                    "room_name": room_name
                                 }
                             },
 
@@ -338,10 +349,12 @@ def choose_weekday(request):
                                 "title": weekdays[8] + " (" + weekdays[9] + ")",
                                 "description": "원하는 이용 날짜를 선택해주세요.",
                                 "action": "block",
-                                "blockId": "6435ac1770eb005cb17a7588",
+                                "blockId": "6435b4bb66adba12b7012a30",
                                 # [self 학습실 final check] 블록
                                 "extra": {
                                     "week_day": 8,
+                                    "room_num": room_num,
+                                    "room_name": room_name
                                 }
                             },
 
@@ -354,8 +367,6 @@ def choose_weekday(request):
     })
 
 from . import studyroom_Timetable
-# from . import a
-
 # 셀프학습실 이용가능 시간표 출력
 @csrf_exempt
 def selfroom_timetable(request):
@@ -379,7 +390,7 @@ def selfroom_timetable(request):
         'template': {
             'outputs': [{
                 'simpleText': {
-                    'text': "test"
+                    'text': str(json_str)
                 }
             }]
         }

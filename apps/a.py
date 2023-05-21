@@ -19,27 +19,27 @@
 #
 # print(week_dates)
 
-import portal_login_user
-import studyroom_Timetable
-# import reserve_studyroom
-import choose_date
-a="01"
-def one():
-    portal_login_user.portal("2020E7011", "rladyddhks1!")
-
-def two():
-    K=studyroom_Timetable.show_studyroom_timetable(a)
-    print(K)
-
-def thr():
-    print(reserve_studyroom.selfroom_reserve(1))
-
-def four():
-    K = studyroom_Timetable.show_studyroom_timetable(a,2)
-    print(K)
-
-one()
-four()
+# import portal_login_user
+# import studyroom_Timetable
+# # import reserve_studyroom
+# import choose_date
+# a="01"
+# def one():
+#     portal_login_user.portal("2020E7011", "rladyddhks1!")
+#
+# def two():
+#     K=studyroom_Timetable.show_studyroom_timetable(a)
+#     print(K)
+#
+# def thr():
+#     print(reserve_studyroom.selfroom_reserve(1))
+#
+# def four():
+#     K = studyroom_Timetable.show_studyroom_timetable(a,2)
+#     print(K)
+#
+# one()
+# four()
 # two()
 # thr()
 
@@ -271,30 +271,48 @@ four()
 # # print(start)
 # # print( end)
 #
-#
+# #
 # {
 #     'bot': {
 #         'id': '63e23010dcff7159538d8bcd!',
 #         'name': 'Anyang_Bot'
 #     },
 #     'intent': {
-#         'id': '6457acc18edae924e926b707',
-#         'name': 'self 학습실 예약',
-#         'extra': {
-#             'reason': {
-#                 'code': 101,
-#                 'message': 'DIRECT_ID'
-#             }
+#         'id': '6435b4bb66adba12b7012a30',
+#         'name': 'Self 학습실 이용 가능 시간',
+#         'extra': {'reason': {
+#             'code': 101, 'message': 'DIRECT_ID'
+#         }
 #         }
 #     },
 #     'action': {
-#         'id': '6457ae843cae9c5307475315',
-#         'name': 'self 학습실 예약',
+#         'id': '643ed8759234d172e13747bc',
+#         'name': 'self 학습실 사용 가능 시간 출력',
 #         'params': {
-#
+#             'room_num': '7'
 #         },
 #         'detailParams': {
-#
+#             'room_num': {
+#                 'groupName': '',
+#                 'origin': '7',
+#                 'value': '7'
+#             }
 #         },
 #         'clientExtra': {
-#             'num': 12, 'room': 'Self 학습실4'}}, 'userRequest': {'block': {'id': '6457acc18edae924e926b707', 'name': 'self 학습실 예약'}, 'user': {'id': '53a84e54ebe5c3a7b96390e4551f0a3c0766c6455cea41a434e679388a80ea94b5', 'type': 'botUserKey', 'properties': {'botUserKey': '53a84e54ebe5c3a7b96390e4551f0a3c0766c6455cea41a434e679388a80ea94b5', 'bot_user_key': '53a84e54ebe5c3a7b96390e4551f0a3c0766c6455cea41a434e679388a80ea94b5'}}, 'utterance': '', 'params': {'ignoreMe': 'true', 'surface': 'BuilderBotTest'}, 'lang': 'ko', 'timezone': 'Asia/Seoul'}, 'contexts': [{'name': 'portal_id', 'lifespan': 1, 'ttl': 600, 'params': {'portal_id': {'value': '2020e7011', 'resolvedValue': '2020e7011'}, 'portal_pw': {'value': 'rladyddhks1!', 'resolvedValue': 'rladyddhks1!'}}}, {'name': 'portal_pw', 'lifespan': 1, 'ttl': 600, 'params': {'portal_id': {'value': '2020e7011', 'resolvedValue': '2020e7011'}, 'portal_pw': {'value': 'rladyddhks1!', 'resolvedValue': 'rladyddhks1!'}}}, {'name': 'where_room', 'lifespan': 3, 'ttl': 600, 'params': {}}]}
+#             'room_num': '01',
+#             'room_name': 'Self 학습실1(Career design)'
+#         }
+#     },
+#     'userRequest': {
+#         'block': {
+#             'id': '6435b4bb66adba12b7012a30',
+#             'name': 'Self 학습실 이용 가능 시간'
+#         }, 'user': {
+#             'id': '53a84e54ebe5c3a7b96390e4551f0a3c0766c6455cea41a434e679388a80ea94b5',
+#             'type': 'botUserKey',
+#             'properties': {
+#                 'botUserKey': '53a84e54ebe5c3a7b96390e4551f0a3c0766c6455cea41a434e679388a80ea94b5',
+#                 'bot_user_key': '53a84e54ebe5c3a7b96390e4551f0a3c0766c6455cea41a434e679388a80ea94b5'
+#             }
+#         }
+#         , 'utterance': '', 'params': {'ignoreMe': 'true', 'surface': 'BuilderBotTest'}, 'lang': 'ko', 'timezone': 'Asia/Seoul'}, 'contexts': [{'name': 'portal_id', 'lifespan': 2, 'ttl': 600, 'params': {'portal_id': {'value': '2020E7011', 'resolvedValue': '2020E7011'}, 'portal_pw': {'value': 'rladyddhks1!', 'resolvedValue': 'rladyddhks1!'}}}, {'name': 'portal_pw', 'lifespan': 2, 'ttl': 600, 'params': {'portal_id': {'value': '2020E7011', 'resolvedValue': '2020E7011'}, 'portal_pw': {'value': 'rladyddhks1!', 'resolvedValue': 'rladyddhks1!'}}}, {'name': 'where_room', 'lifespan': 5, 'ttl': 600, 'params': {}}]}2, 'room': 'Self 학습실4'}}, 'userRequest': {'block': {'id': '6457acc18edae924e926b707', 'name': 'self 학습실 예약'}, 'user': {'id': '53a84e54ebe5c3a7b96390e4551f0a3c0766c6455cea41a434e679388a80ea94b5', 'type': 'botUserKey', 'properties': {'botUserKey': '53a84e54ebe5c3a7b96390e4551f0a3c0766c6455cea41a434e679388a80ea94b5', 'bot_user_key': '53a84e54ebe5c3a7b96390e4551f0a3c0766c6455cea41a434e679388a80ea94b5'}}, 'utterance': '', 'params': {'ignoreMe': 'true', 'surface': 'BuilderBotTest'}, 'lang': 'ko', 'timezone': 'Asia/Seoul'}, 'contexts': [{'name': 'portal_id', 'lifespan': 1, 'ttl': 600, 'params': {'portal_id': {'value': '2020e7011', 'resolvedValue': '2020e7011'}, 'portal_pw': {'value': 'rladyddhks1!', 'resolvedValue': 'rladyddhks1!'}}}, {'name': 'portal_pw', 'lifespan': 1, 'ttl': 600, 'params': {'portal_id': {'value': '2020e7011', 'resolvedValue': '2020e7011'}, 'portal_pw': {'value': 'rladyddhks1!', 'resolvedValue': 'rladyddhks1!'}}}, {'name': 'where_room', 'lifespan': 3, 'ttl': 600, 'params': {}}]}
