@@ -242,9 +242,13 @@ def portal_login(request):
                     'quickReplies': [{
                         'label': 'self-학습실 선택하기',
                         'action': 'block',
-                        'messageText': '다시 시도하기',
-                        'blockId' : '6435ac1770eb005cb17a7588'
+                        'messageText': 'self-학습실 선택하기',
+                        # 'blockId' : '6435ac1770eb005cb17a7588'
                         # [self 학습실 선택하기] 블록
+
+                        'blockId' : '6469c17b318d31192baf21d2'
+                        # [self 학습실 이용 날짜 선택] 블록
+
                     }]
                 }
             })
@@ -268,6 +272,87 @@ def portal_login(request):
                 }
             })
 
+from . import choose_date
+# self 학습실 이용일 선택
+@csrf_exempt
+def choose_weekday(request):
+    answer = ((request.body).decode('utf-8'))
+    json_str = json.loads(answer)
+
+    weekdays = choose_date.five_days()
+    return JsonResponse({
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "listCard": {
+                        "header": {
+                            "title": "self 학습실의 이용 날짜를 선택해주세요."
+                        },
+                        "items": [
+                            {
+                                "title": weekdays[0] + " (" + weekdays[1] + ")",
+                                "description": "원하는 이용 날짜를 선택해주세요.",
+                                "action": "block",
+                                "blockId": "6435ac1770eb005cb17a7588",
+                                # [self 학습실 final check] 블록
+                                "extra": {
+                                    "week_day": 0,
+                                }
+                            },
+
+                            {
+                                "title": weekdays[2] + " (" + weekdays[3] + ")",
+                                "description": "원하는 이용 날짜를 선택해주세요.",
+                                "action": "block",
+                                "blockId": "6435ac1770eb005cb17a7588",
+                                # [self 학습실 final check] 블록
+                                "extra": {
+                                    "week_day": 2,
+                                }
+                            },
+
+                            {
+                                "title": weekdays[4] + " (" + weekdays[5] + ")",
+                                "description": "원하는 이용 날짜를 선택해주세요.",
+                                "action": "block",
+                                "blockId": "6435ac1770eb005cb17a7588",
+                                # [self 학습실 final check] 블록
+                                "extra": {
+                                    "week_day": 4,
+                                }
+                            },
+
+                            {
+                                "title": weekdays[6] + " (" + weekdays[7] + ")",
+                                "description": "원하는 이용 날짜를 선택해주세요.",
+                                "action": "block",
+                                "blockId": "6435ac1770eb005cb17a7588",
+                                # [self 학습실 final check] 블록
+                                "extra": {
+                                    "week_day": 6,
+                                }
+                            },
+
+                            {
+                                "title": weekdays[8] + " (" + weekdays[9] + ")",
+                                "description": "원하는 이용 날짜를 선택해주세요.",
+                                "action": "block",
+                                "blockId": "6435ac1770eb005cb17a7588",
+                                # [self 학습실 final check] 블록
+                                "extra": {
+                                    "week_day": 8,
+                                }
+                            },
+
+                        ],
+                    }
+                }
+
+                        ],
+        }
+    })
+
 from . import studyroom_Timetable
 # from . import a
 
@@ -278,15 +363,13 @@ def selfroom_timetable(request):
     json_str = json.loads(answer)
 
     room_num = str(json_str['action']['clientExtra']['room_num'])
-    available_Time = studyroom_Timetable.show_studyroom_timetable(room_num)
+    room_name = str(json_str['action']['clientExtra']['room_name'])
+    week_days = int(json_str['action']['clientExtra']['week_day'])
 
-    room_names = ["Self 학습실1(Career design)", "Self 학습실2(Thinking design)", "Self 학습실3(Life story design)",
-                  "Self 학습실4", "Self 학습실5", "Self 학습실6", "Self 학습실7-1", "Self 학습실7-2", "Self 학습실8-1",
-                  "Self 학습실8-1"]
+    week_day = choose_date.five_days()
+    date = week_day[week_days] + " (" + week_day[week_days + 1] + ")"
 
-
-    room_num = int(room_num) - 1
-    room_name = room_names[room_num]
+    available_Time = studyroom_Timetable.show_studyroom_timetable(room_num, week_day)
 
     return JsonResponse({
             "version": "2.0",
@@ -307,7 +390,8 @@ def selfroom_timetable(request):
                                     # [self 학습실 final check] 블록
                                     "extra": {
                                         "idx": 0,
-                                        "room": room_name
+                                        "room": room_name,
+                                        "date": date
                                     }
 
                                 },
@@ -322,7 +406,8 @@ def selfroom_timetable(request):
 
                                     "extra": {
                                         "idx": 1,
-                                        "room": room_name
+                                        "room": room_name,
+                                        "date": date
                                     }
 
                                 },
@@ -337,7 +422,8 @@ def selfroom_timetable(request):
 
                                     "extra": {
                                         "idx": 2,
-                                        "room": room_name
+                                        "room": room_name,
+                                        "date": date
                                 }
 
                                 },
@@ -352,7 +438,8 @@ def selfroom_timetable(request):
 
                                     "extra": {
                                         "idx": 3,
-                                        "room": room_name
+                                        "room": room_name,
+                                        "date": date
                                 }
 
 
@@ -368,7 +455,8 @@ def selfroom_timetable(request):
 
                                     "extra": {
                                         "idx": 4,
-                                        "room": room_name
+                                        "room": room_name,
+                                        "date": date
                                 }
                                 },
                             ],
@@ -390,7 +478,8 @@ def selfroom_timetable(request):
 
                                     "extra": {
                                         "idx": 5,
-                                        "room": room_name
+                                        "room": room_name,
+                                        "date": date
                                 }
                                 },
 
@@ -404,7 +493,8 @@ def selfroom_timetable(request):
 
                                     "extra": {
                                         "idx": 6,
-                                        "room": room_name
+                                        "room": room_name,
+                                        "date": date
                                 }
                                 },
 
@@ -417,7 +507,8 @@ def selfroom_timetable(request):
 
                                     "extra": {
                                         "idx": 7,
-                                        "room": room_name
+                                        "room": room_name,
+                                        "date": date
                                 }
                                 },
 
@@ -431,7 +522,8 @@ def selfroom_timetable(request):
 
                                     "extra": {
                                         "idx": 8,
-                                        "room": room_name
+                                        "room": room_name,
+                                        "date": date
                                 }
                                 },
 
@@ -445,7 +537,8 @@ def selfroom_timetable(request):
 
                                     "extra": {
                                         "idx": 9,
-                                        "room": room_name
+                                        "room": room_name,
+                                        "date": date
                                 }
                                 },
                             ],
@@ -467,7 +560,8 @@ def selfroom_timetable(request):
 
                                     "extra": {
                                         "idx": 10,
-                                        "room": room_name
+                                        "room": room_name,
+                                        "date": date
                                 }
                                 },
 
@@ -480,7 +574,8 @@ def selfroom_timetable(request):
 
                                     "extra": {
                                         "idx": 11,
-                                        "room": room_name
+                                        "room": room_name,
+                                        "date": date
                                 }
                                 },
 
@@ -493,7 +588,8 @@ def selfroom_timetable(request):
 
                                     "extra": {
                                         "idx": 12,
-                                        "room": room_name
+                                        "room": room_name,
+                                        "date": date
                                 }
                                 },
                             ],
@@ -503,6 +599,14 @@ def selfroom_timetable(request):
                 ],
                 'quickReplies': [{
                     'label': '다른 self-학습실 보기',
+                    'action': 'block',
+                    'messageText': 'self-학습실 선택하기',
+                    'blockId': '6435ac1770eb005cb17a7588'
+                    # [self 학습실 선택하기] 블록
+
+                }],
+                'quickReplies': [{
+                    'label': '다른 날짜 선택하기',
                     'action': 'block',
                     'messageText': 'self-학습실 선택하기',
                     'blockId': '6435ac1770eb005cb17a7588'
@@ -521,6 +625,10 @@ def studyRoom_final_check(request):
 
     idx = int(json_str['action']['clientExtra']['idx'])
     room = str(json_str['action']['clientExtra']['room'])
+    date = str(json_str['action']['clientExtra']['date'])
+
+    s = reserve_studyroom.selfroom_reserve(idx)
+
     select_time = studyroom_Timetable.available_time_list_tag[idx].text
     # 9:00 ~ 10:00에 self 학습실 1를 예약하시겠습니까?
 
@@ -541,7 +649,8 @@ def studyRoom_final_check(request):
                     # self 학습실 예약
                     "extra": {
                         "num": idx,
-                        "room": room
+                        "room": room,
+                        "date": date
                     }
 
                 },
@@ -570,7 +679,6 @@ def studyRoom_final_check(request):
 # 리스트 버튼 클릭 시 예약하겠습니까 버튼.
 
 from . import reserve_studyroom
-from . import test5
 
 # self 학습실 예약
 @csrf_exempt
@@ -578,69 +686,59 @@ def studyRoom_reserve(request):
     answer = ((request.body).decode('utf-8'))
     json_str = json.loads(answer)
 
-    idx = int(json_str['action']['clientExtra']['idx'])
+    idx = int(json_str['action']['clientExtra']['num'])
     room = str(json_str['action']['clientExtra']['room'])
+    date= str(json_str['action']['clientExtra']['date'])
 
-    # s = test5.selfroom_reserve(idx)
-    #
-    # select_time = studyroom_Timetable.available_time_list_tag[idx].text
 
-    return JsonResponse({
+    s = reserve_studyroom.selfroom_reserve(idx)
+
+
+    select_time = studyroom_Timetable.available_time_list_tag[idx].text
+
+    if s =="s":
+        return JsonResponse({
             'version': "2.0",
             'template': {
                 'outputs': [{
                     'simpleText': {
-                        'text': str(room) + str(idx)
+                        # 2023-05-04 (수), [9:00 ~ 10:00]에 [self 학습실4]를 예약했습니다.
+                        'text':  date + ", " + "[" + select_time + "]에 [" + room + "]을(를) 예약했습니다."
+                    }
+                }]
+            },
+
+        })
+
+    elif s =="d":
+        return JsonResponse({
+            'version': "2.0",
+            'template': {
+                'outputs': [{
+                    'simpleText': {
+                        'text': "예약에 실패했습니다.\n예약은 1일 최대 2시간까지 가능합니다."
                     }
                 }]
             }
         })
 
-    # if s =="s":
-    #     return JsonResponse({
-    #         'version': "2.0",
-    #         'template': {
-    #             'outputs': [{
-    #                 'simpleText': {
-    #                     # 9시에 self 학습실4를 예약했습니다.
-    #                     # 'text': "[" + select_time + "]에 " + room + "을(를) 예약했습니다.",
-    #                     'text': "["
-    #
-    #
-    #     }
-    #             }]
-    #         }
-    #     })
-    #
-    # elif s =="d":
-    #     return JsonResponse({
-    #         'version': "2.0",
-    #         'template': {
-    #             'outputs': [{
-    #                 'simpleText': {
-    #                     'text': "예약에 실패했습니다.\n예약은 1일 최대 2시간까지 가능합니다."
-    #                 }
-    #             }]
-    #         }
-    #     })
-    #
-    # if s =="f":
-    #     return JsonResponse({
-    #         'version': "2.0",
-    #         'template': {
-    #             'outputs': [{
-    #                 'simpleText': {
-    #                     'text': "예약에 실패했습니다.\n다시 시도해주세요."
-    #                 }
-    #             }],
-    #             'quickReplies': [{
-    #                 'label': '다시 시도',
-    #                 'action': 'block',
-    #                 'messageText': '다시 시도하기',
-    #                 'blockId': '6435adf77ab7b038704cebf7'
-    #             }]
-    #         }
-    #     })
+    elif s =="f":
+        return JsonResponse({
+            'version': "2.0",
+            'template': {
+                'outputs': [{
+                    'simpleText': {
+                        'text': "예약에 실패했습니다.\n다시 시도해주세요."
+                    }
+                }],
+                'quickReplies': [{
+                    'label': '다시 시도',
+                    'action': 'block',
+                    'messageText': '다시 시도하기',
+                    'blockId': '6435adf77ab7b038704cebf7'
+                }]
+            }
+        })
 
 
 

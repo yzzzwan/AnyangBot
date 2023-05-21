@@ -1,18 +1,45 @@
-# import portal_login_user
-# import studyroom_Timetable
+# import datetime
+#
+# # today = datetime.date.today()
+# today = datetime.date(2023, 5, 26)
+# month = str(today)[5:7]
+# date =str(today)[8:10]
+#
+# # print(month + date)
+# # print(today)
+#
+# # 주말을 제외한 5일간의 날짜 구하기
+# count = 0
+# week_dates = []
+# while count < 5:
+#     if today.weekday() < 5:  # 주말(토요일: 5, 일요일: 6)이 아닌 경우만 추가
+#         week_dates.append(int(str(today)[8:10]))
+#         count += 1
+#     today += datetime.timedelta(days=1)
+#
+# print(week_dates)
+
+import portal_login_user
+import studyroom_Timetable
 # import reserve_studyroom
-# a="01"
-# def one():
-#     portal_login_user.portal("2020E7011","rladyddhks1!")
-#
-# def two():
-#     K=studyroom_Timetable.show_studyroom_timetable(a)
-#     print(K)
-#
-# def thr():
-#     print(reserve_studyroom.selfroom_reserve(1))
-# #
-# one()
+import choose_date
+a="01"
+def one():
+    portal_login_user.portal("2020E7011", "rladyddhks1!")
+
+def two():
+    K=studyroom_Timetable.show_studyroom_timetable(a)
+    print(K)
+
+def thr():
+    print(reserve_studyroom.selfroom_reserve(1))
+
+def four():
+    K = studyroom_Timetable.show_studyroom_timetable(a,2)
+    print(K)
+
+one()
+four()
 # two()
 # thr()
 

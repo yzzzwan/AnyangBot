@@ -57,7 +57,7 @@ def selfroom_reserve(idx):
 
 
 
-    # plu.quit()
+    plu.driver.quit()
 
 
     # s= "f"  실패
