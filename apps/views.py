@@ -364,11 +364,13 @@ def selfroom_timetable(request):
 
     room_num = str(json_str['action']['clientExtra']['room_num'])
     room_name = str(json_str['action']['clientExtra']['room_name'])
-    week_days = int(json_str['action']['clientExtra']['week_day'])
+    # week_days = int(json_str['action']['clientExtra']['week_day'])
 
-    week_day = choose_date.five_days()
-    date = week_day[week_days] + " (" + week_day[week_days + 1] + ")"
+    # week_day = choose_date.five_days()
+    # date = week_day[week_days] + " (" + week_day[week_days + 1] + ")"
 
+    week_day = 0
+    date="3"
     available_Time = studyroom_Timetable.show_studyroom_timetable(room_num, week_day)
 
     return JsonResponse({
