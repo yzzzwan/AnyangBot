@@ -10,7 +10,7 @@ def selfroom_reserve(idx):
     st.available_time_list_tag[idx].click()
     # 신청 버튼 클릭
     plu.driver.find_element(plu.By.CSS_SELECTOR, "a.btn02.green01.hv01").click()
-    time.sleep(1)
+    time.sleep(0.3)
 
     #print(driver.current_url)
 
@@ -39,11 +39,11 @@ def selfroom_reserve(idx):
     # 완료 버튼 클릭
     plu.driver.find_element(plu.By.CSS_SELECTOR, "a.btn02.green01.hv01").click()
 
-    time.sleep(1)
+    time.sleep(0.3)
 
     # 저장하시겠습니까? 확인버튼
     plu.Alert(plu.driver).accept()
-    time.sleep(1)
+    time.sleep(0.3)
 
     if plu.Alert(plu.driver).text == "저장되었습니다.":
         # 저장되었습니다. 확인버튼
