@@ -640,7 +640,6 @@ def studyRoom_final_check(request):
     date = str(json_str['action']['clientExtra']['date'])
 
     select_time = studyroom_Timetable.available_time_list_tag[idx].text
-    # [2023-05-04 (수)], [9:00 ~ 10:00]에 [self 학습실4]를 예약하시겠습니까?
 
     return JsonResponse({
         'version': "2.0",
@@ -648,6 +647,8 @@ def studyRoom_final_check(request):
             'outputs': [{
                 'simpleText': {
                     'text': "[" + date + "], [" + select_time + "]" + "에 "+room + "을(를) 예약하시겠습니까?"
+                           # [2023-05-04 (수)], [9:00 ~ 10:00]에 [self 학습실4]를 예약하시겠습니까?
+
                 }
             }],
             'quickReplies': [
@@ -660,7 +661,8 @@ def studyRoom_final_check(request):
                     "extra": {
                         "num": idx,
                         "room": room,
-                        "date": date
+                        "date": date,
+                        "select_time": select_time
                     }
 
                 },
@@ -705,12 +707,13 @@ def studyRoom_reserve(request):
 
     # select_time = studyroom_Timetable.available_time_list_tag[idx].text
 
+
     return JsonResponse({
         'version': "2.0",
         'template': {
             'outputs': [{
                 'simpleText': {
-                    'text': s
+                    'text': str(json_str)
                 }
             }]
         }
