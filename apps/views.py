@@ -380,7 +380,7 @@ def selfroom_timetable(request):
     week_day = choose_date.five_days()
     date = week_day[week_days] + " (" + week_day[week_days + 1] + ")"
 
-    # available_Time = studyroom_Timetable.show_studyroom_timetable(room_num, week_day)
+    available_Time = studyroom_Timetable.show_studyroom_timetable(room_num, week_days)
 
 
     return JsonResponse({

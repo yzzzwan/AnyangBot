@@ -1,10 +1,8 @@
 import datetime
-
 def five_days():
     today = datetime.date.today()
     # today = datetime.date(2023, 5, 26)
 
-    # print(today)
 
     # 주말을 제외한 5일간의 날짜 구하기
     count = 0
@@ -27,8 +25,6 @@ def five_days():
         today += datetime.timedelta(days=1)
 
 
-
     # print(week_dates)
     return week_dates
-
 

@@ -18,17 +18,17 @@
 #     today += datetime.timedelta(days=1)
 #
 # print(week_dates)
-
+#
 # import portal_login_user
 # import studyroom_Timetable
 # # import reserve_studyroom
-# import choose_date
+# # import choose_date
 # a="01"
 # def one():
 #     portal_login_user.portal("2020E7011", "rladyddhks1!")
 #
 # def two():
-#     K=studyroom_Timetable.show_studyroom_timetable(a)
+#     K=studyroom_Timetable.show_studyroom_timetable(a, 0)
 #     print(K)
 #
 # def thr():
@@ -37,7 +37,7 @@
 # def four():
 #     K = studyroom_Timetable.show_studyroom_timetable(a,2)
 #     print(K)
-#
+
 # one()
 # four()
 # two()

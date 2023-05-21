@@ -100,10 +100,26 @@ def show_studyroom_timetable(room_num, weekday):
     # print("studyroom페이지 접속")
     print(plu.driver.current_url)
 
-    today_div = plu.driver.find_element(plu.By.CSS_SELECTOR, 'td[data-date="' + days[weekday] + '"]')
+
+    # 일이 10일 보다 작으면 앞에 0 제거. 월이 10월보다 작으면 앞에 0 제거
+    d = days[weekday * 2]
+    month = d[5:7]
+    date = d[8:10]
+
+    if (int(month) < 10):
+        month = str(int(month))
+
+    if (int(date) < 10):
+        date = str(int(date))
+
+    css_selector = f'td[data-date="{date}"][data-month="{month}"]'
+
+    # 선택한 날짜 태그 선택
+    today_div = plu.driver.find_element(plu.By.CSS_SELECTOR, css_selector)
 
     # print(today_div.text)
 
+    # 선택한 날짜 클릭
     today_div.click()
 
     # 시간표가 나와있는 div
@@ -117,7 +133,7 @@ def show_studyroom_timetable(room_num, weekday):
     available_time_list = []
     available_time_list_tag = []
 
-    print(time_li_list)
+    # print(time_li_list)
 
     for li in time_li_list:
         available_timetable = li.find_element(plu.By.CSS_SELECTOR, 'label')
@@ -132,6 +148,7 @@ def show_studyroom_timetable(room_num, weekday):
         available_time_list_tag.append("-")
         available_time_list.append("-")
 
+    time.sleep(10)
     return available_time_list
 
 
