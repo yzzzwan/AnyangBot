@@ -1,5 +1,9 @@
+# import studyroom_Timetable as st
+# import portal_login_user as plu
+
 from . import studyroom_Timetable as st
 from . import portal_login_user as plu
+
 import time
 def test():
     return "test"
@@ -56,9 +60,9 @@ def selfroom_reserve(idx):
         s="d"
 
 
+    plu.driver.switch_to.window(win[0])
 
-    plu.driver.quit()
-
+    # plu.driver.quit()
 
     # s= "f"  실패
     # s= "s"  성공

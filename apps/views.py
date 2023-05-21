@@ -27,22 +27,22 @@ def message(request):
     answer = ((request.body).decode('utf-8'))
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
-    if return_str == '테스트':
-        return JsonResponse({
-            'version': "2.0",
-            'template': {
-                'outputs': [{
-                    'simpleText': {
-                        'text': "테스트입니다!"
-                    }
-                }],
-                'quickReplies': [{
-                    'label': '처음으로',
-                    'action': 'message',
-                    'messageText': '처음으로'
-                }]
-            }
-        })
+
+    return JsonResponse({
+        'version': "2.0",
+        'template': {
+            'outputs': [{
+                'simpleText': {
+                    'text': str(return_json_str)
+                }
+            }],
+            'quickReplies': [{
+                'label': '처음으로',
+                'action': 'message',
+                'messageText': '처음으로'
+            }]
+        }
+    })
 
 # 주간 급식 출력
 @csrf_exempt
@@ -622,7 +622,7 @@ def selfroom_timetable(request):
                         'action': 'block',
                         'messageText': '다른 날짜 선택하기',
                         'blockId': '6469c17b318d31192baf21d2'
-                        # [self 학습실 선택하기] 블록
+                        # [self 학습실 이용 요일 선택] 블록
                     }
                 ],
             }
@@ -739,6 +739,7 @@ def studyRoom_reserve(request):
                     'action': 'block',
                     'messageText': '다시 시도하기',
                     'blockId': '6435adf77ab7b038704cebf7'
+                    # self 학습실 id pw 입력 블록
                 }]
             }
         })

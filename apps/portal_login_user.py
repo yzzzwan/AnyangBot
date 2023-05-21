@@ -18,10 +18,10 @@ chrome_options.add_argument('--disable-dev-shm-usage')
 driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver", chrome_options=chrome_options)
 driver.implicitly_wait(2)  # seconds
 
-# 줄 마다 return 해서 return 되는지 test해보기 time으로 시간측정
 
 # 포탈 로그인
 def portal(pid, ppw):
+    driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver", chrome_options=chrome_options)
 
     print("포탈 접속 시도")
     # driver.get("https://portal.anyang.ac.kr/")
@@ -31,20 +31,16 @@ def portal(pid, ppw):
     success = "f"
 
     print("포탈 접속")
+    driver.get("https://portal.anyang.ac.kr/")
 
     # 로그인 페이지에 접속했는데 이미 (앞 유저의)로그인되어 있는 경우
-    # if driver.current_url != 'https://portal.anyang.ac.kr/':
-    #     # 쿠키를 삭제합니다
-    #     driver.delete_all_cookies()
-    #
-    #     # 포탈 페이지를 새로고칩니다
-    #     driver.get("https://portal.anyang.ac.kr/")
+    if driver.current_url != 'https://portal.anyang.ac.kr/':
+        # 쿠키를 삭제합니다
+        driver.delete_all_cookies()
 
-    # 쿠키를 삭제합니다
-    driver.delete_all_cookies()
+        # 포탈 페이지를 새로고칩니다
+        driver.get("https://portal.anyang.ac.kr/")
 
-    # 포탈 페이지를 새로고칩니다
-    driver.get("https://portal.anyang.ac.kr/")
 
     # 아이디와 비밀번호 입력 후 로그인 버튼 클릭
     login_id = driver.find_element("name", "login")
@@ -53,7 +49,6 @@ def portal(pid, ppw):
     # id pw 입력
     login_id.send_keys(pid)
     login_pw.send_keys(ppw)
-
 
     # 로그인 버튼 클릭
     driver.find_element('id', 'loginImg').click()
@@ -79,7 +74,7 @@ def portal(pid, ppw):
 
 
     # 로그인 완료되면 포탈페이지로 이동
-    if driver.current_url == "https://portal.anyang.ac.kr/":
+    if driver.current_url == "https://portal.anyang.ac.kr/#":
         print("포탈 로그인 실패!")
         return success
 
@@ -88,7 +83,6 @@ def portal(pid, ppw):
 
 
     success="s"
-    time.sleep(0.3)
 
     return success
 

@@ -21,8 +21,8 @@
 #
 # import portal_login_user
 # import studyroom_Timetable
-# # import reserve_studyroom
-# # import choose_date
+# import reserve_studyroom
+# import choose_date
 # a="01"
 # def one():
 #     portal_login_user.portal("2020E7011", "rladyddhks1!")
@@ -37,12 +37,12 @@
 # def four():
 #     K = studyroom_Timetable.show_studyroom_timetable(a,2)
 #     print(K)
-
+#
 # one()
 # four()
 # two()
 # thr()
-
+# one()
 # o,
 # import time
 # # # print("start a")
