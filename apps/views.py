@@ -620,8 +620,8 @@ def selfroom_timetable(request):
                 'quickReplies': [{
                     'label': '다른 날짜 선택하기',
                     'action': 'block',
-                    'messageText': 'self-학습실 선택하기',
-                    'blockId': '6435ac1770eb005cb17a7588'
+                    'messageText': '다른 날짜 선택하기',
+                    'blockId': '66469c17b318d31192baf21d2'
                     # [self 학습실 선택하기] 블록
 
                 }]
@@ -668,20 +668,13 @@ def studyRoom_final_check(request):
                 },
 
                 {
-                    "label": "다시 선택",
+                    "label": "아니요",
                     "action": "block",
                     "messageText": "다시 선택할게요.",
                     'blockId': '6435ac1770eb005cb17a7588'
 
                 },
 
-                {
-                    "label": "종료하기",
-                    "action": "block",
-                    "messageText": "self 학습실 예약을 종료합니다.",
-                    'blockId': '6435ac1770eb005cb17a7588'
-
-                },
             ],
         }
     })
@@ -732,7 +725,8 @@ def studyRoom_reserve(request):
                     'simpleText': {
                         'text': "예약에 실패했습니다.\n예약은 1일 최대 2시간까지 가능합니다."
                     }
-                }]
+                }],
+
             }
         })
 
