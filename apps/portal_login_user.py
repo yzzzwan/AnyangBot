@@ -8,7 +8,7 @@ import time
 
 chrome_options = webdriver.ChromeOptions()
 
-chrome_options.add_argument('--headless')
+# chrome_options.add_argument('--headless')
 chrome_options.add_argument('--disable-gpu')
 prefs = {'profile.managed_default_content_settings.images': 2}
 chrome_options.add_experimental_option('prefs', prefs)
@@ -21,14 +21,12 @@ driver.implicitly_wait(2)  # seconds
 
 # 포탈 로그인
 def portal(pid, ppw):
-    driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver", chrome_options=chrome_options)
-
     print("포탈 접속 시도")
     # driver.get("https://portal.anyang.ac.kr/")
-    #driver.implicitly_wait(1)  # seconds
+    # driver.implicitly_wait(1)  # seconds
     print("start")
 
-    success = "f"
+    s = "f"
 
     print("포탈 접속")
     driver.get("https://portal.anyang.ac.kr/")
@@ -41,7 +39,6 @@ def portal(pid, ppw):
         # 포탈 페이지를 새로고칩니다
         driver.get("https://portal.anyang.ac.kr/")
 
-
     # 아이디와 비밀번호 입력 후 로그인 버튼 클릭
     login_id = driver.find_element("name", "login")
     login_pw = driver.find_element("name", "password")
@@ -53,12 +50,15 @@ def portal(pid, ppw):
     # 로그인 버튼 클릭
     driver.find_element('id', 'loginImg').click()
 
+    time.sleep(3)
 
     # 로그인 처리중입니다. 잠시만 기다려주세요 \n\n *최초 로그인시에는 로그인이 조금 지연될 수 있습니다.
+    # or 비밀번호가 잘못되었습니다.
     try:
         WebDriverWait(driver, 0.6).until(EC.alert_is_present())
         alert = driver.switch_to.alert
         alert.accept()
+        print(1)
 
     except:
         pass
@@ -68,24 +68,26 @@ def portal(pid, ppw):
         WebDriverWait(driver, 0.6).until(EC.alert_is_present())
         alert = driver.switch_to.com
         alert.accept()
+        print(2)
+
 
     except:
         pass
 
-
     # 로그인 완료되면 포탈페이지로 이동
     if driver.current_url == "https://portal.anyang.ac.kr/#":
         print("포탈 로그인 실패!")
+        print(3)
+        success = "f"
         return success
 
     else:
         print("포탈 로그인 성공!")
 
-
-    success="s"
+    print(4)
+    success = "s"
 
     return success
-
 
 # a=time.time()
 # a=portal("2020E7011","rladyddhks1!")
@@ -98,5 +100,3 @@ def portal(pid, ppw):
 # a=portal("2020E7011","rladyddhks1!")
 #
 # b=portal("2020E7011","rladyddhks1!")
-
-

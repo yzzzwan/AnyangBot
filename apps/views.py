@@ -672,6 +672,7 @@ def studyRoom_final_check(request):
                     "action": "block",
                     "messageText": "다시 선택할게요.",
                     'blockId': '6435ac1770eb005cb17a7588'
+                    # self학습실 선택하기
 
                 },
 
@@ -679,9 +680,6 @@ def studyRoom_final_check(request):
         }
     })
 
-# 다른 학습실 보기 버튼
-# 출력은 리스트 버튼으로
-# 리스트 버튼 클릭 시 예약하겠습니까 버튼.
 
 from . import reserve_studyroom
 # self 학습실 예약

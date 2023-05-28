@@ -153,23 +153,3 @@ def show_studyroom_timetable(room_num, weekday):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

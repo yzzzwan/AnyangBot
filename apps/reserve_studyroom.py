@@ -62,7 +62,7 @@ def selfroom_reserve(idx):
 
     plu.driver.switch_to.window(win[0])
 
-    # plu.driver.quit()
+    plu.driver.quit()
 
     # s= "f"  실패
     # s= "s"  성공
