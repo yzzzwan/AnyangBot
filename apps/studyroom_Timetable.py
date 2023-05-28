@@ -102,7 +102,7 @@ def show_studyroom_timetable(room_num, weekday):
 
 
     # 일이 10일 보다 작으면 앞에 0 제거. 월이 10월보다 작으면 앞에 0 제거
-    d = days[weekday * 2]
+    d = days[weekday]
     month = d[5:7]
     date = d[8:10]
 
