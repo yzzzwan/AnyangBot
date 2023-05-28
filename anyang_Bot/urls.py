@@ -23,6 +23,8 @@ from . import views
 
 urlpatterns = [
     path('', v.index, name='index'),
+    re_path(r'^message/?$', v.message),  # 테스트
+
     re_path(r'^weekHaksik/?$', v.week_haksik), # 이번주 학식
     re_path(r'^todayHaksik/?$', v.today_haksik), # 오늘 학식
     re_path(r'^phoneBook/?$', v.phoneDir),  # 전화번호부
@@ -35,9 +37,9 @@ urlpatterns = [
     re_path(r'^studyRoom_final_check/?$', v.studyRoom_final_check),  # 스터디룸 예약 최종 체크
     re_path(r'^studyRoom_reserve/?$', v.studyRoom_reserve),  # 스터디룸 예약
 
-    #re_path(r'^test/?$', v.test),  # 테스트
+    re_path(r'^library_seat_list/?$', v.library_seat_list),  # 열람실 좌석 현황
 
-    re_path(r'^message/?$', v.message), #테스트 url
+
 ]
 
 

@@ -751,3 +751,45 @@ def studyRoom_reserve(request):
                 }]
             }
         })
+
+
+# 열람실 좌석 현황
+from . import libaray_seat
+@csrf_exempt
+def library_seat_list(request):
+    answer = ((request.body).decode('utf-8'))
+    return_json_str = json.loads(answer)
+    return_str = return_json_str['userRequest']['utterance'] # 사용자의 발화 텍스트
+
+    seat_list = libaray_seat.print_library_seat()
+
+    return JsonResponse({
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "listCard": {
+                        "header": {
+                            "title": "열람실 좌석 현황"
+                        },
+                        "items": [
+                            {
+                                "title": "제 1열람실",
+                                "description": seat_list[0],
+                            },
+                            {
+                                "title": "제 2열람실",
+                                "description": seat_list[1],
+                            },
+
+                            {
+                                "title": "수리관 열람실",
+                                "description": seat_list[2],
+                            },
+                        ],
+                    }
+                }
+            ]
+        }
+    }
+    )
