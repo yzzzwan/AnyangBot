@@ -27,7 +27,7 @@ def selfroom_reserve(idx):
     input_member = plu.driver.find_element("name", "mem")
 
     # 사용인원 입력
-    input_member.send_keys("1")
+    input_member.send_keys("2")
 
     # 신청사유
     reason = "공부"
@@ -62,7 +62,7 @@ def selfroom_reserve(idx):
 
     plu.driver.switch_to.window(win[0])
 
-    plu.driver.quit()
+    # plu.driver.quit()
 
     # s= "f"  실패
     # s= "s"  성공
