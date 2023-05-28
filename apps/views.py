@@ -271,6 +271,8 @@ def portal_login(request):
                     }]
                 }
             })
+
+
 from . import choose_date
 # self 학습실 이용일 선택
 @csrf_exempt
@@ -609,7 +611,8 @@ def selfroom_timetable(request):
                     },
 
                 ],
-                'quickReplies': [{
+                'quickReplies': [
+                    {
                     'label': '다른 self-학습실 보기',
                     'action': 'block',
                     'messageText': 'self-학습실 선택하기',
@@ -621,14 +624,15 @@ def selfroom_timetable(request):
                         'label': '다른 날짜 선택하기',
                         'action': 'block',
                         'messageText': '다른 날짜 선택하기',
-                        'blockId': '6435b4bb66adba12b7012a30',
+                        'blockId': '6469c17b318d31192baf21d2',
+                        # [self 학습실 이용 요일 선택] 블록
+
                         "extra": {
                             "room_num": room_num,
                             "room_name": room_name,
 
                         }
 
-                        # [self 학습실 이용 요일 선택] 블록
                     }
                 ],
             }
