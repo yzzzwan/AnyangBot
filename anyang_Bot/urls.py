@@ -37,7 +37,7 @@ urlpatterns = [
 
     #re_path(r'^test/?$', v.test),  # 테스트
 
-    # re_path(r'^message/?$', v.message), #테스트 url
+    re_path(r'^message/?$', v.message), #테스트 url
 ]
 
 
