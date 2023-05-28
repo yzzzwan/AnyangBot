@@ -621,7 +621,8 @@ def selfroom_timetable(request):
                         'label': '다른 날짜 선택하기',
                         'action': 'block',
                         'messageText': '다른 날짜 선택하기',
-                        'blockId': '6469c17b318d31192baf21d2'
+                        'blockId': '6435b4bb66adba12b7012a30'
+
                         # [self 학습실 이용 요일 선택] 블록
                     }
                 ],
