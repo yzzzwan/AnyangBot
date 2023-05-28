@@ -50,15 +50,12 @@ def portal(pid, ppw):
     # 로그인 버튼 클릭
     driver.find_element('id', 'loginImg').click()
 
-    time.sleep(3)
-
     # 로그인 처리중입니다. 잠시만 기다려주세요 \n\n *최초 로그인시에는 로그인이 조금 지연될 수 있습니다.
     # or 비밀번호가 잘못되었습니다.
     try:
         WebDriverWait(driver, 0.6).until(EC.alert_is_present())
         alert = driver.switch_to.alert
         alert.accept()
-        print(1)
 
     except:
         pass
@@ -68,7 +65,6 @@ def portal(pid, ppw):
         WebDriverWait(driver, 0.6).until(EC.alert_is_present())
         alert = driver.switch_to.com
         alert.accept()
-        print(2)
 
 
     except:
@@ -77,14 +73,12 @@ def portal(pid, ppw):
     # 로그인 완료되면 포탈페이지로 이동
     if driver.current_url == "https://portal.anyang.ac.kr/#":
         print("포탈 로그인 실패!")
-        print(3)
         success = "f"
         return success
 
     else:
         print("포탈 로그인 성공!")
 
-    print(4)
     success = "s"
 
     return success

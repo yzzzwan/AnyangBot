@@ -38,9 +38,22 @@
 # print(week_dates)
 #
 # import portal_login_user
-# # import studyroom_Timetable
-# # import reserve_studyroom
-# # import choose_date
+# import studyroom_Timetable
+# import reserve_studyroom
+# import choose_date
+#
+# portal_login_user.portal("2020E7011", "rladyddhks1!")
+# studyroom_Timetable.show_studyroom_timetable("01", 0)
+# reserve_studyroom.selfroom_reserve(1)
+#
+# portal_login_user.portal("2020E7011", "rladyddhks1!")
+# studyroom_Timetable.show_studyroom_timetable("01", 0)
+# reserve_studyroom.selfroom_reserve(1)
+#
+# portal_login_user.portal("2020E7011", "rladyddhks1!")
+# studyroom_Timetable.show_studyroom_timetable("01", 0)
+# reserve_studyroom.selfroom_reserve(1)
+
 # # a="01"
 # def one():
 #     print(portal_login_user.portal("2020E701", "rladyddhks1!"))
