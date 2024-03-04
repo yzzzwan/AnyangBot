@@ -25,7 +25,7 @@ def print_week_haksik():
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-dev-shm-usage')
     chrome_options.add_argument('--disable-gpu')
-    driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver", chrome_options=chrome_options)
+    driver = webdriver.Chrome(service=webdriver.chrome.service.Service(ExecutablePath="/usr/bin/chromedriver"), options=chrome_options)
     driver.get('https://www.anyang.ac.kr/main/activities/school-cafeteria.do')
 
     # 주간 학식 메뉴
