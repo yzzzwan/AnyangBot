@@ -41,19 +41,14 @@ Web Scraping: Selenium
 API Integration: KakaoTalk Chatbot API
 
 <h1>서버 환경</h1>
+
 - 운영체제: Ubuntu 20.04 LTS
-  
+
 - 웹 서버: NGINX
 
 - 애플리케이션 서버: uWSGI
 
 - 배포 방식: AWS EC2
-
-- 학사일정 조회
--운영체제: Ubuntu 20.04 LTS
-웹 서버: NGINX
-애플리케이션 서버: uWSGI
-배포 방식: AWS EC2
 
 
 <h1>사용 예시</h1>
